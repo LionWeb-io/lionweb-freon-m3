@@ -43,7 +43,7 @@ In the following the root of the project will be indicated with '~'.
 
 *	Open another (bash) terminal, and start the generated editor from it:
      ```bash
-     yern prepare-app
+     yarn prepare-app
      yarn dev
      ```
 
