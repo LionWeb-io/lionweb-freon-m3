@@ -1,10 +1,10 @@
 {
-   "serializationFormatVersion": "1",
+   "serializationFormatVersion": "2023.1",
    "languages": [],
    "nodes": [
       {
          "id": "LionCore-builtins",
-         "concept": {
+         "classifier": {
             "language": "LionCore-M3",
             "version": "1",
             "key": "Language"
@@ -61,7 +61,7 @@
       },
       {
          "id": "LionCore-builtins-INamed",
-         "concept": {
+         "classifier": {
             "language": "LionCore-M3",
             "version": "1",
             "key": "ConceptInterface"
@@ -110,7 +110,7 @@
       },
       {
          "id": "LionCore-builtins-INamed-name",
-         "concept": {
+         "classifier": {
             "language": "LionCore-M3",
             "version": "1",
             "key": "Property"

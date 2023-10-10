@@ -14,7 +14,7 @@
     ],
     "concepts": [
         {
-            "concept": "Language",
+            "classifier": "Language",
             "id": "-id-Language",
             "key": "Language",
             "properties": [
@@ -41,7 +41,7 @@
             ]
         },
         {
-            "concept": "LionCoreM3",
+            "classifier": "LionCoreM3",
             "id": "-id-LionCoreM3",
             "key": "LionCore-M3.Model",
             "properties": [
@@ -58,19 +58,19 @@
             ]
         },
         {
-            "concept": "LanguageEntity",
+            "classifier": "LanguageEntity",
             "id": "-id-LanguageEntity",
             "key": "LanguageEntity",
             "properties": []
         },
         {
-            "concept": "PrimitiveType",
+            "classifier": "PrimitiveType",
             "id": "-id-PrimitiveType",
             "key": "PrimitiveType",
             "properties": []
         },
         {
-            "concept": "Property",
+            "classifier": "Property",
             "id": "-id-Property",
             "key": "Property",
             "properties": [
@@ -82,13 +82,13 @@
             ]
         },
         {
-            "concept": "Reference",
+            "classifier": "Reference",
             "id": "-id-Reference",
             "key": "Reference",
             "properties": []
         },
         {
-            "concept": "Concept",
+            "classifier": "Concept",
             "id": "-id-Concept",
             "key": "Concept",
             "properties": [
@@ -115,7 +115,7 @@
             ]
         },
         {
-            "concept": "Link",
+            "classifier": "Link",
             "id": "-id-Link",
             "key": "Link",
             "properties": [
@@ -132,7 +132,7 @@
             ]
         },
         {
-            "concept": "ConceptInterface",
+            "classifier": "ConceptInterface",
             "id": "-id-ConceptInterface",
             "key": "ConceptInterface",
             "properties": [
@@ -144,19 +144,19 @@
             ]
         },
         {
-            "concept": "Containment",
+            "classifier": "Containment",
             "id": "-id-Containment",
             "key": "Containment",
             "properties": []
         },
         {
-            "concept": "Datatype",
+            "classifier": "Datatype",
             "id": "-id-DataType",
             "key": "DataType",
             "properties": []
         },
         {
-            "concept": "Enumeration",
+            "classifier": "Enumeration",
             "id": "-id-Enumeration",
             "key": "Enumeration",
             "properties": [
@@ -168,13 +168,13 @@
             ]
         },
         {
-            "concept": "EnumerationLiteral",
+            "classifier": "EnumerationLiteral",
             "id": "-id-EnumerationLiteral",
             "key": "EnumerationLiteral",
             "properties": []
         },
         {
-            "concept": "Feature",
+            "classifier": "Feature",
             "id": "-id-Feature",
             "key": "Feature",
             "properties": [
@@ -186,7 +186,7 @@
             ]
         },
         {
-            "concept": "Classifier",
+            "classifier": "Classifier",
             "id": "-id-Classifier",
             "key": "Classifier",
             "properties": [
@@ -198,7 +198,7 @@
             ]
         },
         {
-            "concept": "Node",
+            "classifier": "Node",
             "id": "LionCore-builtins-Node",
             "key": "LionCore-builtins-Node",
             "properties": []
