@@ -3,6 +3,3 @@ language LionCore_builtins
 interface INamed {
     name: identifier;
 }
-
-abstract concept Node {
-}
