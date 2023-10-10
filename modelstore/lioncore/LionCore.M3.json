@@ -72,7 +72,7 @@
                "targets": []
             }
          ],
-         "parent": "ID-1"
+         "parent": null
       },
       {
          "id": "-id-Annotation",
