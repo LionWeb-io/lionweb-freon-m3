@@ -14,6 +14,7 @@ export function muteLogs() {
     FreLogger.mute("LayoutComponent");
     FreLogger.mute("ListComponent");
     FreLogger.mute("OptionalComponent");
+    FreLogger.mute("OptionalComponentNew");
     FreLogger.mute("FreonComponent");
     FreLogger.mute("RenderComponent");
     FreLogger.mute("TableCellComponent");
@@ -45,6 +46,7 @@ export function muteLogs() {
     FreLogger.mute("ServerCommunication");
     FreLogger.mute("EditorState");
     FreLogger.mute("EditorRequestsHandler");
+    FreLogger.mute("FreLionwebSerializer");
 
     // from current project:
     FreLogger.mute("ExampleScoper");

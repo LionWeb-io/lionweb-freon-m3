@@ -1,7 +1,6 @@
-import type { FreEnvironment } from "@freon4dsl/core";
+import type { FreEnvironment, IServerCommunication } from "@freon4dsl/core";
 import { LanguageInitializer } from "../language/LanguageInitializer";
-import type { IServerCommunication } from "../server/IServerCommunication";
-import { ServerCommunication } from "../server/ServerCommunication";
+import { ServerCommunication } from "@freon4dsl/core";
 
 
 /**

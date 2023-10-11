@@ -14,7 +14,7 @@
     ],
     "concepts": [
         {
-            "classifier": "Language",
+            "concept": "Language",
             "id": "-id-Language",
             "key": "Language",
             "properties": [
@@ -41,7 +41,7 @@
             ]
         },
         {
-            "classifier": "LionCoreM3",
+            "concept": "LionCoreM3",
             "id": "-id-LionCoreM3",
             "key": "LionCore-M3.Model",
             "properties": [
@@ -58,19 +58,19 @@
             ]
         },
         {
-            "classifier": "LanguageEntity",
+            "concept": "LanguageEntity",
             "id": "-id-LanguageEntity",
             "key": "LanguageEntity",
             "properties": []
         },
         {
-            "classifier": "PrimitiveType",
+            "concept": "PrimitiveType",
             "id": "-id-PrimitiveType",
             "key": "PrimitiveType",
             "properties": []
         },
         {
-            "classifier": "Property",
+            "concept": "Property",
             "id": "-id-Property",
             "key": "Property",
             "properties": [
@@ -82,13 +82,13 @@
             ]
         },
         {
-            "classifier": "Reference",
+            "concept": "Reference",
             "id": "-id-Reference",
             "key": "Reference",
             "properties": []
         },
         {
-            "classifier": "Concept",
+            "concept": "Concept",
             "id": "-id-Concept",
             "key": "Concept",
             "properties": [
@@ -115,7 +115,7 @@
             ]
         },
         {
-            "classifier": "Link",
+            "concept": "Link",
             "id": "-id-Link",
             "key": "Link",
             "properties": [
@@ -132,7 +132,7 @@
             ]
         },
         {
-            "classifier": "ConceptInterface",
+            "concept": "ConceptInterface",
             "id": "-id-ConceptInterface",
             "key": "ConceptInterface",
             "properties": [
@@ -144,19 +144,19 @@
             ]
         },
         {
-            "classifier": "Containment",
+            "concept": "Containment",
             "id": "-id-Containment",
             "key": "Containment",
             "properties": []
         },
         {
-            "classifier": "Datatype",
+            "concept": "Datatype",
             "id": "-id-DataType",
             "key": "DataType",
             "properties": []
         },
         {
-            "classifier": "Enumeration",
+            "concept": "Enumeration",
             "id": "-id-Enumeration",
             "key": "Enumeration",
             "properties": [
@@ -168,13 +168,13 @@
             ]
         },
         {
-            "classifier": "EnumerationLiteral",
+            "concept": "EnumerationLiteral",
             "id": "-id-EnumerationLiteral",
             "key": "EnumerationLiteral",
             "properties": []
         },
         {
-            "classifier": "Feature",
+            "concept": "Feature",
             "id": "-id-Feature",
             "key": "Feature",
             "properties": [
@@ -186,7 +186,7 @@
             ]
         },
         {
-            "classifier": "Classifier",
+            "concept": "Classifier",
             "id": "-id-Classifier",
             "key": "Classifier",
             "properties": [
@@ -198,7 +198,34 @@
             ]
         },
         {
-            "classifier": "Node",
+            "concept": "Annotation",
+            "id": "-id-Annotation",
+            "key": "Annotation",
+            "properties": [
+                {
+                    "name": "annotates",
+                    "id": "-id-Annotation-annotates",
+                    "key": "Annotation-annotates"
+                },
+                {
+                    "name": "implements",
+                    "id": "-id-Annotation-implements",
+                    "key": "Annotation-implements"
+                },
+                {
+                    "name": "extends",
+                    "id": "-id-Annotation-extends",
+                    "key": "Annotation-extends"
+                },
+                {
+                    "name": "multiple",
+                    "id": "-id-Annotation-multiple",
+                    "key": "Annotation-multiple"
+                }
+            ]
+        },
+        {
+            "concept": "Node",
             "id": "LionCore-builtins-Node",
             "key": "LionCore-builtins-Node",
             "properties": []
