@@ -88,11 +88,16 @@ export class LionWeb2FreonTemplate {
                 return (`    ${feature.name}: ${feature.freLanguageConcept()}`);
         }
     }
-
-    writeAstToFile(filename: string, ast: string): void {
-        const dotIndex = filename.indexOf('.');
-        const astBaseFilename = filename.substring(0);
-        fs.writeFileSync(astBaseFilename + ".ast", ast);
+    
+    generateModelUnits(units: LanguageEntity[]): string {
+        let result = "";
+        result += `language ${"aaa"}\n`;
+        result += '\n';
+        result += `model ${"aaa"} {\n`;
+        result += `    name: identifier;\n`
+        units.forEach(unit => result += `    ${unit.name.toLowerCase()}: ${unit.freLanguageConcept()}[];\n`);
+        result += `}\n\n`
+        return result;
     }
 
 }
