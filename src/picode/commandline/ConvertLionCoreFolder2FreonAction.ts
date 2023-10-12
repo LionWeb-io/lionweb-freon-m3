@@ -11,7 +11,7 @@ export class ConvertLionCoreFolder2FreonAction extends CommandLineAction {
 
     constructor() {
         super({
-            actionName: "file",
+            actionName: "folder",
             summary: "Create .ast file from LionWeb Meta-model JSON file",
             documentation: "Lionweb to Freon."
         });
@@ -43,9 +43,9 @@ export class ConvertLionCoreFolder2FreonAction extends CommandLineAction {
                     fs.readdirSync(mmFile).forEach(file => {
                         let metamodel: LwChunk = JSON.parse(fs.readFileSync(mmFile + "/" + file).toString());
                         const ts = serialzer.toTypeScriptInstance(metamodel);
-                        const result = (new LionWeb2FreonTemplate().generateFreonAst(ts as FreModelUnit));
-                        console.log(`File ${mmFile}/${file}:`);
-                        console.log(result);
+                        const lion2freon = new LionWeb2FreonTemplate();
+                        const result = lion2freon.generateFreonAst(ts as FreModelUnit);
+                        lion2freon.writeAstToFile(mmFile + file, result);
                     })
                 } else {
                     console.error(`Argument ${mmFile} is not a directory`);

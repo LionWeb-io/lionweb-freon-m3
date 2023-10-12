@@ -10,7 +10,7 @@ export class ConvertLionCoreFile2FreonAction extends CommandLineAction {
 
     constructor() {
         super({
-            actionName: "folder",
+            actionName: "file",
             summary: "Create .ast file from folder containing LionWeb Meta-model JSON files",
             documentation: "Lionweb to Freon."
         });
@@ -38,13 +38,14 @@ export class ConvertLionCoreFile2FreonAction extends CommandLineAction {
         const filename = this.metamodelfile.value;
         let metamodel: LwChunk = JSON.parse(fs.readFileSync(filename).toString());
         const ts = serialzer.toTypeScriptInstance(metamodel);
-        const result = (new LionWeb2FreonTemplate().generateFreonAst(ts as FreModelUnit));
-        console.log(result);
+        const lion2freon = new LionWeb2FreonTemplate();
+        const result = lion2freon.generateFreonAst(ts as FreModelUnit);
+        lion2freon.writeAstToFile(filename, result);
         return result;
     }
+    
 
 }
-
 
 export function printModel1(element: FreNode): string {
     return JSON.stringify(element, skipReferences, "  " )
