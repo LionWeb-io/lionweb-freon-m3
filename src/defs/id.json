@@ -2,7 +2,7 @@
     "language": "LionWebM3",
     "languages": [
         {
-            "language": "LionCoreM3",
+            "language": "LionCore_M3",
             "key": "LionCore-M3",
             "id": "-id-LionCore-M3"
         },
