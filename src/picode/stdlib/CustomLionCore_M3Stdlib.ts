@@ -2,14 +2,15 @@
 import { FreNamedNode, FreStdlib } from "@freon4dsl/core";
 import { PrimitiveType } from "../language/gen/index";
 
-export class CustomLionCoreM3Stdlib implements FreStdlib {
+export class CustomLionCore_M3Stdlib implements FreStdlib {
+    // add all your extra predefined instances here
     // add all your extra predefined instances here
     get elements(): FreNamedNode[] {
         return this.library;
     }
 
     library: FreNamedNode[] = [];
-
+    
     constructor() {
         const booleanType = new PrimitiveType("LionCore-builtins-Boolean");
         booleanType.name = "Boolean";
@@ -27,5 +28,4 @@ export class CustomLionCoreM3Stdlib implements FreStdlib {
         jsonType.name = "JSON";
         this.library.push(jsonType);
     }
-
 }
