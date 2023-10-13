@@ -41,10 +41,14 @@ export class ConvertLionCoreFolder2FreonAction extends CommandLineAction {
                 const stats = fs.statSync(mmFile);
                 if (stats.isDirectory()) {
                     fs.readdirSync(mmFile).forEach(file => {
-                        this.convertFile(mmFile + '/' + file, modelunits);
+                        if (file.endsWith(".json")) {
+                            this.convertFile(mmFile + '/' + file, modelunits);
+                        }
                     });
                 } else if (stats.isFile()) {
-                    this.convertFile(mmFile, modelunits);
+                    if (mmFile.endsWith(".json")) {
+                        this.convertFile(mmFile, modelunits);
+                    }
                 } else {
                     console.error(`Argument ${mmFile} is not a directory, nor a folder`);
                 }
