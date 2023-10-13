@@ -1,5 +1,5 @@
 {
-    "language": "LionWebM3",
+    "language": "LionWeb_M3",
     "languages": [
         {
             "language": "LionCore_M3",
@@ -41,8 +41,8 @@
             ]
         },
         {
-            "concept": "LionCoreM3",
-            "id": "-id-LionCoreM3",
+            "concept": "LionCore_M3",
+            "id": "-id-LionCore_M3",
             "key": "LionCore-M3.Model",
             "properties": [
                 {

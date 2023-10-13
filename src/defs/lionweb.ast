@@ -1,6 +1,6 @@
-language LionCoreM3 
+language LionCore_M3 
 
-model LionCoreM3 {
+model LionCore_M3 {
     name: identifier;
     units: Language[];
 }
