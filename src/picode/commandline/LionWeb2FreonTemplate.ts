@@ -70,7 +70,10 @@ export class LionWeb2FreonTemplate {
         let optional = (feature.optional ? "?" : "");
         switch (feature.freLanguageConcept()) {
             case "Property":
-                return (`    ${feature.name}${optional}: ${(feature as Property).type.name.toLowerCase()};`);
+                const name = feature.name;
+                let type = (feature as Property).type.name.toLowerCase();
+                type = (name === "name") && type === "string" ? "identifier" : type;
+                return (`    ${name}${optional}: ${type};`);
                 break;
             case "Reference":
                 if ((feature as Reference).multiple) {

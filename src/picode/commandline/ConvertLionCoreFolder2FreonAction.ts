@@ -50,8 +50,7 @@ export class ConvertLionCoreFolder2FreonAction extends CommandLineAction {
                 }
             }
         });
-        console.log("Modelunits found: \n" + (new LionWeb2FreonTemplate().generateModelUnits(modelunits)));
-        
+        this.writeModelToFile("model", modelunits);        
         return "void";
     }
     
@@ -75,5 +74,10 @@ export class ConvertLionCoreFolder2FreonAction extends CommandLineAction {
         fs.writeFileSync(astBaseFilename + ".ast", ast);
     }
 
+    writeModelToFile(filename: string, units: LanguageEntity[]): void {
+        const model = (new LionWeb2FreonTemplate()).generateModelUnits(units);
+
+        fs.writeFileSync(filename + ".ast", model);
+    }
 
 }
