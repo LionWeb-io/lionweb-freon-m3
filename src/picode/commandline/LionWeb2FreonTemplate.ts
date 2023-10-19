@@ -2,7 +2,7 @@ import { FreModelUnit } from "@freon4dsl/core";
 import fs from "fs";
 import {
     Concept,
-    ConceptInterface,
+    Interface,
     Containment,
     Enumeration,
     Feature,
@@ -39,8 +39,8 @@ export class LionWeb2FreonTemplate {
                     result += this.exportFeature(feature) + "\n";
                 });
                 break;
-            case "ConceptInterface":
-                const intface = entity as ConceptInterface;
+            case "Interface":
+                const intface = entity as Interface;
                 const xtends = intface.extends.length !== 0 ? ` base ${intface.extends.map(i => i.name).join(", ")} ` : "";
                 result += (`interface ${intface.name} ${xtends}{\n`);
                 intface.features.forEach(feature => {

@@ -132,14 +132,14 @@
             ]
         },
         {
-            "concept": "ConceptInterface",
-            "id": "-id-ConceptInterface",
-            "key": "ConceptInterface",
+            "concept": "Interface",
+            "id": "-id-Interface",
+            "key": "Interface",
             "properties": [
                 {
                     "name": "extends",
-                    "id": "-id-ConceptInterface-extends",
-                    "key": "ConceptInterface-extends"
+                    "id": "-id-Interface-extends",
+                    "key": "Interface-extends"
                 }
             ]
         },

@@ -10,16 +10,16 @@ model LionCore_M3 {
     multiple?: boolean;
     reference annotates?: Classifier;
     reference extends?: Annotation;
-    reference implements: ConceptInterface[];
+    reference implements: Interface[];
 }
  concept Concept base Classifier {
     abstract: boolean;
     partition: boolean;
     reference extends?: Concept;
-    reference implements: ConceptInterface[];
+    reference implements: Interface[];
 }
- concept ConceptInterface base Classifier {
-    reference extends: ConceptInterface[];
+ concept Interface base Classifier {
+    reference extends: Interface[];
 }
  concept Containment base Link {
 }
