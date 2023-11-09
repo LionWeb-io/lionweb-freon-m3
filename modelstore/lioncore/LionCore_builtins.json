@@ -35,7 +35,7 @@
                "value": "LionCore_builtins"
             }
          ],
-         "children": [
+         "containments": [
             {
                "containment": {
                   "language": "LionCore-M3",
@@ -101,7 +101,7 @@
                "value": "LionCore-builtins-Node"
             }
          ],
-         "children": [
+         "containments": [
             {
                "containment": {
                   "language": "LionCore-M3",
@@ -148,7 +148,7 @@
                "value": "LionCore-builtins-INamed"
             }
          ],
-         "children": [
+         "containments": [
             {
                "containment": {
                   "language": "LionCore-M3",
@@ -205,7 +205,7 @@
                "value": "LionCore-builtins-INamed-name"
             }
          ],
-         "children": [],
+         "containments": [],
          "references": [
             {
                "reference": {

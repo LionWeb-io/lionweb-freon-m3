@@ -1,5 +1,4 @@
 import { FreModelUnit } from "@freon4dsl/core";
-import fs from "fs";
 import {
     Concept,
     Interface,
@@ -98,9 +97,46 @@ export class LionWeb2FreonTemplate {
         result += '\n';
         result += `model ${"aaa"} {\n`;
         result += `    name: identifier;\n`
-        units.forEach(unit => result += `    ${unit.name.toLowerCase()}: ${unit.freLanguageConcept()}[];\n`);
+        units.forEach(unit => result += `    ${unit.name.toLowerCase()}: ${unit.name}[];\n`);
         result += `}\n\n`
         return result;
+    }
+    
+    generate_idJson(metamodel: FreModelUnit[]): string {
+        // const language = (metamodel as Language);
+        let result = "";
+        let object: any = {};
+        // object["language"] = metamodel.name;
+        object["languages"] = [];
+        object["concepts"] = [];
+        object["interfaces"] = [];
+        object["limited"] = [];
+        metamodel.forEach( mu => {
+            (mu as Language).entities.filter(ent => {
+                console.log("Add id for entirt " + ent.name + " of type " + ent.freLanguageConcept())
+                return ent.freLanguageConcept() === "Concept";
+            }).forEach(con => {
+                console.log("Add id for " + con.name + " of type " + con.freLanguageConcept() + " key " + (con as Concept).key);
+                object["concepts"].push({ concept: con.name, id: con.freId(), key: (con as Concept).key, properties: [] });
+            });
+        });
+        metamodel.forEach( mu => {
+            (mu as Language).entities.filter(ent => {
+                switch (ent.freLanguageConcept()) {
+                    case "Concept":
+                        console.log("Add id for Concept " + ent.name + " key " + (ent as Concept).key);
+                        object["concepts"].push({ concept: ent.name, id: ent.freId(), key: (ent as Concept).key, properties: [] });
+                        break;
+                    case "Interface":
+                        console.log("Add id for Interface " + ent.name + " key " + (ent as Interface).key);
+                        object["interfaces"].push({ concept: ent.name, id: ent.freId(), key: (ent as Interface).key, properties: [] });
+                        break;
+                    default:
+                        console.log("NOTHIJNG ADDED id for entity " + ent.name + " of type " + ent.freLanguageConcept())
+                }
+            });
+        });
+        return JSON.stringify(object);
     }
 
 }

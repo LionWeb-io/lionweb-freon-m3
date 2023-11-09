@@ -9,6 +9,7 @@ import { LionWeb2FreonTemplate } from "./LionWeb2FreonTemplate";
 export class ConvertLionCoreFolder2FreonAction extends CommandLineAction {
     protected metamodelfile: CommandLineStringParameter;
     protected lionWebM3File: CommandLineStringListParameter;
+    protected allFiles: FreModelUnit[] = [];
 
     constructor() {
         super({
@@ -66,6 +67,7 @@ export class ConvertLionCoreFolder2FreonAction extends CommandLineAction {
         const ts = serialzer.toTypeScriptInstance(metamodel);
         const lion2freon = new LionWeb2FreonTemplate();
         const result = lion2freon.generateFreonAst(ts as FreModelUnit);
+        this.allFiles.push(ts as FreModelUnit);
         this.writeAstToFile(filename, result);
         
         // check whether there is a modelunit/partition in the file
@@ -82,6 +84,9 @@ export class ConvertLionCoreFolder2FreonAction extends CommandLineAction {
         const model = (new LionWeb2FreonTemplate()).generateModelUnits(units);
 
         fs.writeFileSync(filename + ".ast", model);
+        const ids = (new LionWeb2FreonTemplate()).generate_idJson(this.allFiles);
+
+        fs.writeFileSync("id" + ".json", ids);
     }
 
 }
