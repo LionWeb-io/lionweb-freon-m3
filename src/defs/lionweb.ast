@@ -7,7 +7,6 @@ model LionCore_M3 {
 
 
  concept Annotation base Classifier {
-    multiple?: boolean;
     reference annotates?: Classifier;
     reference extends?: Annotation;
     reference implements: Interface[];

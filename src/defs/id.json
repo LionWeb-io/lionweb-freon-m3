@@ -216,11 +216,6 @@
                     "name": "extends",
                     "id": "-id-Annotation-extends",
                     "key": "Annotation-extends"
-                },
-                {
-                    "name": "multiple",
-                    "id": "-id-Annotation-multiple",
-                    "key": "Annotation-multiple"
                 }
             ]
         },
