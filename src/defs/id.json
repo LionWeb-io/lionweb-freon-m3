@@ -1,8 +1,8 @@
 {
-    "language": "LionWebM3",
+    "language": "LionWeb_M3",
     "languages": [
         {
-            "language": "LionCoreM3",
+            "language": "LionCore_M3",
             "key": "LionCore-M3",
             "id": "-id-LionCore-M3"
         },
@@ -41,8 +41,8 @@
             ]
         },
         {
-            "concept": "LionCoreM3",
-            "id": "-id-LionCoreM3",
+            "concept": "LionCore_M3",
+            "id": "-id-LionCore_M3",
             "key": "LionCore-M3.Model",
             "properties": [
                 {
@@ -132,14 +132,14 @@
             ]
         },
         {
-            "concept": "ConceptInterface",
-            "id": "-id-ConceptInterface",
-            "key": "ConceptInterface",
+            "concept": "Interface",
+            "id": "-id-Interface",
+            "key": "Interface",
             "properties": [
                 {
                     "name": "extends",
-                    "id": "-id-ConceptInterface-extends",
-                    "key": "ConceptInterface-extends"
+                    "id": "-id-Interface-extends",
+                    "key": "Interface-extends"
                 }
             ]
         },
@@ -216,11 +216,6 @@
                     "name": "extends",
                     "id": "-id-Annotation-extends",
                     "key": "Annotation-extends"
-                },
-                {
-                    "name": "multiple",
-                    "id": "-id-Annotation-multiple",
-                    "key": "Annotation-multiple"
                 }
             ]
         },

@@ -6,8 +6,8 @@ import { ServerCommunication } from "@freon4dsl/core";
 /**
  * The one and only reference to the actual language for which this editor runs
  */
-import { LionCoreM3Environment } from "../../picode/config/gen/LionCoreM3Environment";
-export const editorEnvironment: FreEnvironment = LionCoreM3Environment.getInstance();
+import { LionCore_M3Environment } from "../../picode/config/gen/LionCore_M3Environment";
+export const editorEnvironment: FreEnvironment = LionCore_M3Environment.getInstance();
 LanguageInitializer.initialize();
 
 /**

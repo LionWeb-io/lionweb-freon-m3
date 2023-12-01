@@ -12,7 +12,7 @@
     "target": "es6",                                /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017', 'ES2018', 'ES2019', 'ES2020', 'ES2021', or 'ESNEXT'. */
     /* "module": "commonjs" must correspond with "type": "commonjs" in package.json */
     /* "module": "es*" must correspond with "type": "module" in package.json */
-    "module": "es2015",                           /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', 'es2020', or 'ESNext'. */
+    "module": "es2020",                           /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', 'es2020', or 'ESNext'. */
     // "lib": [],                                   /* Specify library files to be included in the compilation. */
     "allowJs": true,                                /* Allow javascript files to be compiled. */
     // "checkJs": true,                             /* Report errors in .js files. */
@@ -87,6 +87,10 @@
       "es2017", /* needed to use '.include()' for string[] array */
       "es2019"
     ]
+  },
+  "ts-node": {
+    "esm": true,
+    "experimentalSpecifierResolution": "node"
   },
   "exclude": [
     "node_modules/*",

@@ -1,75 +1,58 @@
-language LionCoreM3 
+language LionCore_M3 
 
-model LionCoreM3 {
+model LionCore_M3 {
     name: identifier;
     units: Language[];
 }
 
-interface IKeyed base INamed {
-    key: string;
-}
 
-modelunit Language implements IKeyed {
-    version: string;
-    entities: LanguageEntity[];
-    reference dependsOn: Language[];
-    // Freon specific addition
-    file-extension = "lmm";
+ concept Annotation base Classifier {
+    reference annotates?: Classifier;
+    reference extends?: Annotation;
+    reference implements: Interface[];
 }
-
-abstract concept LanguageEntity implements IKeyed {
-}
-
-concept Property base Feature {
-    reference type: Datatype;
-}
-
-abstract concept Feature implements IKeyed {
-  optional: boolean;
-}
-
-abstract concept Classifier base LanguageEntity  {
-    features: Feature[];
-}
-
-concept Concept base Classifier {
+ concept Concept base Classifier {
     abstract: boolean;
     partition: boolean;
     reference extends?: Concept;
-    reference implements: ConceptInterface[];
+    reference implements: Interface[];
 }
-
-concept Annotation base Classifier {
-    multiple: boolean;
-    reference annotates: Classifier;
-    reference extends?: Annotation;
-    reference implements: ConceptInterface[];
+ concept Interface base Classifier {
+    reference extends: Interface[];
 }
-
-abstract concept Link base Feature  {
+ concept Containment base Link {
+}
+abstract  concept DataType base LanguageEntity {
+}
+ concept Enumeration base DataType {
+    literals: EnumerationLiteral[];
+}
+ concept EnumerationLiteral implements IKeyed  {
+}
+abstract  concept Feature implements IKeyed  {
+    optional: boolean;
+}
+abstract  concept Classifier base LanguageEntity {
+    features: Feature[];
+}
+abstract  concept Link base Feature {
     multiple: boolean;
     reference type: Classifier;
 }
-
-concept ConceptInterface  base Classifier {
-    reference extends: ConceptInterface[];
+ modelunit Language implements IKeyed  {
+    version: string;
+    reference dependsOn: Language[];
+    entities: LanguageEntity[];
 }
-
-concept Containment  base Link { }
-
-concept Reference base Link {
- }
-
-abstract concept Datatype base LanguageEntity {
+abstract  concept LanguageEntity implements IKeyed  {
 }
-
-concept PrimitiveType base Datatype {
+interface IKeyed  base INamed {
+    key: string;
 }
-
-concept Enumeration base Datatype {
-    literals: EnumerationLiteral[];
+ concept PrimitiveType base DataType {
 }
-
-concept EnumerationLiteral implements IKeyed {
+ concept Property base Feature {
+    reference type: DataType;
 }
-
+ concept Reference base Link {
+}
