@@ -1,14 +1,19 @@
 {
   "private": false,
-  "name": "@lioncore/lioncore-freon",
+  "name": "@lionweb/freon-m3",
   "version": "0.6.0",
+  "description": "Freon web editor for LionWeb M3 language",
   "license": "Apache-2.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "typings": "dist/index.d.ts",
   "type": "module",
   "repository": {
     "type": "git",
-    "url": "https://github.com/LionWeb-io/lioncore-freon.git"
+    "url": "https://github.com/LionWeb-io/lionweb-freon-m3.git"
+  },
+  "bugs": {
+    "url": "https://github.com/LionWeb-io/lionweb-freon-m3/issues"
   },
   "scripts": {
     "build": "yarn generate && tsc",
