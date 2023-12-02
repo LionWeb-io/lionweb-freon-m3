@@ -1,30 +1,24 @@
-# Freon implementation of lioncore M3
+# Freon implementation of LionWeb M3
+
+This repository contains a Freon web editor for the M3 (meta-meta) language of the LionWeb specification.
+
+Version 0.6.0 is aligned with trelease version 2023.1 of the LionWeb specification.
+
+This project contains the LionWeb M3 language as an M2 language.
+The editor stores the language as JSON files in `modelstore`
+in the LionWeb serialization format.
+These files can be used by other LionWeb tools.
 
 ## Getting started
 
 In the following the root of the project will be indicated with '~'.
 
-*   Clone or copy branch `master`.
+*   Clone or copy branch `main`.
     
 *   Next, install all necessary packages by running:
     ```bash
     yarn install
     ```
-
-*   Create a folder for your language in `~/src`, to hold the definition files for your language.
-    We usually call it *defs*, but any name will do. (Here the name *defs* will be used.)
-
-*	Create a language definition file which defines the structure of your language. The
-     extension of this file must be `.ast`. You can, for instance, copy
-     `EntityLanguage.ast` from the ProjectIt example to your own `defs`-folder. Or, you can follow the
-     tutorial on <a href="https://www.projectit.org/030_Developing_a_Language/010_Default_Level" target="_blank">language structure definition</a>.
-
-> Note: Only the language structure is required. Defaults will be generated for the 
-> editor, scoper, typer, and validator. This is called the first level of customization.
-
-*   Next, adjust the `scripts` entry in the *package.json* file. The `generate`
-    script should include your *defs* folder as well as the folder where you want the
-    generated code to be stored.
 
 *   Run the generator and see the generated files appearing in the folder where you
     decided to store the generated code:
@@ -33,21 +27,18 @@ In the following the root of the project will be indicated with '~'.
     yarn generate
 ```
 
-*   Adjust the configuration of the web application by changing the two lines in the file
-    `~/src/webapp/WebappConfiguration.ts`.
-
 *   Start the server (note that anything that is saved in the editor will be stored in `~/modelstore`):
     ```bash
     yarn model-server
     ```
-
-*	Open another (bash) terminal, and start the generated editor from it:
+	
+* Open another terminal, and start the generated editor from it:
      ```bash
      yarn prepare-app
      yarn dev
      ```
 
-The last command opens your preferred browser with the generated editor for the language
+The last command opens your preferred browser (or you need to click on the URL) with the generated editor for the LionWeb M3 language
 on [localhost:5000](http://localhost:5000/).
 
 *   Try out the editor
