@@ -1,8 +1,8 @@
 # Freon implementation of LionWeb M3
 
-This repository contains a Freon web editor for the M3 (meta-meta) language of the LionWeb specification.
+This repository contains a Freon web editor for the M3 (meta-meta) language of the [LionWeb specification](http://lionweb.io/specification/).
 
-Version 0.6.0 is aligned with trelease version 2023.1 of the LionWeb specification.
+Version 0.6.0 is aligned with version 2023.1 of the LionWeb specification.
 
 This project contains the LionWeb M3 language as an M2 language.
 The editor stores the language as JSON files in `modelstore`
