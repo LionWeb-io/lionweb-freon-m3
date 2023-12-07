@@ -70,9 +70,14 @@ export class LionWeb2FreonTemplate {
         switch (feature.freLanguageConcept()) {
             case "Property":
                 const name = feature.name;
+                let Enum = "";
                 let type = (feature as Property).type.name.toLowerCase();
                 type = (name === "name") && type === "string" ? "identifier" : type;
-                return (`    ${name}${optional}: ${type};`);
+                if ((feature as Property).type.name === "EnumerationA") {
+                    type = (feature as Property).type.name;
+                    Enum = "enum ";
+                } 
+                return (`    ${name}${optional}: ${Enum}${type};`);
                 break;
             case "Reference":
                 if ((feature as Reference).multiple) {
