@@ -9,7 +9,7 @@ import {
     LanguageEntity,
     PrimitiveType,
     Property,
-    Reference
+    Reference, Classifier
 } from "../language/gen/index";
 
 export class LionWeb2FreonTemplate {
@@ -59,8 +59,7 @@ export class LionWeb2FreonTemplate {
                 break;
             default:
                 console.log(`Unknown concept type =>  ${entity.name}: ${entity.freLanguageConcept()}`)
-        }
-        ;
+        };
         result += ("}\n");
         return result;
     }
@@ -70,14 +69,22 @@ export class LionWeb2FreonTemplate {
         switch (feature.freLanguageConcept()) {
             case "Property":
                 const name = feature.name;
-                let Enum = "";
-                let type = (feature as Property).type.name.toLowerCase();
-                type = (name === "name") && type === "string" ? "identifier" : type;
-                if ((feature as Property).type.name === "EnumerationA") {
-                    type = (feature as Property).type.name;
-                    Enum = "enum ";
-                } 
-                return (`    ${name}${optional}: ${Enum}${type};`);
+                let type = (feature as Property).type.name;
+                switch (type) {
+                    case "Integer": 
+                        type = "number";
+                        break;
+                    case "Boolean":
+                        type = "boolean";
+                        break;
+                    case "JSON":
+                        type = "string";
+                        break;
+                    case "String":
+                        type = (name === "name")  ? "identifier" : "string";
+                        break;
+                }
+                return (`    ${name}${optional}: ${type};`);
                 break;
             case "Reference":
                 if ((feature as Reference).multiple) {
@@ -96,11 +103,11 @@ export class LionWeb2FreonTemplate {
         }
     }
     
-    generateModelUnits(units: LanguageEntity[]): string {
+    generateModelUnits(units: Set<LanguageEntity>): string {
         let result = "";
-        result += `language ${"aaa"}\n`;
+        result += `language ${"ProductCatalog"}\n`;
         result += '\n';
-        result += `model ${"aaa"} {\n`;
+        result += `model ${"ProductCatalog"} {\n`;
         result += `    name: identifier;\n`
         units.forEach(unit => result += `    ${unit.name.toLowerCase()}: ${unit.name}[];\n`);
         result += `}\n\n`
@@ -117,24 +124,33 @@ export class LionWeb2FreonTemplate {
         object["interfaces"] = [];
         object["limited"] = [];
         metamodel.forEach( mu => {
-            (mu as Language).entities.filter(ent => {
-                console.log("Add id for entirt " + ent.name + " of type " + ent.freLanguageConcept())
-                return ent.freLanguageConcept() === "Concept";
-            }).forEach(con => {
-                console.log("Add id for " + con.name + " of type " + con.freLanguageConcept() + " key " + (con as Concept).key);
-                object["concepts"].push({ concept: con.name, id: con.freId(), key: (con as Concept).key, properties: [] });
-            });
-        });
-        metamodel.forEach( mu => {
+            console.log("Add id for ModelUnit " + mu.name + " key " + (mu as Language).key);
+            const unitId = { concept: mu.name, id: mu.freId(), key: (mu as Language).key, properties: [] };
+            object["concepts"].push(unitId);
+            const lang = mu as Language;
             (mu as Language).entities.filter(ent => {
                 switch (ent.freLanguageConcept()) {
                     case "Concept":
                         console.log("Add id for Concept " + ent.name + " key " + (ent as Concept).key);
-                        object["concepts"].push({ concept: ent.name, id: ent.freId(), key: (ent as Concept).key, properties: [] });
+                        const conceptId = { concept: ent.name, id: ent.freId(), key: (ent as Concept).key, properties: [] };
+                        object["concepts"].push(conceptId);
+                        const classifier = ent as Classifier;
+                        classifier.features.forEach(feature => {
+                            conceptId.properties.push (
+                                { "name": feature.name, id: feature.freId(), key: feature.key }
+                            )
+                        })
                         break;
                     case "Interface":
                         console.log("Add id for Interface " + ent.name + " key " + (ent as Interface).key);
-                        object["interfaces"].push({ concept: ent.name, id: ent.freId(), key: (ent as Interface).key, properties: [] });
+                        const interfacesId = { concept: ent.name, id: ent.freId(), key: (ent as Interface).key, properties: [] };
+                        object["interfaces"].push(interfacesId);
+                        const iclassifier = ent as Classifier;
+                        iclassifier.features.forEach(feature => {
+                            interfacesId.properties.push (
+                                { "name": feature.name, id: feature.freId(), key: feature.key }
+                            )
+                        })
                         break;
                     default:
                         console.log("NOTHIJNG ADDED id for entity " + ent.name + " of type " + ent.freLanguageConcept())

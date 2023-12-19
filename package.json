@@ -22,6 +22,7 @@
     "start": "sirv public",
     "validate": "svelte-check",
     "errors-only": "svelte-check --threshold error",
+    "lionweb2freon": "ts-node src/picode/commandline/FreonCommandLineRunner.ts folder -f modelstore/FileSystem",
     "generate": "freon all -d src/defs -o src/picode",
     "prepare-app": "npm run styles-light && npm run styles-dark",
     "styles-light": "smui-theme compile public/site.css -i src/webapp/style",

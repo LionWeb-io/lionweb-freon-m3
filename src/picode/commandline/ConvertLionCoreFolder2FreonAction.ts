@@ -36,18 +36,20 @@ export class ConvertLionCoreFolder2FreonAction extends CommandLineAction {
     }
     
     async convertLionCore2Freon(): Promise<string> {
-        const modelunits: LanguageEntity[] = [];
+        const modelunits: Set<LanguageEntity> = new Set<LanguageEntity>();
         this.lionWebM3File.values.forEach(mmFile => {
             if (fs.existsSync(mmFile)) {
                 const stats = fs.statSync(mmFile);
                 if (stats.isDirectory()) {
                     fs.readdirSync(mmFile).forEach(file => {
-                        if (file.endsWith(".json")) {
+                        if (file.endsWith(".json") && !file.endsWith("Public.json")) {
+                            console.log("Folder Converting file " + file)
                             this.convertFile(mmFile + '/' + file, modelunits);
                         }
                     });
                 } else if (stats.isFile()) {
-                    if (mmFile.endsWith(".json")) {
+                    if (mmFile.endsWith(".json") && !mmFile.endsWith("Public.json")) {
+                        console.log("Converting file " + mmFile)
                         this.convertFile(mmFile, modelunits);
                     }
                 } else {
@@ -59,7 +61,7 @@ export class ConvertLionCoreFolder2FreonAction extends CommandLineAction {
         return "void";
     }
     
-    convertFile(filename: string, modelunits: LanguageEntity[]) {
+    convertFile(filename: string, modelunits: Set<LanguageEntity>) {
         const serialzer = new FreLionwebSerializer();
         let metamodel: LwChunk = JSON.parse(fs.readFileSync(filename).toString());
         // Assume it us a language in the rest of the method
@@ -71,7 +73,8 @@ export class ConvertLionCoreFolder2FreonAction extends CommandLineAction {
         this.writeAstToFile(filename, result);
         
         // check whether there is a modelunit/partition in the file
-        modelunits.push(...(ts as Language).entities.filter(ent => ent.freLanguageConcept() === "Concept" && (ent as Concept).partition));
+        (ts as Language).entities.filter(ent => ent.freLanguageConcept() === "Concept" && (ent as Concept).partition)
+            .forEach(e => modelunits.add(e));
     }
 
     writeAstToFile(filename: string, ast: string): void {
@@ -80,7 +83,7 @@ export class ConvertLionCoreFolder2FreonAction extends CommandLineAction {
         fs.writeFileSync(astBaseFilename + ".ast", ast);
     }
 
-    writeModelToFile(filename: string, units: LanguageEntity[]): void {
+    writeModelToFile(filename: string, units: Set<LanguageEntity>): void {
         const model = (new LionWeb2FreonTemplate()).generateModelUnits(units);
 
         fs.writeFileSync(filename + ".ast", model);
