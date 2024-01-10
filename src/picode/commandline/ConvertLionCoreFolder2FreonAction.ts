@@ -42,7 +42,7 @@ export class ConvertLionCoreFolder2FreonAction extends CommandLineAction {
                 const stats = fs.statSync(mmFile);
                 if (stats.isDirectory()) {
                     fs.readdirSync(mmFile).forEach(file => {
-                        if (file.endsWith(".json")) {
+                        if (file.endsWith(".json") && !file.includes("Public")) {
                             this.convertFile(mmFile + '/' + file, modelunits);
                         }
                     });

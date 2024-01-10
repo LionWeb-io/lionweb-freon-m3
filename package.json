@@ -20,6 +20,7 @@
     "build-app": "rollup -c",
     "dev": "rollup -c -w",
     "start": "sirv public",
+    "generate-lw": "ts-node src/picode/commandline/FreonCommandLineRunner.ts folder -f modelstore/FileSystemTMP",
     "validate": "svelte-check",
     "errors-only": "svelte-check --threshold error",
     "generate": "freon all -d src/defs -o src/picode",
