@@ -3,8 +3,8 @@ import { FreLogger } from "@freon4dsl/core";
 // Mute or unmute logs here (in addition to elsewhere).
 export function muteLogs() {
     // from ~/core-svelte:
-    FreLogger.mute("ContextMenu");
-    FreLogger.mute("DropdownComponent");
+    // FreLogger.mute("ContextMenu");
+    // FreLogger.mute("DropdownComponent");
     FreLogger.mute("EmptyLineComponent");     // currently, there is no LOGGER for EmptyLineComponent
     FreLogger.mute("ElementComponent");
     FreLogger.mute("GridCellComponent");
@@ -12,7 +12,7 @@ export function muteLogs() {
     FreLogger.mute("IndentComponent");        // currently, there is no LOGGER for IndentComponent
     FreLogger.mute("LabelComponent");
     FreLogger.mute("LayoutComponent");
-    FreLogger.mute("ListComponent");
+    // FreLogger.mute("ListComponent");
     FreLogger.mute("OptionalComponent");
     FreLogger.mute("OptionalComponentNew");
     FreLogger.mute("FreonComponent");

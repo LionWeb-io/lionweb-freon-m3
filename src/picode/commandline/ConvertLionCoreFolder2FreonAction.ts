@@ -7,7 +7,7 @@ import { Concept, Language, LanguageEntity } from "../language/gen/index";
 import { LionWeb2FreonTemplate } from "./LionWeb2FreonTemplate";
 
 export class ConvertLionCoreFolder2FreonAction extends CommandLineAction {
-    protected metamodelfile: CommandLineStringParameter;
+    protected model: CommandLineStringParameter;
     protected lionWebM3File: CommandLineStringListParameter;
     protected allFiles: FreModelUnit[] = [];
 
@@ -26,6 +26,12 @@ export class ConvertLionCoreFolder2FreonAction extends CommandLineAction {
             parameterShortName: "-f",
             description: "File or folder containing LionWeb metamodels in json format"
         });
+        this.model = this.defineStringParameter({
+            argumentName: "MODEL",
+            parameterLongName: "--model",
+            parameterShortName: "-m",
+            description: "Name of the Freon model to be generated, should usuallbe one of the language names"
+        });
     }
 
     protected onExecute(): Promise<void> {
@@ -37,29 +43,32 @@ export class ConvertLionCoreFolder2FreonAction extends CommandLineAction {
     
     async convertLionCore2Freon(): Promise<string> {
         const modelunits: LanguageEntity[] = [];
+        let dir = "."
         this.lionWebM3File.values.forEach(mmFile => {
             if (fs.existsSync(mmFile)) {
                 const stats = fs.statSync(mmFile);
                 if (stats.isDirectory()) {
+                    dir = mmFile
                     fs.readdirSync(mmFile).forEach(file => {
                         if (file.endsWith(".json") && !file.includes("Public")) {
-                            this.convertFile(mmFile + '/' + file, modelunits);
+                            this.convertFile(mmFile + '/' + file, modelunits, mmFile + "/generated_ast/" + file );
                         }
                     });
                 } else if (stats.isFile()) {
                     if (mmFile.endsWith(".json")) {
-                        this.convertFile(mmFile, modelunits);
+                        this.convertFile(mmFile, modelunits, mmFile);
                     }
                 } else {
                     console.error(`Argument ${mmFile} is not a directory, nor a folder`);
                 }
             }
         });
-        this.writeModelToFile("model", modelunits);        
+        this.writeModelToFile(dir + "/generated_ast/", modelunits, );        
         return "void";
     }
     
-    convertFile(filename: string, modelunits: LanguageEntity[]) {
+    convertFile(filename: string, modelunits: LanguageEntity[], outfile: string) {
+        console.log(`Convert ${filename} to ${outfile}`)
         const serialzer = new FreLionwebSerializer();
         let metamodel: LwChunk = JSON.parse(fs.readFileSync(filename).toString());
         // Assume it us a language in the rest of the method
@@ -68,7 +77,7 @@ export class ConvertLionCoreFolder2FreonAction extends CommandLineAction {
         const lion2freon = new LionWeb2FreonTemplate();
         const result = lion2freon.generateFreonAst(ts as FreModelUnit);
         this.allFiles.push(ts as FreModelUnit);
-        this.writeAstToFile(filename, result);
+        this.writeAstToFile(outfile, result);
         
         // check whether there is a modelunit/partition in the file
         modelunits.push(...(ts as Language).entities.filter(ent => ent.freLanguageConcept() === "Concept" && (ent as Concept).partition));
@@ -80,13 +89,13 @@ export class ConvertLionCoreFolder2FreonAction extends CommandLineAction {
         fs.writeFileSync(astBaseFilename + ".ast", ast);
     }
 
-    writeModelToFile(filename: string, units: LanguageEntity[]): void {
-        const model = (new LionWeb2FreonTemplate()).generateModelUnits(units);
+    writeModelToFile(dirname: string, units: LanguageEntity[]): void {
+        const model = (new LionWeb2FreonTemplate()).generateModelUnits(this.model.value, units);
 
-        fs.writeFileSync(filename + ".ast", model);
+        fs.writeFileSync(dirname + "model.ast", model);
         const ids = (new LionWeb2FreonTemplate()).generate_idJson(this.allFiles);
 
-        fs.writeFileSync("id" + ".json", ids);
+        fs.writeFileSync(dirname + "id.json", ids);
     }
 
 }

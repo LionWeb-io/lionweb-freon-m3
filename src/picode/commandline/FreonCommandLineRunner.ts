@@ -3,7 +3,6 @@
 import { LionCore_M3Environment } from "../config/gen/LionCore_M3Environment";
 import { ConvertLionCoreFolder2FreonAction } from "./ConvertLionCoreFolder2FreonAction";
 import { FreonCommandLine } from "./FreonCommandLine";
-import { DummyAction } from "./DummyAction";
 
 // ensure language is initialized
 const tmp = LionCore_M3Environment.getInstance();
