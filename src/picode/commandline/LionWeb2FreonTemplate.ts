@@ -10,7 +10,7 @@ import {
     PrimitiveType,
     Property,
     Reference
-} from "../language/gen/index";
+} from "../language/gen/index.js";
 
 export class LionWeb2FreonTemplate {
 

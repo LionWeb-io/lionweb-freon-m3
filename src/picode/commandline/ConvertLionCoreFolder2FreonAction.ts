@@ -1,10 +1,10 @@
 import { FreLionwebSerializer, FreModelUnit, FreNode, FreNodeReference } from "@freon4dsl/core";
 import { CommandLineAction, CommandLineStringListParameter, CommandLineStringParameter } from "@rushstack/ts-command-line";
 import fs from "fs";
-import { LwChunk } from "@freon4dsl/core";
-import { Concept, Language, LanguageEntity } from "../language/gen/index";
+// import { LwChunk } from "@freon4dsl/core";
+import { Concept, Language, LanguageEntity } from "../language/gen/index.js";
 
-import { LionWeb2FreonTemplate } from "./LionWeb2FreonTemplate";
+import { LionWeb2FreonTemplate } from "./LionWeb2FreonTemplate.js";
 
 export class ConvertLionCoreFolder2FreonAction extends CommandLineAction {
     protected model: CommandLineStringParameter;
@@ -70,7 +70,7 @@ export class ConvertLionCoreFolder2FreonAction extends CommandLineAction {
     convertFile(filename: string, modelunits: LanguageEntity[], outfile: string) {
         console.log(`Convert ${filename} to ${outfile}`)
         const serialzer = new FreLionwebSerializer();
-        let metamodel: LwChunk = JSON.parse(fs.readFileSync(filename).toString());
+        let metamodel= JSON.parse(fs.readFileSync(filename).toString());
         // Assume it us a language in the rest of the method
         // TODO call validator to check this.
         const ts = serialzer.toTypeScriptInstance(metamodel);

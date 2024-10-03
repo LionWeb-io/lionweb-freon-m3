@@ -1,8 +1,8 @@
 editor default
 
-boolean [YES | NO] // are the strings used to display a boolean value
+// TODO boolean [YES | NO] // are the strings used to display a boolean value
 
-referenceSeparator [.] // is the string that separates the names in a path name, e.g. pack1.cls3.part
+// TODO referenceSeparator [.] // is the string that separates the names in a path name, e.g. pack1.cls3.part
 
 
 Language {
