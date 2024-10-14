@@ -79,3 +79,28 @@ body {
   background: blanchedalmond;
   padding: 2px;
 }
+
+.switch-component {
+  margin: 1px;
+  margin: 2px 6px 4px 6px;
+  display: inline-flex;
+  width: max-content;
+  align-content: baseline;
+}
+.switch-component button {
+  width: 2.0em;
+  height: 1.0em;
+  position: relative;
+  border: none;
+}
+
+.switch-component button::before {
+  /* defines the knob */
+  content: "";
+  position: absolute;
+  width: 1.0em;
+  height: 1.0em;
+  top: 0.0em;
+  right: 1.0em;
+  transition: transform 0.3s;
+}

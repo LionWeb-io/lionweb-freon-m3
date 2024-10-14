@@ -13,19 +13,20 @@
     "url": "https://github.com/LionWeb-io/lionweb-freon-m3/issues"
   },
   "scripts": {
-    "clean": "rm -rf node_modules/ dist/",
-    "build": "yarn generate && tsc",
+    "clean": "rm -rf node_modules/ dist/ package-lock.json",
+    "build": "npm run generate && tsc",
     "build-app": "rollup -c",
-    "dev": "cross-env NODE_PORT=3005 rollup -c -w",
+    "dev": "cross-env NODE_PORT=8001 rollup -c -w",
     "start": "sirv public",
+    "server": "node ./node_modules/@freon4dsl/server/dist/server/server-starter.js",
     "generate-lw2": "node dist/picode/commandline/FreonCommandLineRunner.js folder -f modelstore/lioncore",
     "validate": "svelte-check",
     "errors-only": "svelte-check --threshold error",
     "generate": "freon all -d src/defs -o src/picode",
     "prepare-app": "npm run styles-light && npm run styles-dark",
-    "styles-light": "smui-theme compile public/site.css -i src/webapp/style",
-    "styles-dark": "smui-theme compile public/site-dark.css -i src/webapp/style/dark",
-    "install-local": "yarn install --registry http://localhost:4873"
+    "styles-light": "smui-theme compile public/site.css -i style",
+    "styles-dark": "smui-theme compile public/site-dark.css -i style/dark",
+    "install-local": "npm install --registry http://localhost:4873"
   },
   "devDependencies": {
     "cross-env": "^7.0.3",
@@ -46,11 +47,11 @@
     "typescript": "5.4.5"
   },
   "dependencies": {
-    "@freon4dsl/core": "0.7.0-beta3",
-    "@freon4dsl/core-svelte": "0.7.0-beta3",
-    "@freon4dsl/meta": "0.7.0-beta3",
-    "@freon4dsl/server": "0.7.0-beta3",
-    "@freon4dsl/webapp-lib": "0.7.0-beta3",
+    "@freon4dsl/core": "0.7.0-beta5",
+    "@freon4dsl/core-svelte": "0.7.0-beta5",
+    "@freon4dsl/meta": "0.7.0-beta5",
+    "@freon4dsl/server": "0.7.0-beta5",
+    "@freon4dsl/webapp-lib": "0.7.0-beta5",
     "@types/node": "^20.14.1",
     "kotlin": "^1.5.21",
     "lodash": "^4.17.21",

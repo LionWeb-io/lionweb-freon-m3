@@ -20,7 +20,7 @@ Concept {
 [
     [?${abstract [abstract | concrete]}] concept ${name} [?extends ${extends}] [?implements ${implements}] {
         key: ${key}
-        partition: ${partition}
+        partition: ${partition switch}
         ${features vertical }
     }
 ]}

@@ -72,6 +72,7 @@
                "targets": []
             }
          ],
+         "annotations": [],
          "parent": null
       },
       {
@@ -152,6 +153,7 @@
                "targets": []
             }
          ],
+         "annotations": [],
          "parent": "-id-LionCore-M3"
       },
       {
@@ -211,6 +213,7 @@
                ]
             }
          ],
+         "annotations": [],
          "parent": "-id-Annotation"
       },
       {
@@ -270,6 +273,7 @@
                ]
             }
          ],
+         "annotations": [],
          "parent": "-id-Annotation"
       },
       {
@@ -329,6 +333,7 @@
                ]
             }
          ],
+         "annotations": [],
          "parent": "-id-Annotation"
       },
       {
@@ -410,6 +415,7 @@
                "targets": []
             }
          ],
+         "annotations": [],
          "parent": "-id-LionCore-M3"
       },
       {
@@ -461,6 +467,7 @@
                ]
             }
          ],
+         "annotations": [],
          "parent": "-id-Concept"
       },
       {
@@ -512,6 +519,7 @@
                ]
             }
          ],
+         "annotations": [],
          "parent": "-id-Concept"
       },
       {
@@ -571,6 +579,7 @@
                ]
             }
          ],
+         "annotations": [],
          "parent": "-id-Concept"
       },
       {
@@ -630,6 +639,7 @@
                ]
             }
          ],
+         "annotations": [],
          "parent": "-id-Concept"
       },
       {
@@ -708,6 +718,7 @@
                "targets": []
             }
          ],
+         "annotations": [],
          "parent": "-id-LionCore-M3"
       },
       {
@@ -767,6 +778,7 @@
                ]
             }
          ],
+         "annotations": [],
          "parent": "-id-Interface"
       },
       {
@@ -843,6 +855,7 @@
                "targets": []
             }
          ],
+         "annotations": [],
          "parent": "-id-LionCore-M3"
       },
       {
@@ -919,6 +932,7 @@
                "targets": []
             }
          ],
+         "annotations": [],
          "parent": "-id-LionCore-M3"
       },
       {
@@ -997,6 +1011,7 @@
                "targets": []
             }
          ],
+         "annotations": [],
          "parent": "-id-LionCore-M3"
       },
       {
@@ -1056,6 +1071,7 @@
                ]
             }
          ],
+         "annotations": [],
          "parent": "-id-Enumeration"
       },
       {
@@ -1124,6 +1140,7 @@
                ]
             }
          ],
+         "annotations": [],
          "parent": "-id-LionCore-M3"
       },
       {
@@ -1194,6 +1211,7 @@
                ]
             }
          ],
+         "annotations": [],
          "parent": "-id-LionCore-M3"
       },
       {
@@ -1245,6 +1263,7 @@
                ]
             }
          ],
+         "annotations": [],
          "parent": "-id-Feature"
       },
       {
@@ -1323,6 +1342,7 @@
                "targets": []
             }
          ],
+         "annotations": [],
          "parent": "-id-LionCore-M3"
       },
       {
@@ -1382,6 +1402,7 @@
                ]
             }
          ],
+         "annotations": [],
          "parent": "-id-Classifier"
       },
       {
@@ -1461,6 +1482,7 @@
                "targets": []
             }
          ],
+         "annotations": [],
          "parent": "-id-LionCore-M3"
       },
       {
@@ -1512,6 +1534,7 @@
                ]
             }
          ],
+         "annotations": [],
          "parent": "-id-Link"
       },
       {
@@ -1571,6 +1594,7 @@
                ]
             }
          ],
+         "annotations": [],
          "parent": "-id-Link"
       },
       {
@@ -1643,6 +1667,7 @@
                ]
             }
          ],
+         "annotations": [],
          "parent": "-id-LionCore-M3"
       },
       {
@@ -1694,6 +1719,7 @@
                ]
             }
          ],
+         "annotations": [],
          "parent": "-id-Language"
       },
       {
@@ -1753,6 +1779,7 @@
                ]
             }
          ],
+         "annotations": [],
          "parent": "-id-Language"
       },
       {
@@ -1812,6 +1839,7 @@
                ]
             }
          ],
+         "annotations": [],
          "parent": "-id-Language"
       },
       {
@@ -1880,6 +1908,7 @@
                ]
             }
          ],
+         "annotations": [],
          "parent": "-id-LionCore-M3"
       },
       {
@@ -1934,6 +1963,7 @@
                ]
             }
          ],
+         "annotations": [],
          "parent": "-id-LionCore-M3"
       },
       {
@@ -1985,6 +2015,7 @@
                ]
             }
          ],
+         "annotations": [],
          "parent": "-id-IKeyed"
       },
       {
@@ -2061,6 +2092,7 @@
                "targets": []
             }
          ],
+         "annotations": [],
          "parent": "-id-LionCore-M3"
       },
       {
@@ -2139,6 +2171,7 @@
                "targets": []
             }
          ],
+         "annotations": [],
          "parent": "-id-LionCore-M3"
       },
       {
@@ -2198,6 +2231,7 @@
                ]
             }
          ],
+         "annotations": [],
          "parent": "-id-Property"
       },
       {
@@ -2274,6 +2308,7 @@
                "targets": []
             }
          ],
+         "annotations": [],
          "parent": "-id-LionCore-M3"
       }
    ]
