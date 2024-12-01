@@ -152,7 +152,7 @@ export class LionWeb2FreonTemplate {
                 }
             });
         });
-        return JSON.stringify(object);
+        return JSON.stringify(object, null, 4);
     }
 
 }

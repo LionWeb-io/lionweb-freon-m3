@@ -1,4 +1,5 @@
 import { FreLionwebSerializer, FreModelUnit, FreNode, FreNodeReference } from "@freon4dsl/core";
+import { LanguageRegistry, LionWebValidator } from "@lionweb/validation";
 import { CommandLineAction, CommandLineStringListParameter, CommandLineStringParameter } from "@rushstack/ts-command-line";
 import fs from "fs";
 // import { LwChunk } from "@freon4dsl/core";
@@ -73,6 +74,16 @@ export class ConvertLionCoreFolder2FreonAction extends CommandLineAction {
         let metamodel= JSON.parse(fs.readFileSync(filename).toString());
         // Assume it us a language in the rest of the method
         // TODO call validator to check this.
+        const validator = new LionWebValidator(metamodel, new LanguageRegistry())
+        validator.validateSyntax()
+        validator.validateReferences()
+        if (validator.validationResult.hasErrors()) {
+            for(const err of validator.validationResult.issues) {
+                console.log("Issue: " + err.errorMsg())
+            }
+            // return null
+        }
+        
         const ts = serialzer.toTypeScriptInstance(metamodel);
         const lion2freon = new LionWeb2FreonTemplate();
         const result = lion2freon.generateFreonAst(ts as FreModelUnit);
