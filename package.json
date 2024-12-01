@@ -1,8 +1,8 @@
 {
   "private": false,
   "name": "@lionweb/freon-m3",
-  "version": "0.7.0-beta3",
-  "description": "Freon web editor for LionWeb M3 language",
+  "version": "1.0.0-beta1",
+  "description": "Freon web editor defining LionWeb La",
   "license": "Apache-2.0",
   "type": "module",
   "repository": {
@@ -19,10 +19,11 @@
     "dev": "cross-env NODE_PORT=8001 rollup -c -w",
     "start": "sirv public",
     "server": "node ./node_modules/@freon4dsl/server/dist/server/server-starter.js",
-    "generate-lw2": "node dist/picode/commandline/FreonCommandLineRunner.js folder -f modelstore/lioncore",
+    "generate-lw2": "node dist/freoncode/commandline/FreonCommandLineRunner.js folder -f modelstore/lioncore",
+    "generate-freon": "node dist/freoncode/commandline/FreonCommandLineRunner.js folder -f modelstore/example",
     "validate": "svelte-check",
     "errors-only": "svelte-check --threshold error",
-    "generate": "freon all -d src/defs -o src/picode",
+    "generate": "freon all -d src/defs -o src/freoncode",
     "prepare-app": "npm run styles-light && npm run styles-dark",
     "styles-light": "smui-theme compile public/site.css -i style",
     "styles-dark": "smui-theme compile public/site-dark.css -i style/dark",
@@ -47,11 +48,12 @@
     "typescript": "5.4.5"
   },
   "dependencies": {
-    "@freon4dsl/core": "0.7.0-beta5",
-    "@freon4dsl/core-svelte": "0.7.0-beta5",
-    "@freon4dsl/meta": "0.7.0-beta5",
-    "@freon4dsl/server": "0.7.0-beta5",
-    "@freon4dsl/webapp-lib": "0.7.0-beta5",
+    "@freon4dsl/core": "1.0.0-beta1",
+    "@freon4dsl/core-svelte": "1.0.0-beta1",
+    "@freon4dsl/meta": "1.0.0-beta1",
+    "@freon4dsl/server": "1.0.0-beta1",
+    "@freon4dsl/webapp-lib": "1.0.0-beta1",
+    "@lionweb/validation": "^0.6.3",
     "@types/node": "^20.14.1",
     "kotlin": "^1.5.21",
     "lodash": "^4.17.21",
@@ -59,6 +61,7 @@
     "mobx-utils": "^6.0.8",
     "net.akehurst.language-agl-processor": "4.0.0-rc.5",
     "sirv-cli": "^2.0.2",
+    "svelte": "< 5.0.0",
     "tslib": "^2.6.2"
   },
   "publishConfig": {
