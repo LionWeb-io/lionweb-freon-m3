@@ -1,6 +1,6 @@
 import { FreonLayout, WebappConfigurator } from "@freon4dsl/webapp-lib";
 import {FreLogger, ServerCommunication} from "@freon4dsl/core";
-import { LionCore_M3Environment } from "./picode/config/gen/LionCore_M3Environment.js";
+import { LionCore_M3Environment } from "./freoncode/config/gen/LionCore_M3Environment.js";
 // import { LionWebRepositoryCommunication } from "@freon4dsl/core"
 
 /**
@@ -21,8 +21,12 @@ const app = new FreonLayout({
     target: document.body,
 });
 
+// FreLogger.unmute("FreLionwebSerializer")
 // FreLogger.unmute("TextComponent")
 // FreLogger.unmute("TextDropdownComponent")
+// FreLogger.unmute("FreEditor")
+// FreLogger.unmute("ReferenceBox")
+// FreLogger.unmute("UtilRefHelpers")
 // FreLogger.unmute("BehaviorUtils")
 
 export default app;

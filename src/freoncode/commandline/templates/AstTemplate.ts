@@ -10,9 +10,9 @@ import {
     PrimitiveType,
     Property,
     Reference
-} from "../language/gen/index.js";
+} from "../../language/gen/index.js";
 
-export class LionWeb2FreonTemplate {
+export class AstTemplate {
 
     generateFreonAst(metamodel: FreModelUnit): string {
         let result = "";
@@ -59,8 +59,7 @@ export class LionWeb2FreonTemplate {
                 break;
             default:
                 console.log(`Unknown concept type =>  ${entity.name}: ${entity.freLanguageConcept()}`)
-        }
-        ;
+        };
         result += ("}\n");
         return result;
     }
@@ -100,59 +99,6 @@ export class LionWeb2FreonTemplate {
         units.forEach(unit => result += `    ${unit.name.toLowerCase()}: ${unit.name}[];\n`);
         result += `}\n\n`
         return result;
-    }
-    
-    generate_idJson(metamodel: FreModelUnit[]): string {
-        // const language = (metamodel as Language);
-        let result = "";
-        let object: any = {};
-        // object["language"] = metamodel.name;
-        object["languages"] = [];
-        object["concepts"] = [];
-        object["interfaces"] = [];
-        object["limited"] = [];
-        object["models"] = [];
-        metamodel.filter( mu => {
-            object["languages"].push( {
-                "language": (mu as Language).name,
-                "key": (mu as Language).key,
-                "id": (mu as Language).freId()
-            });
-            const languageConcept = { concept: mu.name, id: mu.freId(), key: (mu as Language).key, properties: [] };
-            object["models"].push(languageConcept);
-            (mu as Language).entities.filter(ent => {
-                console.log("Add id for entity " + ent.name + " of type " + ent.freLanguageConcept())
-                return ent.freLanguageConcept() === "Concept";
-            }).forEach(con => {
-                console.log("Add id for " + con.name + " of type " + con.freLanguageConcept() + " key " + (con as Concept).key);
-                // object["concepts"].push({ concept: con.name, id: con.freId(), key: (con as Concept).key, properties: [] });
-            });
-        });
-        metamodel.forEach( mu => {
-            (mu as Language).entities.forEach(ent => {
-                switch (ent.freLanguageConcept()) {
-                    case "Concept":
-                        console.log("Add id for Concept " + ent.name + " key " + (ent as Concept).key);
-                        const concept = { concept: ent.name, id: ent.freId(), key: (ent as Concept).key, properties: [] };
-                        for(const prop of (ent as Concept).features) {
-                            concept.properties.push({name: prop.name, key: prop.key, id: prop.freId()})
-                        }
-                        object["concepts"].push(concept);
-                        break;
-                    case "Interface":
-                        console.log("Add id for Interface " + ent.name + " key " + (ent as Interface).key);
-                        const intface = { concept: ent.name, id: ent.freId(), key: (ent as Interface).key, properties: [] };
-                        for(const prop of (ent as Interface).features) {
-                            intface.properties.push({name: prop.name, key: prop.key, id: prop.freId()})
-                        }
-                        object["interfaces"].push(intface);
-                        break;
-                    default:
-                        console.log("NOTHIJNG ADDED id for entity " + ent.name + " of type " + ent.freLanguageConcept())
-                }
-            });
-        });
-        return JSON.stringify(object, null, 4);
     }
 
 }

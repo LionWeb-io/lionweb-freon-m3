@@ -1,22 +1,24 @@
 {
     "language": "LionWeb_M3",
+    "key": "LionCore-M3",
+    "version": "2023.1",
     "languages": [
         {
-            "language": "LionCore_M3",
+            "name": "LionCore_M3",
             "key": "LionCore-M3",
             "id": "-id-LionCore-M3"
         },
         {
-            "language": "LionCore_builtins",
+            "name": "LionCore_builtins",
             "key": "LionCore-builtins",
             "id": "-id-LionCore-builtins"
         }
     ],
-    "concepts": [
+    "classifiers": [
         {
-            "concept": "Language",
-            "id": "-id-Language",
-            "key": "Language",
+            "name": "Language",
+            "id"  : "-id-Language",
+            "key" : "Language",
             "properties": [
                 {
                     "name": "version",
@@ -41,7 +43,7 @@
             ]
         },
         {
-            "concept": "LionCore_M3",
+            "name": "LionCore_M3",
             "id": "-id-LionCore_M3",
             "key": "LionCore-M3.Model",
             "properties": [
@@ -58,19 +60,19 @@
             ]
         },
         {
-            "concept": "LanguageEntity",
+            "name": "LanguageEntity",
             "id": "-id-LanguageEntity",
             "key": "LanguageEntity",
             "properties": []
         },
         {
-            "concept": "PrimitiveType",
+            "name": "PrimitiveType",
             "id": "-id-PrimitiveType",
             "key": "PrimitiveType",
             "properties": []
         },
         {
-            "concept": "Property",
+            "name": "Property",
             "id": "-id-Property",
             "key": "Property",
             "properties": [
@@ -82,13 +84,13 @@
             ]
         },
         {
-            "concept": "Reference",
+            "name": "Reference",
             "id": "-id-Reference",
             "key": "Reference",
             "properties": []
         },
         {
-            "concept": "Concept",
+            "name": "Concept",
             "id": "-id-Concept",
             "key": "Concept",
             "properties": [
@@ -115,7 +117,7 @@
             ]
         },
         {
-            "concept": "Link",
+            "name": "Link",
             "id": "-id-Link",
             "key": "Link",
             "properties": [
@@ -132,7 +134,7 @@
             ]
         },
         {
-            "concept": "Interface",
+            "name": "Interface",
             "id": "-id-Interface",
             "key": "Interface",
             "properties": [
@@ -144,19 +146,19 @@
             ]
         },
         {
-            "concept": "Containment",
+            "name": "Containment",
             "id": "-id-Containment",
             "key": "Containment",
             "properties": []
         },
         {
-            "concept": "Datatype",
+            "name": "Datatype",
             "id": "-id-DataType",
             "key": "DataType",
             "properties": []
         },
         {
-            "concept": "Enumeration",
+            "name": "Enumeration",
             "id": "-id-Enumeration",
             "key": "Enumeration",
             "properties": [
@@ -168,13 +170,13 @@
             ]
         },
         {
-            "concept": "EnumerationLiteral",
+            "name": "EnumerationLiteral",
             "id": "-id-EnumerationLiteral",
             "key": "EnumerationLiteral",
             "properties": []
         },
         {
-            "concept": "Feature",
+            "name": "Feature",
             "id": "-id-Feature",
             "key": "Feature",
             "properties": [
@@ -186,7 +188,7 @@
             ]
         },
         {
-            "concept": "Classifier",
+            "name": "Classifier",
             "id": "-id-Classifier",
             "key": "Classifier",
             "properties": [
@@ -198,7 +200,7 @@
             ]
         },
         {
-            "concept": "Annotation",
+            "name": "Annotation",
             "id": "-id-Annotation",
             "key": "Annotation",
             "properties": [
@@ -220,15 +222,13 @@
             ]
         },
         {
-            "concept": "Node",
+            "name": "Node",
             "id": "LionCore-builtins-Node",
             "key": "LionCore-builtins-Node",
             "properties": []
-        }
-    ],
-    "interfaces": [
+        },
         {
-            "interface": "INamed",
+            "name": "INamed",
             "id": "LionCore-builtins-INamed",
             "key": "LionCore-builtins-INamed",
             "properties": [
@@ -240,7 +240,7 @@
             ]
         },
         {
-            "interface": "IKeyed",
+            "name": "IKeyed",
             "id": "-id-IKeyed",
             "key": "IKeyed",
             "properties": [

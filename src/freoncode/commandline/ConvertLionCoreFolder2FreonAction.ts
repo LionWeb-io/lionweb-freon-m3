@@ -5,7 +5,8 @@ import fs from "fs";
 // import { LwChunk } from "@freon4dsl/core";
 import { Concept, Language, LanguageEntity } from "../language/gen/index.js";
 
-import { LionWeb2FreonTemplate } from "./LionWeb2FreonTemplate.js";
+import { AstTemplate } from "./templates/AstTemplate.js";
+import { IdTemplate } from "./templates/IdTemplate.js";
 
 export class ConvertLionCoreFolder2FreonAction extends CommandLineAction {
     protected model: CommandLineStringParameter;
@@ -85,7 +86,7 @@ export class ConvertLionCoreFolder2FreonAction extends CommandLineAction {
         }
         
         const ts = serialzer.toTypeScriptInstance(metamodel);
-        const lion2freon = new LionWeb2FreonTemplate();
+        const lion2freon = new AstTemplate();
         const result = lion2freon.generateFreonAst(ts as FreModelUnit);
         this.allFiles.push(ts as FreModelUnit);
         this.writeAstToFile(outfile, result);
@@ -101,10 +102,10 @@ export class ConvertLionCoreFolder2FreonAction extends CommandLineAction {
     }
 
     writeModelToFile(dirname: string, units: LanguageEntity[]): void {
-        const model = (new LionWeb2FreonTemplate()).generateModelUnits(this.model.value, units);
+        const model = (new AstTemplate()).generateModelUnits(this.model.value, units);
 
         fs.writeFileSync(dirname + "model.ast", model);
-        const ids = (new LionWeb2FreonTemplate()).generate_idJson(this.allFiles);
+        const ids = (new IdTemplate()).generate_idJson(this.allFiles);
 
         fs.writeFileSync(dirname + "id.json", ids);
     }
