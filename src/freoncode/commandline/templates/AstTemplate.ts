@@ -55,12 +55,14 @@ export class AstTemplate {
                 break;
             case "PrimitiveType":
                 const primType = entity as PrimitiveType;
-                result += (`concept ${primType.name} { // primitive\n`);
+                // result += (`concept ${primType.name} { // primitive\n`);
                 break;
             default:
                 console.log(`Unknown concept type =>  ${entity.name}: ${entity.freLanguageConcept()}`)
         };
-        result += ("}\n");
+        if (entity.freLanguageConcept() !== "PrimitiveType") {
+            result += ("}\n");
+        }
         return result;
     }
 
@@ -90,11 +92,11 @@ export class AstTemplate {
         }
     }
     
-    generateModelUnits(model: string, units: LanguageEntity[]): string {
+    generateModelWithUnits(languagename: string, units: LanguageEntity[]): string {
         let result = "";
-        result += `language ${model}\n`;
+        result += `language ${languagename}\n`;
         result += '\n';
-        result += `model ${model} {\n`;
+        result += `model ${languagename} {\n`;
         result += `    name: identifier;\n`
         units.forEach(unit => result += `    ${unit.name.toLowerCase()}: ${unit.name}[];\n`);
         result += `}\n\n`

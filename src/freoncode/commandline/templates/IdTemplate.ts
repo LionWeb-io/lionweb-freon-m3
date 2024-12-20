@@ -1,5 +1,5 @@
 import { FreModelUnit } from "@freon4dsl/core";
-import { Concept, Interface, Language } from "../../language/gen/index.js";
+import { Concept, Enumeration, Interface, Language, PrimitiveType } from "../../language/gen/index.js";
 
 /**
  * THis file comtains the structure and template for the Id.json file,
@@ -72,11 +72,14 @@ export class IdTemplate {
                         idObject.classifiers.push(intface);
                         break;
                     case "Enumeration":
-                        console.log("TODO Add id for Enumeration " + ent.name + " key " + (ent as Interface).key);
-                        
+                        console.log("Add id for Enumeration " + ent.name + " key " + (ent as Enumeration).key);
+                        const limited: IdClassifier = { name: ent.name, id: ent.freId(), key: (ent as Interface).key, properties: [] };
+                        break
+                    case "PrimitiveType":
+                        const primitive: IdClassifier = { name: ent.name, id: ent.freId(), key: (ent as PrimitiveType).key, properties: [] };
                         break
                     default:
-                        console.log("NOTHIJNG ADDED id for entity " + ent.name + " of type " + ent.freLanguageConcept())
+                        console.log("No id for entity " + ent.name + " of unknown type " + ent.freLanguageConcept())
                 }
             });
         });
