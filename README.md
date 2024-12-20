@@ -24,7 +24,7 @@ In the following the root of the project will be indicated with '~'.
     decided to store the generated code:
 
 ```bash
-    npm run generate
+    npm run build
 ```
 
 *   Start the server (note that anything that is saved in the editor will be stored in `~/modelstore`):
@@ -47,3 +47,12 @@ If you are having trouble using the editor, have a look at the key-bindings unde
 
 Styling is done though a collection of css files in `style/`.
 If you change any files here, run `npm run prepare-app` to update the running app with the new style.
+
+## Convert LionWeb Language to Freon
+
+After the steps above, first put ypour Language JSON ion a folder, let's call this `MYFOLDER`.
+Then do the following
+```
+node dist/freoncode/commandline/FreonCommandLineRunner.js folder -f MYFOLDER
+```
+Within the MYFOLDER folder this creates a `generated_ast` folder with the Freon language definition.
