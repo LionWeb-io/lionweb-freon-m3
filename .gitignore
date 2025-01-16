@@ -21,6 +21,21 @@ target
 bin
 .docz
 
+# freon generated
+src/freoncode/config
+src/freoncode/diagrams
+src/freoncode/interpreter
+src/freoncode/editor
+src/freoncode/language
+src/freoncode/lionweb
+src/freoncode/reader
+src/freoncode/scoper
+src/freoncode/stdlib
+src/freoncode/typer
+src/freoncode/utils
+src/freoncode/validator
+src/freoncode/writer
+
 # misc
 .DS_Store
 .env.local

@@ -71,7 +71,7 @@ export class AstTemplate {
         switch (feature.freLanguageConcept()) {
             case "Property":
                 const name = feature.name;
-                let type = (feature as Property).type.name.toLowerCase();
+                let type = this.primitive2freon.get((feature as Property).type.name);
                 type = (name === "name") && type === "string" ? "identifier" : type;
                 return (`    ${name}${optional}: ${type};`);
                 break;
@@ -91,6 +91,9 @@ export class AstTemplate {
                 return (`    ${feature.name}: ${feature.freLanguageConcept()}`);
         }
     }
+    
+    primitive2freon: Map<string, string> = new Map<string, string>([["Integer","number"], ["String","string"], ["Boolean","boolean"], ["JSON","string"]])
+    
     
     generateModelWithUnits(languagename: string, units: LanguageEntity[]): string {
         let result = "";
