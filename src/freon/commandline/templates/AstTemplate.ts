@@ -74,19 +74,16 @@ export class AstTemplate {
                 let type = this.primitive2freon.get((feature as Property).type.name);
                 type = (name === "name") && type === "string" ? "identifier" : type;
                 return (`    ${name}${optional}: ${type};`);
-                break;
             case "Reference":
                 if ((feature as Reference).multiple) {
                     optional = "";
                 }
                 return (`    reference ${feature.name}${optional}: ${(feature as Reference).type.name}${(feature as Reference).multiple ? "[]" : ""};`);
-                break;
             case "Containment":
                 if ((feature as Containment).multiple) {
                     optional = "";
                 }
                 return (`    ${feature.name}${optional}: ${(feature as Containment).type.name}${(feature as Containment).multiple ? "[]" : ""};`);
-                break;
             default:
                 return (`    ${feature.name}: ${feature.freLanguageConcept()}`);
         }
