@@ -15,4 +15,4 @@ const cli: FreonCommandLine = new FreonCommandLine();
 cli.addAction(new ConvertLionCoreFolder2FreonAction());
 
 // Run it
-cli.execute();
+await cli.executeAsync();

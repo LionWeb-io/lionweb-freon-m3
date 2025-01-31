@@ -1,6 +1,6 @@
 import { FreonLayout, WebappConfigurator } from "@freon4dsl/webapp-lib";
 import {FreLogger, ServerCommunication} from "@freon4dsl/core";
-import { LionCore_M3Environment } from "./freoncode/config/gen/LionCore_M3Environment.js";
+import { LionCore_M3Environment } from "./freon/config/gen/LionCore_M3Environment.js";
 // import { LionWebRepositoryCommunication } from "@freon4dsl/core"
 
 /**

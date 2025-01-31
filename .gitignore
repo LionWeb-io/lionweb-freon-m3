@@ -22,19 +22,20 @@ bin
 .docz
 
 # freon generated
-src/freoncode/config
-src/freoncode/diagrams
-src/freoncode/interpreter
-src/freoncode/editor
-src/freoncode/language
-src/freoncode/lionweb
-src/freoncode/reader
-src/freoncode/scoper
-src/freoncode/stdlib
-src/freoncode/typer
-src/freoncode/utils
-src/freoncode/validator
-src/freoncode/writer
+src/freon/config
+src/freon/diagrams
+src/freon/interpreter
+src/freon/editor
+src/freon/language
+src/freon/lionweb
+src/freon/reader
+src/freon/scoper
+src/freon/stdlib
+src/freon/typer
+src/freon/utils
+src/freon/validator
+src/freon/writer
+src/freon/index.ts
 
 # misc
 .DS_Store

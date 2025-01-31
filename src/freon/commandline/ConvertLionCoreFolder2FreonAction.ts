@@ -19,9 +19,10 @@ export class ConvertLionCoreFolder2FreonAction extends CommandLineAction {
             summary: "Create .ast file from LionWeb Meta-model JSON file or folder",
             documentation: "Lionweb to Freon Ast generator"
         });
+        this.defineParameters()
     }
 
-    protected onDefineParameters(): void {
+    protected defineParameters(): void {
         this.lionWebM3File = this.defineStringListParameter({
             argumentName: "METAMODEL_FOLDER",
             parameterLongName: "--folder",

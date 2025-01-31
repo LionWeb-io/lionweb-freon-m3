@@ -10,9 +10,6 @@ export class DummyAction extends CommandLineAction {
             summary: "My description",
             documentation: "More description"
         });
-    }
-
-    protected onDefineParameters(): void {
         this.dummyParameter = this.defineStringParameter({
             argumentName: "DUMMY_PARAMETER",
             defaultValue: "dummy.value",
@@ -21,6 +18,16 @@ export class DummyAction extends CommandLineAction {
             description: "Dummy parameter, create your own"
         });
     }
+
+    // protected onDefineParameters(): void {
+    //     this.dummyParameter = this.defineStringParameter({
+    //         argumentName: "DUMMY_PARAMETER",
+    //         defaultValue: "dummy.value",
+    //         parameterLongName: "--dummy",
+    //         parameterShortName: "-d",
+    //         description: "Dummy parameter, create your own"
+    //     });
+    // }
 
     protected onExecute(): Promise<void> {
         const self = this;
