@@ -56,7 +56,7 @@ export class IdTemplate {
             mu.entities.forEach(ent => {
                 switch (ent.freLanguageConcept()) {
                     case "Concept":
-                        console.log("Add id for Concept " + ent.name + " key " + (ent as Concept).key);
+                        // console.log("Add id for Concept " + ent.name + " key " + (ent as Concept).key);
                         const concept: IdClassifier = { name: ent.name, id: ent.freId(), key: (ent as Concept).key, properties: [] };
                         for (const prop of (ent as Concept).features) {
                             concept.properties.push({ name: prop.name, key: prop.key, id: prop.freId() })
@@ -64,7 +64,7 @@ export class IdTemplate {
                         idObject.classifiers.push(concept);
                         break;
                     case "Interface":
-                        console.log("Add id for Interface " + ent.name + " key " + (ent as Interface).key);
+                        // console.log("Add id for Interface " + ent.name + " key " + (ent as Interface).key);
                         const intface: IdClassifier = { name: ent.name, id: ent.freId(), key: (ent as Interface).key, properties: [] };
                         for (const prop of (ent as Interface).features) {
                             intface.properties.push({ name: prop.name, key: prop.key, id: prop.freId() })
@@ -72,7 +72,7 @@ export class IdTemplate {
                         idObject.classifiers.push(intface);
                         break;
                     case "Enumeration":
-                        console.log("Add id for Enumeration " + ent.name + " key " + (ent as Enumeration).key);
+                        // console.log("Add id for Enumeration " + ent.name + " key " + (ent as Enumeration).key);
                         const limited: IdClassifier = { name: ent.name, id: ent.freId(), key: (ent as Interface).key, properties: [] };
                         break
                     case "PrimitiveType":

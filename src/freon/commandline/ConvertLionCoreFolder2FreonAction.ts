@@ -37,11 +37,10 @@ export class ConvertLionCoreFolder2FreonAction extends CommandLineAction {
         });
     }
 
-    protected onExecute(): Promise<void> {
+    protected async onExecute(): Promise<void> {
         const self = this;
-        return new Promise(function (resolve, rejest) {
-            const freonString = self.convertLionCore2Freon();
-        });
+        const tmpo = await self.convertLionCore2Freon()
+        return null
     }
     
     async convertLionCore2Freon(): Promise<string> {
@@ -55,17 +54,23 @@ export class ConvertLionCoreFolder2FreonAction extends CommandLineAction {
                     dir = mmFile
                     this.createDirIfNotExisting(mmFile + "/generated_ast")
                     fs.readdirSync(mmFile).forEach(file => {
-                        if (file.endsWith(".json") && !file.includes("Public")) {
+                        if (file.endsWith(".json")) {
                             language = this.convertFile(mmFile + '/' + file, modelunits, mmFile + "/generated_ast/" + file );
+                        } else {
+                            console.log(`Ignoring file ${mmFile}, not a json extension`)
                         }
                     });
                 } else if (stats.isFile()) {
                     if (mmFile.endsWith(".json")) {
                         language = this.convertFile(mmFile, modelunits, mmFile);
+                    } else {
+                        console.log(`Skipping file ${mmFile}, not a json extension`)
                     }
                 } else {
-                    console.error(`Argument ${mmFile} is not a directory, nor a folder`);
+                    console.error(`ERROR: Argument ${mmFile} is not a directory, nor a folder`);
                 }
+            } else {
+                console.error(`ERROR: File or folder ${mmFile} does not exist`)
             }
         });
         this.writeModelToFile(dir + "/generated_ast/", language, modelunits);        
@@ -80,7 +85,7 @@ export class ConvertLionCoreFolder2FreonAction extends CommandLineAction {
      * @returns the name of the language represented in the file.
      */
     convertFile(filename: string, modelunits: LanguageEntity[], outfile: string): string {
-        console.log(`Convert ${filename} to ${outfile}`)
+        console.log(`Convert ${filename}`)
         const serialzer = new FreLionwebSerializer();
         let metamodel= JSON.parse(fs.readFileSync(filename).toString());
         // Assume it us a language in the rest of the method
@@ -101,7 +106,6 @@ export class ConvertLionCoreFolder2FreonAction extends CommandLineAction {
         const result = lion2freon.generateFreonAst(ts as FreModelUnit);
         this.allFiles.push(ts as FreModelUnit);
         this.writeAstToFile(outfile, result);
-        console.log("ts is " + ts.freLanguageConcept())
         
         // check whether there is a modelunit/partition in the file
         modelunits.push(...(ts as Language).entities.filter(ent => ent.freLanguageConcept() === "Concept" && (ent as Concept).partition));
@@ -109,8 +113,9 @@ export class ConvertLionCoreFolder2FreonAction extends CommandLineAction {
     }
 
     writeAstToFile(filename: string, ast: string): void {
-        const dotIndex = filename.indexOf('.');
-        const astBaseFilename = filename.split(".")[0];
+        const dotIndex = filename.lastIndexOf('.json');
+        const astBaseFilename = filename.split(".json")[0];
+        console.log(`Writing to file ${astBaseFilename + ".ast"}`)
         fs.writeFileSync(astBaseFilename + ".ast", ast);
     }
 

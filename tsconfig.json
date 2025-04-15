@@ -1,4 +1,5 @@
 {
+  
   "include": [
     "src",
     "src/**/*",
@@ -11,7 +12,8 @@
       "inputGlob": "{js,jsx,mjs}",
       "outputCheck": ["js", "json", "jsx", "mjs"]
     }
-  },  "compilerOptions": {
+  },  
+  "compilerOptions": {
   /* Visit https://aka.ms/tsconfig.json to read more about this file */
 
   /* Basic Options */

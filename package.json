@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@lionweb/freon-m3",
-  "version": "1.0.0-beta2",
+  "version": "1.0.0-beta3",
   "description": "Freon web editor for LionWeb Languages",
   "license": "Apache-2.0",
   "type": "module",
@@ -21,6 +21,7 @@
     "server": "node ./node_modules/@freon4dsl/server/dist/server/server-starter.js",
     "generate-lw2": "node dist/freon/commandline/FreonCommandLineRunner.js folder -f modelstore/lioncore",
     "generate-freon": "node dist/freon/commandline/FreonCommandLineRunner.js folder -f modelstore/example",
+    "generate-sysmlv2full": "node dist/freon/commandline/FreonCommandLineRunner.js folder -f modelstore/sysmlv2full",
     "validate": "svelte-check",
     "errors-only": "svelte-check --threshold error",
     "generate": "freon all -d src/defs -o src/freon",
