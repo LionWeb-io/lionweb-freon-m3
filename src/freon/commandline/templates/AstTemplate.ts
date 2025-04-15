@@ -72,8 +72,14 @@ export class AstTemplate {
             case "Property":
                 const name = feature.name;
                 let type = this.primitive2freon.get((feature as Property).type.name);
-                type = (name === "name") && type === "string" ? "identifier" : type;
-                return (`    ${name}${optional}: ${type};`);
+                if (type !== undefined) {
+                    // it is a real primitive
+                    type = (name === "name") && type === "string" ? "identifier" : type;
+                    return (`    ${name}${optional}: ${type};`);
+                } else {
+                    // it should be a limited
+                    return `    ${feature.name}${optional}: ${(feature as Property).type.name};`
+                }
             case "Reference":
                 if ((feature as Reference).multiple) {
                     optional = "";
