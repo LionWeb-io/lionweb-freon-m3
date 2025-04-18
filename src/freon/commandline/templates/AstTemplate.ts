@@ -14,10 +14,21 @@ import {
 
 export class AstTemplate {
 
-    generateFreonAst(metamodel: FreModelUnit): string {
+    enumerations: string[] = []
+    primitiveTypes: string[]= []
+    partitions: Concept[] = []
+    
+    constructor(enumerations: string[], primitiveTypes: string[], partitions: Concept[] ) {
+        this.enumerations = enumerations
+        this.primitiveTypes = primitiveTypes
+        this.partitions = partitions
+    }
+    generateFreonAst(modelUnit: FreModelUnit): string {
         let result = "";
-        result += (`language ${metamodel.name}\n\n`);
-        (metamodel as Language).entities.forEach(entity => {
+        console.log(`PrimitiveTypoes: ${this.primitiveTypes}`)
+        console.log(`Enumerations: ${this.enumerations}`)
+        result += (`language ${modelUnit.name}\n\n`);
+        (modelUnit as Language).entities.forEach(entity => {
             result += this.exportClassifier(entity);
             result += "\n";
         });
@@ -55,11 +66,15 @@ export class AstTemplate {
                 break;
             case "PrimitiveType":
                 const primType = entity as PrimitiveType;
-                // result += (`concept ${primType.name} { // primitive\n`);
+                let type = this.primitive2freon.get(primType.name);
+                if (type === undefined) {
+                    // Not a Freon primitive type, so create a concept for it.
+                    result += (`// PrimitiveType\nconcept ${primType.name} {\n    value: string;\n}\n`);
+                }
                 break;
             default:
                 console.log(`Unknown concept type =>  ${entity.name}: ${entity.freLanguageConcept()}`)
-        };
+        }
         if (entity.freLanguageConcept() !== "PrimitiveType") {
             result += ("}\n");
         }
@@ -71,15 +86,25 @@ export class AstTemplate {
         switch (feature.freLanguageConcept()) {
             case "Property":
                 const name = feature.name;
-                let type = this.primitive2freon.get((feature as Property).type.name);
-                if (type !== undefined) {
-                    // it is a real primitive
-                    type = (name === "name") && type === "string" ? "identifier" : type;
-                    return (`    ${name}${optional}: ${type};`);
+                const property = feature as Property
+                if (this.primitiveTypes.includes(property.type.name)) {
+                    let type = this.primitive2freon.get(property.type.name);
+                    if (type !== undefined) {
+                        // it is a Freon primitive
+                        type = (name === "name") && type === "string" ? "identifier" : type;
+                        return (`    ${name}${optional}: ${type};`);
+                    } else {
+                        // It is a primitive represented as Concept in Freon.
+                        return (`   ${property.name}${optional}: ${property.type.name};`);
+                    }
+                } else if (this.enumerations.includes(property.type.name)) {
+                    // it is a limited
+                    return `    ${feature.name}${optional}: ${property.type.name};`
                 } else {
-                    // it should be a limited
-                    return `    ${feature.name}${optional}: ${(feature as Property).type.name};`
+                    console.error(`ERROR: unknown property type ${property.type.name}`)
+                    return ""
                 }
+            
             case "Reference":
                 if ((feature as Reference).multiple) {
                     optional = "";
@@ -95,16 +120,25 @@ export class AstTemplate {
         }
     }
     
-    primitive2freon: Map<string, string> = new Map<string, string>([["Integer","number"], ["String","string"], ["Boolean","boolean"], ["JSON","string"]])
+    primitive2freon: Map<string, string> = new Map<string, string>([
+        ["Number","number"],
+        ["Integer","number"],
+        ["String","string"],
+        ["Boolean","boolean"],
+        ["number","number"],
+        ["integer","number"],
+        ["string","string"],
+        ["boolean","boolean"],
+        ["JSON","string"]])
     
     
-    generateModelWithUnits(languagename: string, units: LanguageEntity[]): string {
+    generateModelWithUnits(languagename: string, partitions: Concept[]): string {
         let result = "";
         result += `language ${languagename}\n`;
         result += '\n';
         result += `model ${languagename} {\n`;
         result += `    name: identifier;\n`
-        units.forEach(unit => result += `    ${unit.name.toLowerCase()}: ${unit.name}[];\n`);
+        partitions.forEach(unit => result += `    ${unit.name.toLowerCase()}: ${unit.name}[];\n`);
         result += `}\n\n`
         return result;
     }
