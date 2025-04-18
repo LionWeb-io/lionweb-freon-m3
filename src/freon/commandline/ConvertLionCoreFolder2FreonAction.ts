@@ -1,91 +1,108 @@
-import { FreLionwebSerializer, FreModelUnit, FreNode, FreNodeReference } from "@freon4dsl/core";
+import { FreLionwebSerializer, FreModelUnit } from "@freon4dsl/core";
 import { LanguageRegistry, LionWebValidator } from "@lionweb/validation";
-import { CommandLineAction, CommandLineStringListParameter, CommandLineStringParameter } from "@rushstack/ts-command-line";
+import { CommandLineAction, CommandLineStringParameter } from "@rushstack/ts-command-line";
 import fs from "fs";
-// import { LwChunk } from "@freon4dsl/core";
-import { Concept, Language, LanguageEntity } from "../language/gen/index.js";
+import path from "path"
+import { Concept, Enumeration, Language, PrimitiveType } from "../language/gen/index.js";
 
 import { AstTemplate } from "./templates/AstTemplate.js";
 import { IdTemplate } from "./templates/IdTemplate.js";
 
+const pathSeparator = path.sep
+
 export class ConvertLionCoreFolder2FreonAction extends CommandLineAction {
     protected model: CommandLineStringParameter;
-    protected lionWebM3File: CommandLineStringListParameter;
-    protected allFiles: FreModelUnit[] = [];
+    protected lionWebM3File: CommandLineStringParameter;
+    protected allModelUnits: FreModelUnit[] = [];
 
     constructor() {
         super({
             actionName: "folder",
-            summary: "Create .ast file from LionWeb Meta-model JSON file or folder",
+            summary: "Create .ast file from LionWeb Meta-model JSON folder",
             documentation: "Lionweb to Freon Ast generator"
         });
         this.defineParameters()
     }
 
     protected defineParameters(): void {
-        this.lionWebM3File = this.defineStringListParameter({
+        this.lionWebM3File = this.defineStringParameter({
             argumentName: "METAMODEL_FOLDER",
             parameterLongName: "--folder",
             parameterShortName: "-f",
-            description: "File or folder containing LionWeb metamodels in json format"
-        });
-        this.model = this.defineStringParameter({
-            argumentName: "MODEL",
-            parameterLongName: "--model",
-            parameterShortName: "-m",
-            description: "Name of the Freon model to be generated, should usuallbe one of the language names"
+            description: "Folder containing LionWeb metamodels in json format"
         });
     }
 
     protected async onExecute(): Promise<void> {
         const self = this;
-        const tmpo = await self.convertLionCore2Freon()
+        await self.convertLionCore2Freon()
         return null
     }
     
     async convertLionCore2Freon(): Promise<string> {
-        const modelunits: LanguageEntity[] = [];
-        let dir = "."
         let language: string = "unknownLanguage"
-        this.lionWebM3File.values.forEach(mmFile => {
-            if (fs.existsSync(mmFile)) {
-                const stats = fs.statSync(mmFile);
-                if (stats.isDirectory()) {
-                    dir = mmFile
-                    this.createDirIfNotExisting(mmFile + "/generated_ast")
-                    fs.readdirSync(mmFile).forEach(file => {
-                        if (file.endsWith(".json")) {
-                            language = this.convertFile(mmFile + '/' + file, modelunits, mmFile + "/generated_ast/" + file );
-                        } else {
-                            console.log(`Ignoring file ${mmFile}, not a json extension`)
-                        }
-                    });
-                } else if (stats.isFile()) {
-                    if (mmFile.endsWith(".json")) {
-                        language = this.convertFile(mmFile, modelunits, mmFile);
+        const mmFolderName = this.lionWebM3File.value
+        if (fs.existsSync(mmFolderName)) {
+            const stats = fs.statSync(mmFolderName);
+            if (stats.isDirectory()) {
+                this.createDirIfNotExisting(mmFolderName + "/generated_ast")
+                fs.readdirSync(mmFolderName).forEach(file => {
+                    if (file.endsWith(".json")) {
+                        this.readModelUnitFromFile(mmFolderName + '/' + file)
                     } else {
-                        console.log(`Skipping file ${mmFile}, not a json extension`)
+                        console.log(`Ignoring file ${file}, not a json extension`)
                     }
-                } else {
-                    console.error(`ERROR: Argument ${mmFile} is not a directory, nor a folder`);
-                }
+                });
             } else {
-                console.error(`ERROR: File or folder ${mmFile} does not exist`)
+                console.error(`ERROR: Argument ${mmFolderName} is not a directory`);
+                return "error"
             }
-        });
-        this.writeModelToFile(dir + "/generated_ast/", language, modelunits);        
+        } else {
+            console.error(`ERROR: File or folder ${mmFolderName} does not exist`)
+            return "error"
+        }
+
+        this.createDirIfNotExisting(mmFolderName + "/generated_ast")
+
+        const enumerations: string[] = [];
+        const primitiveTypes: string[] = [];
+        const partitions: Concept[] = []
+        for (const ts of this.allModelUnits) {
+            // find all enumerations for the mapping to Limited
+            (ts as Language).entities.filter(e => e.freLanguageConcept() === "Enumeration").forEach(e => {
+                enumerations.push((e as Enumeration).name)
+            });
+            // find all enumerations for the mapping to Limited
+            (ts as Language).entities.filter(e => e.freLanguageConcept() === "PrimitiveType").forEach(e => {
+                primitiveTypes.push((e as PrimitiveType).name)
+            });
+            // find all enumerations for the mapping to Limited
+            (ts as Language).entities.filter(e => e.freLanguageConcept() === "Concept" && (e as Concept).partition).forEach(e => {
+                partitions.push(e as Concept)
+            });
+        }
+
+        for (const ts of this.allModelUnits) {
+            const lion2freon = new AstTemplate(enumerations, primitiveTypes, partitions);
+            const result = lion2freon.generateFreonAst(ts);
+            this.writeAstToFile(`${mmFolderName}${pathSeparator}generated_ast${pathSeparator}${ts.name}`, result);
+        }
+        // Find model name as language name
+        const separatorIndex = mmFolderName.lastIndexOf(pathSeparator)
+        if (separatorIndex !== -1) {
+            language = mmFolderName.substring(separatorIndex + 1)
+        } else {
+            language = mmFolderName
+        }
+        
+        this.writeModelToFile(mmFolderName + "/generated_ast/", language, partitions);        
         return "void";
     }
 
     /**
-     * Converts the file with name _filename_, writes output to _outfile_
-     * @param filename
-     * @param modelunits
-     * @param outfile
-     * @returns the name of the language represented in the file.
+     * 
      */
-    convertFile(filename: string, modelunits: LanguageEntity[], outfile: string): string {
-        console.log(`Convert ${filename}`)
+    readModelUnitFromFile(filename: string): void {
         const serialzer = new FreLionwebSerializer();
         let metamodel= JSON.parse(fs.readFileSync(filename).toString());
         // Assume it us a language in the rest of the method
@@ -99,32 +116,21 @@ export class ConvertLionCoreFolder2FreonAction extends CommandLineAction {
             }
             // return null
         }
-        
         const ts = serialzer.toTypeScriptInstance(metamodel);
-        const firstLanguage = (ts as FreModelUnit).name
-        const lion2freon = new AstTemplate();
-        const result = lion2freon.generateFreonAst(ts as FreModelUnit);
-        this.allFiles.push(ts as FreModelUnit);
-        this.writeAstToFile(outfile, result);
-        
-        // check whether there is a modelunit/partition in the file
-        modelunits.push(...(ts as Language).entities.filter(ent => ent.freLanguageConcept() === "Concept" && (ent as Concept).partition));
-        return firstLanguage
+        this.allModelUnits.push(ts as FreModelUnit);
     }
 
     writeAstToFile(filename: string, ast: string): void {
-        const dotIndex = filename.lastIndexOf('.json');
-        const astBaseFilename = filename.split(".json")[0];
-        console.log(`Writing to file ${astBaseFilename + ".ast"}`)
-        fs.writeFileSync(astBaseFilename + ".ast", ast);
+        console.log(`Writing to file ${filename + ".ast"}`)
+        fs.writeFileSync(filename + ".ast", ast);
     }
 
-    writeModelToFile(dirname: string, languagename : string, units: LanguageEntity[]): void {
-        const model = (new AstTemplate()).generateModelWithUnits(languagename, units);
+    writeModelToFile(dirname: string, languagename : string, partitions: Concept[]): void {
+        const model = (new AstTemplate([], [], [])).generateModelWithUnits(languagename, partitions);
         this.createDirIfNotExisting(dirname)
 
         fs.writeFileSync(dirname + "model.ast", model);
-        const ids = (new IdTemplate()).generate_idJson(this.allFiles);
+        const ids = (new IdTemplate()).generate_idJson(this.allModelUnits);
 
         fs.writeFileSync(dirname + "id.json", ids);
     }
