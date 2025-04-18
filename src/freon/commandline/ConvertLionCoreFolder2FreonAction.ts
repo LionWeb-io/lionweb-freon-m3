@@ -86,6 +86,13 @@ export class ConvertLionCoreFolder2FreonAction extends CommandLineAction {
             this.writeAstToFile(`${mmFolderName}${pathSeparator}generated_ast${pathSeparator}${ts.name}`, result);
         }
         // Find model name as language name
+        const separatorIndex = mmFolderName.lastIndexOf(pathSeparator)
+        if (separatorIndex !== -1) {
+            language = mmFolderName.substring(separatorIndex + 1)
+        } else {
+            language = mmFolderName
+        }
+        
         this.writeModelToFile(mmFolderName + "/generated_ast/", language, partitions);        
         return "void";
     }
