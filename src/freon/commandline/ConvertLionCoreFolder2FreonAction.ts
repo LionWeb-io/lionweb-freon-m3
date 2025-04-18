@@ -50,14 +50,16 @@ export class ConvertLionCoreFolder2FreonAction extends CommandLineAction {
                     if (file.endsWith(".json")) {
                         this.readModelUnitFromFile(mmFolderName + '/' + file)
                     } else {
-                        console.log(`Ignoring file ${mmFolderName}, not a json extension`)
+                        console.log(`Ignoring file ${file}, not a json extension`)
                     }
                 });
             } else {
                 console.error(`ERROR: Argument ${mmFolderName} is not a directory`);
+                return "error"
             }
         } else {
             console.error(`ERROR: File or folder ${mmFolderName} does not exist`)
+            return "error"
         }
 
         this.createDirIfNotExisting(mmFolderName + "/generated_ast")

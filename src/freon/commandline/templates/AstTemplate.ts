@@ -25,8 +25,6 @@ export class AstTemplate {
     }
     generateFreonAst(modelUnit: FreModelUnit): string {
         let result = "";
-        console.log(`PrimitiveTypoes: ${this.primitiveTypes}`)
-        console.log(`Enumerations: ${this.enumerations}`)
         result += (`language ${modelUnit.name}\n\n`);
         (modelUnit as Language).entities.forEach(entity => {
             result += this.exportClassifier(entity);
