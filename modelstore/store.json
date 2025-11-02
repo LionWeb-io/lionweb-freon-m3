@@ -1,0 +1,51 @@
+{
+    "currentPostfix": 2,
+    "models": [
+        {
+            "folder": "lioncore",
+            "language": "",
+            "name": "LionCore",
+            "units": [
+                {
+                    "file": "LionCore_M3.json",
+                    "name": "LionCore-M3"
+                },
+                {
+                    "name": "LionCore_builtins",
+                    "file": "LionCore_builtins.json"
+                }
+            ],
+            "version": "1"
+        },
+        {
+            "folder": "CourseSchedule",
+            "language": "",
+            "name": "CourseSchedule",
+            "units": [
+                {
+                    "file": "CourseSchedule.json",
+                    "name": "CourseSchedule"
+                },
+                {
+                    "name": "LionCore_builtins",
+                    "file": "LionCore_builtins.json"
+                }
+            ]
+        },
+        {
+            "folder": "delta",
+            "language": "",
+            "name": "Delta",
+            "units": [
+                {
+                    "file": "delta-language.json",
+                    "name": "Delta"
+                },
+                {
+                    "name": "LionCore_builtins",
+                    "file": "LionCore_builtins.json"
+                }
+            ]
+        }
+    ]
+}

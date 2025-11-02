@@ -1,0 +1,17 @@
+/* Import the standard tailwind styles */
+@import 'tailwindcss';
+
+/* Import all styles from core-svelte */
+@import '../node_modules/@freon4dsl/core-svelte/dist/styles/freon.css';
+@import '../node_modules/@freon4dsl/core-svelte/dist/styles/freon-light.css';
+@import '../node_modules/@freon4dsl/core-svelte/dist/styles/freon-color-definitions.css';
+@import '../node_modules/@freon4dsl/core-svelte/dist/styles/freon-tw-dark.css';
+
+/* Import all styles from the webapp library */
+@import '../node_modules/@freon4dsl/weblib-flowbite/dist/styles/lib-styles.css';
+
+/* Import local styles and overrides */
+/*@import './theme-colors-override.css';*/
+@import './theme-colors-blue-yellow.css';
+@import './externals-styles.css';
+

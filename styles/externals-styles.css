@@ -1,0 +1,249 @@
+.dark\:text-white:where(.dark,.dark *) {
+    color: var(--color-dark-freon-200);
+}
+
+:root {
+    --indent-accordion: 0px;
+}
+
+.replacer {
+    border: 2px black solid;
+    background-color: lightsteelblue;
+}
+
+/*.wrapper {*/
+/*    border: 2px black solid;*/
+/*    background-color: lightgrey;*/
+/*}*/
+
+[data-accordion-trigger] {
+    background-color: var(--color-light-base-200);
+    border-style: none;
+    border-color:   #C6E29F;
+    border-width: 1px;
+    padding: 2px;
+    padding-left: 4px;
+    /*margin: 4px;*/
+    margin-left: var(--indent-accordion);
+}
+.dark [data-accordion-trigger] {
+    background-color: var(--color-dark-base-700);
+    color: var(--color-dark-base-200);
+    border-style: none;
+    border-width: 1px;
+    border-color: #C6E29F;
+    padding: 2px;
+    padding-left: 4px;
+    /*margin: 4px;*/
+    margin-left: var(--indent-accordion);
+}
+[data-accordion-content] {
+    background-color: var(--color-light-accent-50);
+    padding: 2px;
+    margin-left: var(--indent-accordion);
+}
+.dark [data-accordion-content] {
+    background-color: var(--color-dark-base-900);
+    margin-left: var(--indent-accordion);
+}
+
+.accordion-button {
+    z-index: 100;
+    background-color: var(--color-light-base-100);
+    color: var(--color-light-accent-700);
+    margin-left: var(--indent-accordion);
+}
+.dark .accordion-button {
+    z-index: 100;
+    background-color: var(--color-dark-base-700);
+    color: var(--color-dark-base-200);
+    margin-left: var(--indent-accordion);
+}
+
+[data-collapsible-contents] {
+    background-color: #C6E29F;
+}
+
+.Module-fragment-EntityTypes {
+    background-color: var(--color-light-base-50);
+    border: none;
+}
+.dark .Module-fragment-EntityTypes {
+    background-color: var(--color-dark-freon--700);
+    /*background-color: var(--color-dark-base-700);*/
+}
+.dark .Module-fragment-EntityTypes2 {
+    background-color: var(--color-dark-freon--700);
+}
+
+[data-collapsible-root] {
+    /*border-style: solid;*/
+    /*border-width: 1px;*/
+    /*border-color: var(--color-dark-base-200);*/
+}
+.dark [data-collapsible-root] {
+    /*border-color: var(--color-dark-base-200);*/
+}
+[data-collapsible-trigger] {
+    background-color: var(--color-light-base-100);
+    color: var(--color-dark-base-700);
+    border: solid;
+    border-color: var(--color-dark-base-700);
+    border-width: 1px;
+    border-radius: 10px;
+    padding: 2px;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+.dark [data-collapsible-trigger] {
+    background-color: var(--color-dark-base-700);
+    color: var(--color-dark-base-200);
+    border: solid;
+    border-color: var(--color-dark-base-200);
+    border-width: 1px;
+    border-radius: 10px;
+    padding: 2px;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.datepicker-widget {
+    z-index: 100;
+    background-color: var(--color-light-base-100);
+}
+.dark .datepicker-widget {
+    z-index: 100;
+    background-color: var(--color-dark-base-700);
+    color: var(--color-dark-base-200);
+}
+.datepicker-button {
+    z-index: 100;
+    background-color: var(--color-light-base-100);
+    color: var(--color-light-accent-700);
+}
+.dark .datepicker-button {
+    z-index: 100;
+    background-color: var(--color-dark-base-700);
+    color: var(--color-dark-base-200);
+}
+
+.tab-tab {
+    background-color: var(--color-light-base-100);
+    color: var(--color-light-accent-700);
+    border: solid;
+    border-radius: 10px 10px 1px 1px;
+    border-width: 1px;
+    padding: 2px;
+    margin-right: 2px;
+}
+.dark .tab-tab {
+    color: var(--color-dark-base-200);
+    background-color: var(--color-dark-freon-700);
+    border: solid;
+    border-width: 1px;
+    border-radius: 10px 10px 1px 1px;
+    padding: 2px
+}
+.tab-content {
+    width: calc(100% - 6px);
+    border: none;
+    border-width: 1px;
+    border-radius: 1px 1px 10px 10px;
+    border-color: var(--color-dark-base-200);
+    background-color: var(--color-light-accent-50);
+    /*padding: 2px*/
+    margin-left: 2px;
+}
+.dark .tab-content {
+    width: calc(100% - 6px);
+    border: none;
+    border-width: 1px;
+    border-radius: 1px 1px 10px 10px;
+    border-color: var(--color-dark-base-200);
+    background-color: var(--color-dark-base-900);
+    /*padding: 2px*/
+    margin-left: 2px;
+}
+
+.tab-active {
+    color: var(--color-light-base-100);
+    background-color: var(--color-light-accent-700);
+}
+.dark .tab-active {
+    background-color: var(--color-dark-base-200);
+    color: var(--color-dark-freon-700);
+
+}
+.tab-button {
+    z-index: 100;
+    background-color: var(--color-light-base-100);
+    color: var(--color-light-accent-700);
+    /*margin-left: 40px;*/
+}
+.dark .tab-button {
+    z-index: 100;
+    background-color: var(--color-dark-base-700);
+    color: var(--color-dark-base-200);
+    /*margin-left: 40px;*/
+}
+
+/**
+ *  Style changes to builtin components.
+ */
+.dark .multiline-text-component {
+    /*background-color: var(--color-dark-freon--600);*/
+    border-color: gray;
+    border-width: 1px;
+    border-style: ridge;
+}
+
+.multiline-text-component {
+    border-width: 1px;
+    border-style: ridge;
+}
+
+.inner-switch-component button {
+    padding: 0px;
+    margin: 0px;
+}
+.inner-switch-component  {
+    padding: 0px;
+    margin: 0px;
+}
+
+.boolean-checkbox-component {
+    margin-right: 8px;
+}
+
+.phone-button {
+    padding: 2px;
+}
+
+
+.person-standing {
+    margin-top: 3px;
+}
+
+.phone-button {
+    /*background-color: var(--color-light-freon-600);*/
+    margin-left: 4px;
+}
+.dark .phone-button {
+    /*background-color: var(--color-dark-accent-600);*/
+    margin-left: 4px;
+}
+.phone-outgoing {
+     /*background-color: var(--color-light-freon-600);*/
+    padding: 2px;
+}
+.dark .phone-outgoing {
+    /*background-color: var(--color-dark-accent-600);*/
+    padding: 2px;
+}
+
+.demo-table {
+    background-color: inherit;
+}
+.dark .demo-table {
+    background-color: inherit;
+}

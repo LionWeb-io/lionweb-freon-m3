@@ -1,32 +1,26 @@
-import { FreonLayout, WebappConfigurator } from "@freon4dsl/webapp-lib";
-import {FreLogger, ServerCommunication} from "@freon4dsl/core";
-import { LionCore_M3Environment } from "./freon/config/gen/LionCore_M3Environment.js";
-// import { LionWebRepositoryCommunication } from "@freon4dsl/core"
+import { mount } from 'svelte'
+import { FlowbiteFreonLayout, WebappConfigurator, setDevelopment, inDevelopment } from "@freon4dsl/weblib-flowbite"
+import { configureExternals } from "./external/externals.js"
+import { LanguageEnvironment } from "./freon/index.js";
+import { configureLoggers } from "./loggers.js"
+import { ServerCommunication } from "@freon4dsl/core"
+
 
 /**
  * The one and only reference to the actual language for which this editor runs
  */
-WebappConfigurator.getInstance().setEditorEnvironment(LionCore_M3Environment.getInstance());
+WebappConfigurator.getInstance().setEnvironment(
+    LanguageEnvironment.getInstance(), 
+    ServerCommunication.getInstance()
+);
 
-/**
- * The one and only reference to the server on which the models are stored
- */
-// WebappConfigurator.getInstance().setServerCommunication(LionWebRepositoryCommunication.getInstance());
-WebappConfigurator.getInstance().setServerCommunication(ServerCommunication.getInstance());
-
+configureExternals()
+configureLoggers()
 /**
  * Now start the app ...
  */
-const app = new FreonLayout({
-    target: document.body,
-});
-
-// FreLogger.unmute("FreLionwebSerializer")
-// FreLogger.unmute("TextComponent")
-// FreLogger.unmute("TextDropdownComponent")
-// FreLogger.unmute("FreEditor")
-// FreLogger.unmute("ReferenceBox")
-// FreLogger.unmute("UtilRefHelpers")
-// FreLogger.unmute("BehaviorUtils")
+const app = mount(FlowbiteFreonLayout, {
+    target: document.getElementById('freon')!,
+})
 
 export default app;
