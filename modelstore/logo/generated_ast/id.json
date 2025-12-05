@@ -1,0 +1,202 @@
+{
+    "language": "",
+    "version": "",
+    "key": "",
+    "languages": [
+        {
+            "name": "LionCore_builtins",
+            "key": "LionCore-builtins",
+            "id": "LionCore-builtins",
+            "version": "TODO"
+        },
+        {
+            "name": "LogoProgram",
+            "key": "-key-LogoProgram",
+            "id": "ID-2",
+            "version": "TODO"
+        }
+    ],
+    "classifiers": [
+        {
+            "name": "Node",
+            "id": "LionCore-builtins-Node",
+            "key": "LionCore-builtins-Node",
+            "properties": []
+        },
+        {
+            "name": "INamed",
+            "id": "LionCore-builtins-INamed",
+            "key": "LionCore-builtins-INamed",
+            "properties": [
+                {
+                    "name": "name",
+                    "key": "LionCore-builtins-INamed",
+                    "id": "LionCore-builtins-INamed-name"
+                }
+            ]
+        },
+        {
+            "name": "Program",
+            "id": "ID-32",
+            "key": "-key-Program",
+            "properties": [
+                {
+                    "name": "commands",
+                    "key": "-key-Program-commands",
+                    "id": "ID-33"
+                }
+            ]
+        },
+        {
+            "name": "Library",
+            "id": "ID-34",
+            "key": "-key-Library",
+            "properties": [
+                {
+                    "name": "procedures",
+                    "key": "-key-Library-procedures",
+                    "id": "ID-35"
+                }
+            ]
+        },
+        {
+            "name": "ICommand",
+            "id": "ID-3",
+            "key": "-key-ICommand",
+            "properties": []
+        },
+        {
+            "name": "MoveCommand",
+            "id": "ID-4",
+            "key": "-key-MoveCommand",
+            "properties": [
+                {
+                    "name": "direction",
+                    "key": "-key-MoveCommand-direction",
+                    "id": "ID-5"
+                },
+                {
+                    "name": "distance",
+                    "key": "-key-MoveCommand-distance",
+                    "id": "ID-6"
+                }
+            ]
+        },
+        {
+            "name": "List",
+            "id": "ID-15",
+            "key": "-key-List",
+            "properties": [
+                {
+                    "name": "commands",
+                    "key": "-key-List-commands",
+                    "id": "ID-16"
+                }
+            ]
+        },
+        {
+            "name": "SetPos",
+            "id": "ID-24",
+            "key": "-key-SetPos",
+            "properties": [
+                {
+                    "name": "x",
+                    "key": "-key-SetPos-x",
+                    "id": "ID-25"
+                },
+                {
+                    "name": "y",
+                    "key": "-key-SetPos-y",
+                    "id": "ID-26"
+                }
+            ]
+        },
+        {
+            "name": "SetHeading",
+            "id": "ID-18",
+            "key": "-key-SetHeading",
+            "properties": [
+                {
+                    "name": "degrees",
+                    "key": "-key-SetHeading-degrees",
+                    "id": "ID-19"
+                }
+            ]
+        },
+        {
+            "name": "HomeCommand",
+            "id": "ID-17",
+            "key": "-key-HomeCommand",
+            "properties": []
+        },
+        {
+            "name": "Repeat",
+            "id": "ID-12",
+            "key": "-key-Repeat",
+            "properties": [
+                {
+                    "name": "count",
+                    "key": "-key-Repeat-count",
+                    "id": "ID-13"
+                },
+                {
+                    "name": "list",
+                    "key": "-key-Repeat-list",
+                    "id": "ID-14"
+                }
+            ]
+        },
+        {
+            "name": "If",
+            "id": "ID-27",
+            "key": "-key-If",
+            "properties": [
+                {
+                    "name": "condition",
+                    "key": "-key-If-condition",
+                    "id": "ID-28"
+                },
+                {
+                    "name": "ifTrue",
+                    "key": "-key-If-ifTrue",
+                    "id": "ID-29"
+                },
+                {
+                    "name": "ifFalse",
+                    "key": "-key-If-ifFalse",
+                    "id": "ID-30"
+                }
+            ]
+        },
+        {
+            "name": "IExpression",
+            "id": "ID-31",
+            "key": "-key-IExpression",
+            "properties": []
+        },
+        {
+            "name": "Procedure",
+            "id": "ID-20",
+            "key": "-key-Procedure",
+            "properties": [
+                {
+                    "name": "body",
+                    "key": "-key-Procedure-body",
+                    "id": "ID-21"
+                },
+                {
+                    "name": "paremeter",
+                    "key": "-key-Procedure-paremeter",
+                    "id": "ID-22"
+                }
+            ]
+        },
+        {
+            "name": "Parameter",
+            "id": "ID-23",
+            "key": "-key-Parameter",
+            "properties": []
+        }
+    ],
+    "limited": []
+}

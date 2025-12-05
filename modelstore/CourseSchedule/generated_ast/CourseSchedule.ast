@@ -1,0 +1,70 @@
+language CourseSchedule
+
+modelunit Schedule {
+    timeSlots: Slot[];
+    name: identifier;
+    startDate: string;
+    internal: boolean;
+    optional: boolean;
+}
+
+ modelunit Staff {
+    teachers: Person[];
+    name: identifier;
+}
+
+ modelunit CourseCategory {
+    courses: Course[];
+    name: identifier;
+}
+
+ modelunit Buildings {
+    buildings: Building[];
+    name: identifier;
+}
+
+
+ concept Building {
+    rooms: Room[];
+    name: identifier;
+}
+
+ concept Slot {
+    reference time: TimeStamp;
+    reference teacher: Person;
+    reference room: Room;
+    reference course: Course;
+}
+
+limited TimeStamp {
+    MondayMorning;
+    TuesdayMorning;
+    WednesdayMorning;
+    ThursdayMorning;
+    FridayMorning;
+    MondayAfternoon;
+    TuesdayAfternoon;
+    WednesdayAfternoon;
+    ThursdayAfternoon;
+    FridayAfternoon;
+}
+
+ concept Person {
+    reference availability: TimeStamp[];
+    reference competence: Course[];
+    name: identifier;
+    fullName: string;
+    phone: string;
+}
+
+ concept Course {
+    name: identifier;
+    description: string;
+}
+
+ concept Room {
+    name: identifier;
+    equipment: string;
+}
+
+ 

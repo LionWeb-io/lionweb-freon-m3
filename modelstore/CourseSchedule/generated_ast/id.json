@@ -1,0 +1,233 @@
+{
+    "language": "",
+    "version": "",
+    "key": "",
+    "languages": [
+        {
+            "name": "CourseSchedule",
+            "key": "-key-CourseSchedule",
+            "id": "-id-CourseSchedule",
+            "version": "TODO"
+        },
+        {
+            "name": "LionCore_builtins",
+            "key": "LionCore-builtins",
+            "id": "LionCore-builtins",
+            "version": "TODO"
+        }
+    ],
+    "classifiers": [
+        {
+            "name": "Building",
+            "id": "-id-Building",
+            "key": "-key-Building",
+            "properties": [
+                {
+                    "name": "rooms",
+                    "key": "-key-Building-rooms",
+                    "id": "-id-Building-rooms"
+                },
+                {
+                    "name": "name",
+                    "key": "-key-Building-name",
+                    "id": "-id-Building-name"
+                }
+            ]
+        },
+        {
+            "name": "Slot",
+            "id": "-id-Slot",
+            "key": "-key-Slot",
+            "properties": [
+                {
+                    "name": "time",
+                    "key": "-key-Slot-time",
+                    "id": "-id-Slot-time"
+                },
+                {
+                    "name": "teacher",
+                    "key": "-key-Slot-teacher",
+                    "id": "-id-Slot-teacher"
+                },
+                {
+                    "name": "room",
+                    "key": "-key-Slot-room",
+                    "id": "-id-Slot-room"
+                },
+                {
+                    "name": "course",
+                    "key": "-key-Slot-course",
+                    "id": "-id-Slot-course"
+                }
+            ]
+        },
+        {
+            "name": "Person",
+            "id": "-id-Person",
+            "key": "-key-Person",
+            "properties": [
+                {
+                    "name": "availability",
+                    "key": "-key-Person-availability",
+                    "id": "-id-Person-availability"
+                },
+                {
+                    "name": "competence",
+                    "key": "-key-Person-competence",
+                    "id": "-id-Person-competence"
+                },
+                {
+                    "name": "name",
+                    "key": "-key-Person-name",
+                    "id": "-id-Person-name"
+                },
+                {
+                    "name": "fullName",
+                    "key": "-key-Person-fullName",
+                    "id": "-id-Person-fullName"
+                },
+                {
+                    "name": "phone",
+                    "key": "-key-Person-phone",
+                    "id": "-id-Person-phone"
+                }
+            ]
+        },
+        {
+            "name": "Course",
+            "id": "-id-Course",
+            "key": "-key-Course",
+            "properties": [
+                {
+                    "name": "name",
+                    "key": "-key-Course-name",
+                    "id": "-id-Course-name"
+                },
+                {
+                    "name": "description",
+                    "key": "-key-Course-description",
+                    "id": "-id-Course-description"
+                }
+            ]
+        },
+        {
+            "name": "Room",
+            "id": "-id-Room",
+            "key": "-key-Room",
+            "properties": [
+                {
+                    "name": "name",
+                    "key": "-key-Room-name",
+                    "id": "-id-Room-name"
+                },
+                {
+                    "name": "equipment",
+                    "key": "-key-Room-equipment",
+                    "id": "-id-Room-equipment"
+                }
+            ]
+        },
+        {
+            "name": "Schedule",
+            "id": "-id-Schedule",
+            "key": "-key-Schedule",
+            "properties": [
+                {
+                    "name": "timeSlots",
+                    "key": "-key-Schedule-timeSlots",
+                    "id": "-id-Schedule-timeSlots"
+                },
+                {
+                    "name": "name",
+                    "key": "-key-Schedule-name",
+                    "id": "-id-Schedule-name"
+                },
+                {
+                    "name": "startDate",
+                    "key": "-key-Schedule-startDate",
+                    "id": "-id-Schedule-startDate"
+                },
+                {
+                    "name": "internal",
+                    "key": "-key-Schedule-internal",
+                    "id": "-id-Schedule-internal"
+                },
+                {
+                    "name": "optional",
+                    "key": "-key-Schedule-optional",
+                    "id": "-id-Schedule-optional"
+                }
+            ]
+        },
+        {
+            "name": "Staff",
+            "id": "-id-Staff",
+            "key": "-key-Staff",
+            "properties": [
+                {
+                    "name": "teachers",
+                    "key": "-key-Staff-teachers",
+                    "id": "-id-Staff-teachers"
+                },
+                {
+                    "name": "name",
+                    "key": "-key-Staff-name",
+                    "id": "-id-Staff-name"
+                }
+            ]
+        },
+        {
+            "name": "CourseCategory",
+            "id": "-id-CourseCategory",
+            "key": "-key-CourseCategory",
+            "properties": [
+                {
+                    "name": "courses",
+                    "key": "-key-CourseCategory-courses",
+                    "id": "-id-CourseCategory-courses"
+                },
+                {
+                    "name": "name",
+                    "key": "-key-CourseCategory-name",
+                    "id": "-id-CourseCategory-name"
+                }
+            ]
+        },
+        {
+            "name": "Buildings",
+            "id": "-id-Buildings",
+            "key": "-key-Buildings",
+            "properties": [
+                {
+                    "name": "buildings",
+                    "key": "-key-Buildings-buildings",
+                    "id": "-id-Buildings-buildings"
+                },
+                {
+                    "name": "name",
+                    "key": "-key-Buildings-name",
+                    "id": "-id-Buildings-name"
+                }
+            ]
+        },
+        {
+            "name": "Node",
+            "id": "LionCore-builtins-Node",
+            "key": "LionCore-builtins-Node",
+            "properties": []
+        },
+        {
+            "name": "INamed",
+            "id": "LionCore-builtins-INamed",
+            "key": "LionCore-builtins-INamed",
+            "properties": [
+                {
+                    "name": "name",
+                    "key": "LionCore-builtins-INamed-name",
+                    "id": "LionCore-builtins-INamed-name"
+                }
+            ]
+        }
+    ],
+    "limited": []
+}

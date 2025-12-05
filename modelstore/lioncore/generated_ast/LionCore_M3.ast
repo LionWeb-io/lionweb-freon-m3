@@ -1,0 +1,68 @@
+language LionCore_M3
+
+ concept Annotation base Classifier {
+    reference annotates?: Classifier;
+    reference extends?: Annotation;
+    reference implements: Interface[];
+}
+
+ concept Concept base Classifier {
+    abstract: boolean;
+    partition: boolean;
+    reference extends?: Concept;
+    reference implements: Interface[];
+}
+
+ concept Interface base Classifier {
+    reference extends: Interface[];
+}
+
+ concept Containment base Link {
+}
+
+abstract  concept DataType base LanguageEntity {
+}
+
+ concept Enumeration base DataType {
+    literals: EnumerationLiteral[];
+}
+
+ concept EnumerationLiteral implements IKeyed  {
+}
+
+abstract  concept Feature implements IKeyed  {
+    optional: boolean;
+}
+
+abstract  concept Classifier base LanguageEntity {
+    features: Feature[];
+}
+
+abstract  concept Link base Feature {
+    multiple: boolean;
+    reference type: Classifier;
+}
+
+ modelunit Language implements IKeyed  {
+    version: string;
+    reference dependsOn: Language[];
+    entities: LanguageEntity[];
+}
+
+abstract  concept LanguageEntity implements IKeyed  {
+}
+
+interface IKeyed  base INamed {
+    key: string;
+}
+
+ concept PrimitiveType base DataType {
+}
+
+ concept Property base Feature {
+    reference type: DataType;
+}
+
+ concept Reference base Link {
+}
+

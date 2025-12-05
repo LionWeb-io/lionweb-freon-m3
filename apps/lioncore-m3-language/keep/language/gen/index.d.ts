@@ -1,0 +1,2 @@
+export { LionCore_M3, Language, Node, Annotation, Concept, Interface, Containment, DataType, Enumeration, EnumerationLiteral, Feature, Classifier, Link, LanguageEntity, PrimitiveType, Property, Reference, type INamed, type IKeyed, initializeLanguage, } from "./internal.js";
+//# sourceMappingURL=index.d.ts.map

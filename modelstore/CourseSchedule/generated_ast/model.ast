@@ -1,0 +1,10 @@
+language CourseSchedule
+
+model CourseSchedule {
+    name: identifier;
+    schedule: Schedule[];
+    staff: Staff[];
+    coursecategory: CourseCategory[];
+    buildings: Buildings[];
+}
+

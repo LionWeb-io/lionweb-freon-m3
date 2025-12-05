@@ -1,0 +1,1 @@
+{"version":3,"file":"AnnotationBoxProvider.d.ts","sourceRoot":"","sources":["AnnotationBoxProvider.ts"],"names":[],"mappings":"AAGA,OAAO,EACH,GAAG,EAEH,cAAc,EACd,oBAAoB,EAKvB,MAAM,iBAAiB,CAAC;AAazB,qBAAa,qBAAsB,SAAQ,cAAc;gBACzC,WAAW,EAAE,oBAAoB;IAO7C,SAAS,CAAC,UAAU,CAAC,cAAc,EAAE,MAAM,GAAG,GAAG;IAuBjD,OAAO,CAAC,UAAU;IAiGlB,OAAO,CAAC,UAAU;IAiGlB,OAAO,CAAC,UAAU;CAqGrB"}

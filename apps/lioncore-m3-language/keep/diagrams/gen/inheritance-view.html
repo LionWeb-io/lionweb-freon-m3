@@ -1,0 +1,96 @@
+<html>
+<body>
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script>
+    mermaid.initialize({ startOnLoad: true });
+</script>
+
+<h2 class="title"> Inheritance diagram for language LionCore_M3 </h2>
+<div class="mermaid">
+    %%{init: {'theme': 'forest'} }%%
+    classDiagram
+    direction TD
+    %% other possibilites: LR RL DT TB (same as TD)
+    class Annotation {
+        
+        
+    }
+    class Classifier:::abstract {
+        
+        
+    }
+    class Concept {
+        
+        + boolean abstract
+		+ boolean partition
+    }
+    class Interface {
+        
+        
+    }
+    class Containment {
+        
+        
+    }
+    class Link:::abstract {
+        
+        + boolean multiple
+    }
+    class DataType:::abstract {
+        
+        
+    }
+    class LanguageEntity:::abstract {
+        
+        + identifier name
+    }
+    class Enumeration {
+        
+        
+    }
+    class Feature:::abstract {
+        
+        + boolean optional
+		+ identifier name
+    }
+    class PrimitiveType {
+        
+        
+    }
+    class Property {
+        
+        
+    }
+    class Reference {
+        
+        
+    }
+    Classifier <|-- Annotation
+LanguageEntity <|-- Classifier
+Classifier <|-- Concept
+Classifier <|-- Interface
+Link <|-- Containment
+Feature <|-- Link
+LanguageEntity <|-- DataType
+DataType <|-- Enumeration
+DataType <|-- PrimitiveType
+Feature <|-- Property
+Link <|-- Reference
+
+</div>
+
+</body>
+</html>
+
+<style>
+    .abstract .classTitle {
+        font-style: italic;
+    }
+    .title {
+        font-family: "Gill Sans MT";
+    }
+    .interface .classTitle {
+        font-style: italic;
+        font-weight: bold;
+    }
+</style>

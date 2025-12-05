@@ -1,0 +1,13 @@
+language LionCore_builtins
+
+abstract  concept Node {
+}
+
+interface INamed {
+    name: identifier;
+}
+
+
+
+
+

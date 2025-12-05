@@ -1,0 +1,80 @@
+export const LionCore_M3GrammarStr = `
+namespace LionCore_M3Language
+grammar LionCore_M3Grammar {
+
+// rules for "Language"
+Language = 'language' identifier 'key' stringLiteral
+	 'version' stringLiteral
+	 'depends' 'on' 'languages:' __fre_reference* ;
+
+Enumeration = 'Enumeration' identifier '\{'
+	 'key' stringLiteral
+	 'literals'
+	 EnumerationLiteral*
+	 '}' ;
+
+EnumerationLiteral = 'EnumerationLiteral' identifier '\{'
+	 'key' stringLiteral
+	 '}' ;
+
+PrimitiveType = 'PrimitiveType' identifier '\{'
+	 'key' stringLiteral
+	 '}' ;
+
+Annotation = 'annotation' identifier 'annotates' __fre_reference? ( 'extends' __fre_reference )?
+	 ( 'implements' __fre_reference* )?
+	 '\{'
+	 Feature* ;
+
+Containment = ( 'optional' | 'mandatory' ) 'containment' identifier '(' stringLiteral '):' __fre_reference ( '*' | '1' ) ;
+
+Reference = ( 'optional' | 'mandatory' ) 'reference' identifier '(' stringLiteral '):' __fre_reference ( '*' | '1' ) ;
+
+Property = ( 'optional' | 'mandatory' ) 'property' identifier '(' stringLiteral '):' __fre_reference ;
+
+Concept = 'concept' identifier
+	 'key:' stringLiteral
+	 Feature* ;
+
+Interface = 'interface' identifier ( 'extends' __fre_reference* )?
+	 '\{'
+	 'key:' stringLiteral
+	 Feature* ;
+
+LanguageEntity = DataType 
+    | Classifier  ;
+
+DataType = Enumeration 
+    | PrimitiveType  ;
+
+Classifier = Annotation 
+    | Interface 
+    | Concept  ;
+
+Feature = Property 
+    | Link  ;
+
+Link = Containment 
+    | Reference  ;
+
+// common rules
+
+__fre_reference = [ identifier / '.' ]+ ;
+
+// white space and comments
+skip WHITE_SPACE = "\\s+" ;
+skip SINGLE_LINE_COMMENT = "//[^\\r\\n]*" ;
+skip MULTI_LINE_COMMENT = "/\\*[^*]*\\*+(?:[^*/][^*]*\\*+)*/" ;
+
+// the predefined basic types
+leaf identifier        = "\`[a-zA-Z0-9-_~!@#$%^&*()+={\\[}\\]|\:;\\"'<>,.?/][a-zA-Z0-9-_~!@#$%^&*()+={\\[}\\]|\:;\\"'<>,.?/]*\`" ;
+/* see https://stackoverflow.com/questions/37032620/regex-for-matching-a-string-literal-in-java */
+leaf optStringLiteral  = "<no-value>" | stringLiteral ;
+leaf stringLiteral     = '"' "[^\\"\\\\]*(\\\\.[^\\"\\\\]*)*" '"' ;
+leaf optNumberLiteral  = "<no-value>" | numberLiteral;
+leaf numberLiteral     = "[0-9]+";
+leaf optBooleanLiteral = "<no-value>" | booleanLiteral;
+leaf booleanLiteral    = 'false' | 'true';
+
+}`;
+//# sourceMappingURL=LionCore_M3Grammar.js.map

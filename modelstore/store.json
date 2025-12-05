@@ -1,5 +1,5 @@
 {
-    "currentPostfix": 2,
+    "currentPostfix": 4,
     "models": [
         {
             "folder": "lioncore",
@@ -13,6 +13,10 @@
                 {
                     "name": "LionCore_builtins",
                     "file": "LionCore_builtins.json"
+                },
+                {
+                    "name": "LionCore_M3",
+                    "file": "LionCore_M3.json"
                 }
             ],
             "version": "1"
@@ -38,12 +42,64 @@
             "name": "Delta",
             "units": [
                 {
-                    "file": "delta-language.json",
-                    "name": "Delta"
+                    "name": "Command",
+                    "file": "Command.json"
+                },
+                {
+                    "name": "Event",
+                    "file": "Event.json"
+                },
+                {
+                    "name": "DeltaTypes",
+                    "file": "DeltaTypes.json"
+                },
+                {
+                    "name": "Chunks",
+                    "file": "Chunks.json"
+                },
+                {
+                    "name": "Response",
+                    "file": "Response.json"
+                },
+                {
+                    "name": "Request",
+                    "file": "Request.json"
                 },
                 {
                     "name": "LionCore_builtins",
                     "file": "LionCore_builtins.json"
+                }
+            ]
+        },
+        {
+            "name": "testlanguage",
+            "folder": "testlanguage",
+            "language": "LionCore_M3",
+            "version": "1",
+            "units": [
+                {
+                    "name": "testLanguage",
+                    "file": "testLanguage.2025.1.json"
+                },
+                {
+                    "name": "LionCore_builtins",
+                    "file": "LionCore_builtins.json"
+                }
+            ]
+        },
+        {
+            "name": "logo",
+            "folder": "logo",
+            "language": "LionCore_M3",
+            "version": "1",
+            "units": [
+                {
+                    "name": "LionCore_builtins",
+                    "file": "LionCore_builtins.json"
+                },
+                {
+                    "name": "LogoProgram",
+                    "file": "LogoProgram.json"
                 }
             ]
         }

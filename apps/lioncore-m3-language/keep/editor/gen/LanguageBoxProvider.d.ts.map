@@ -1,0 +1,1 @@
+{"version":3,"file":"LanguageBoxProvider.d.ts","sourceRoot":"","sources":["LanguageBoxProvider.ts"],"names":[],"mappings":"AAGA,OAAO,EAAE,GAAG,EAAW,cAAc,EAAE,oBAAoB,EAA2B,MAAM,iBAAiB,CAAC;AAa9G,qBAAa,mBAAoB,SAAQ,cAAc;gBACvC,WAAW,EAAE,oBAAoB;IAO7C,SAAS,CAAC,UAAU,CAAC,cAAc,EAAE,MAAM,GAAG,GAAG;IAqBjD,OAAO,CAAC,UAAU;IAwDlB,OAAO,CAAC,UAAU;CAuDrB"}

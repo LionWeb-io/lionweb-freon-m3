@@ -1,0 +1,21 @@
+import { LionCore_M3Interpreter } from "../LionCore_M3Interpreter.js";
+export function LionCore_M3InterpreterInit(main) {
+    const interpreter = new LionCore_M3Interpreter(main);
+    main.registerFunction("Node", interpreter.evalNode);
+    main.registerFunction("Annotation", interpreter.evalAnnotation);
+    main.registerFunction("Concept", interpreter.evalConcept);
+    main.registerFunction("Interface", interpreter.evalInterface);
+    main.registerFunction("Containment", interpreter.evalContainment);
+    main.registerFunction("DataType", interpreter.evalDataType);
+    main.registerFunction("Enumeration", interpreter.evalEnumeration);
+    main.registerFunction("EnumerationLiteral", interpreter.evalEnumerationLiteral);
+    main.registerFunction("Feature", interpreter.evalFeature);
+    main.registerFunction("Classifier", interpreter.evalClassifier);
+    main.registerFunction("Link", interpreter.evalLink);
+    main.registerFunction("LanguageEntity", interpreter.evalLanguageEntity);
+    main.registerFunction("PrimitiveType", interpreter.evalPrimitiveType);
+    main.registerFunction("Property", interpreter.evalProperty);
+    main.registerFunction("Reference", interpreter.evalReference);
+    main.registerFunction("Language", interpreter.evalLanguage);
+}
+//# sourceMappingURL=LionCore_M3InterpreterInit.js.map

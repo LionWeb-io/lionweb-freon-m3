@@ -1,0 +1,1 @@
+{"version":3,"file":"InterfaceBoxProvider.d.ts","sourceRoot":"","sources":["InterfaceBoxProvider.ts"],"names":[],"mappings":"AAGA,OAAO,EAAE,GAAG,EAAW,cAAc,EAAE,oBAAoB,EAA2B,MAAM,iBAAiB,CAAC;AAa9G,qBAAa,oBAAqB,SAAQ,cAAc;gBACxC,WAAW,EAAE,oBAAoB;IAO7C,SAAS,CAAC,UAAU,CAAC,cAAc,EAAE,MAAM,GAAG,GAAG;IAuBjD,OAAO,CAAC,UAAU;IAuElB,OAAO,CAAC,UAAU;IAuElB,OAAO,CAAC,UAAU;CAsErB"}

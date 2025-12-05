@@ -1,0 +1,1 @@
+{"version":3,"file":"ContainmentBoxProvider.d.ts","sourceRoot":"","sources":["ContainmentBoxProvider.ts"],"names":[],"mappings":"AAGA,OAAO,EACH,GAAG,EAEH,cAAc,EACd,oBAAoB,EAKvB,MAAM,iBAAiB,CAAC;AAazB,qBAAa,sBAAuB,SAAQ,cAAc;gBAC1C,WAAW,EAAE,oBAAoB;IAO7C,SAAS,CAAC,UAAU,CAAC,cAAc,EAAE,MAAM,GAAG,GAAG;IAuBjD,OAAO,CAAC,UAAU;IAwClB,OAAO,CAAC,UAAU;IAwClB,OAAO,CAAC,UAAU;CAuCrB"}

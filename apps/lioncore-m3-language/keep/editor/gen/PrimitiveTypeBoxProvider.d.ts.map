@@ -1,0 +1,1 @@
+{"version":3,"file":"PrimitiveTypeBoxProvider.d.ts","sourceRoot":"","sources":["PrimitiveTypeBoxProvider.ts"],"names":[],"mappings":"AAGA,OAAO,EAAE,GAAG,EAAW,cAAc,EAAE,oBAAoB,EAAc,MAAM,iBAAiB,CAAC;AAWjG,qBAAa,wBAAyB,SAAQ,cAAc;gBAC5C,WAAW,EAAE,oBAAoB;IAO7C,SAAS,CAAC,UAAU,CAAC,cAAc,EAAE,MAAM,GAAG,GAAG;IAmBjD,OAAO,CAAC,UAAU;CAqCrB"}

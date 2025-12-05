@@ -1,0 +1,7 @@
+language lioncore
+
+model lioncore {
+    name: identifier;
+    language: Language[];
+}
+
