@@ -88,6 +88,22 @@
             ]
         },
         {
+            "name": "DeltaLanguage",
+            "folder": "DeltaLanguage",
+            "language": "LionCore_M3",
+            "version": "1",
+            "units": [
+                {
+                    "name": "Protocol",
+                    "file": "Protocol.json"
+                },
+                {
+                    "name": "LionCore_builtins",
+                    "file": "LionCore_builtins.json"
+                }
+            ]
+        },
+        {
             "name": "logo",
             "folder": "logo",
             "language": "LionCore_M3",
