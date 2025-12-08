@@ -1,0 +1,9 @@
+language DeltaLanguage
+
+model Protocol {
+    name: identifier;
+    types: Types[];
+    messagegroup: MessageGroup[];
+}
+
+

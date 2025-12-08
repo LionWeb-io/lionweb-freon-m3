@@ -56,6 +56,7 @@ export class ConvertDelta2TypescriptAction extends CommandLineAction {
                 this.createDirIfNotExisting(deltaFolderName + "/generated_ts")
                 fs.readdirSync(deltaFolderName).forEach(file => {
                     if (file.endsWith(".json")) {
+                        console.log(`Reading file ${file}`)
                         this.readModelUnitFromFile(deltaFolderName + '/' + file)
                     } else {
                         console.log(`Ignoring file ${file}, not a json extension`)
@@ -81,17 +82,17 @@ export class ConvertDelta2TypescriptAction extends CommandLineAction {
             if (ts.freLanguageConcept() === "MessageGroup") {
                 messageGroups.push(ts as MessageGroup)
                 AST.changeNamed("Add MessageGroup to Protocol", () => {
-                    localProtocol.categories.push(ts as MessageGroup)
+                    localProtocol.messagegroup.push(ts as MessageGroup)
                 })
             }
             if (ts.freLanguageConcept() === "Types") {
                 types.push(ts as Types)
                 AST.changeNamed("Add Types to Protocol", () => {
-                    localProtocol.typeDefinitions.push(ts as Types)
+                    localProtocol.types.push(ts as Types)
                 })
             }
         }
-        this.protocol.categories.forEach(messageGroup => {
+        this.protocol.messagegroup.forEach(messageGroup => {
             console.log(`GENERATING message group ${messageGroup.name}`)
             // const eventDefinitions = messageGroups.find(mg => mg.name === "Event")
             const eventTemplate = new TypeTemplates()
@@ -102,7 +103,7 @@ export class ConvertDelta2TypescriptAction extends CommandLineAction {
             const jsonResult = TypeTemplates.pretty("typescript", eventTemplate.messageGroup2DefinitionTemplate(messageGroup))
             this.writeToFile(`${deltaFolderName}${pathSeparator}generated_ts${pathSeparator}${messageGroup.name}Definitions.ts`, jsonResult);
         })
-        this.protocol.typeDefinitions.forEach(typeDef => {
+        this.protocol.types.forEach(typeDef => {
             console.log(`GENERATING types ${typeDef.name}`)
             // const eventDefinitions = messageGroups.find(mg => mg.name === "Event")
             const eventTemplate = new TypeTemplates()
@@ -147,6 +148,7 @@ export class ConvertDelta2TypescriptAction extends CommandLineAction {
             }
             // return null
         }
+        
         const ts = serialzer.toTypeScriptInstance(metamodel);
         this.allModelUnits.push(ts as FreModelUnit);
     }
