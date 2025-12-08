@@ -1,0 +1,30 @@
+scoper for language Protocol 
+
+isNamespace { Types, MessageGroup, ObjectType }
+
+// MessageGroup {
+//     imports {
+//         self.owner().typeDefinitions;
+//     }
+// }
+
+ObjectType {
+    alternatives {
+        self.owner().if(MessageGroup).owner().types;
+        self.owner().if(MessageGroup).owner();
+        self.owner().if(Types).owner().types;
+        self.owner().if(Types).owner();
+    }
+}
+
+MessageGroup {
+    imports {
+        self.owner().types;
+    }
+}
+
+Types {
+    imports {
+        self.owner().types;
+    }
+}

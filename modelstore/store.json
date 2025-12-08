@@ -3,7 +3,7 @@
     "models": [
         {
             "folder": "lioncore",
-            "language": "",
+            "language": "LionCore_M3",
             "name": "LionCore",
             "units": [
                 {
@@ -23,7 +23,7 @@
         },
         {
             "folder": "CourseSchedule",
-            "language": "",
+            "language": "LionCore_M3",
             "name": "CourseSchedule",
             "units": [
                 {
@@ -38,7 +38,7 @@
         },
         {
             "folder": "delta",
-            "language": "",
+            "language": "Protocol",
             "name": "Delta",
             "units": [
                 {
