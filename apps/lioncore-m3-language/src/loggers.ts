@@ -4,7 +4,7 @@
 
 // import { FreLogger } from "@freon4dsl/core";
 
-import { FreLogger } from "@freon4dsl/core";
+// import { FreLogger } from "@freon4dsl/core";
 import { setDevelopment } from "@freon4dsl/weblib-flowbite";
 
 /**
@@ -16,8 +16,8 @@ export function configureLoggers() {
     setDevelopment(true)
     
     // Activate the following loggers
-    FreLogger.unmute("FreEditor")
-    FreLogger.unmute("Box")
+    // FreLogger.unmute("FreEditor")
+    // FreLogger.unmute("Box")
     // FreLogger.unmute("AstChanger")
     // FreLogger.unmute("ReferenceUpdateManager")
     // FreLogger.unmute("ReferenceUpdateWorker")
