@@ -9,7 +9,7 @@
         "build": "npm run generate && tsc",
         "build-app": "vite build",
         "dev": "vite",
-        "generate-delta-types": "node dist/custom/FreonCommandLineRunner.js folder -f ./modelstore/Delta",
+        "generate-delta-types": "node dist/custom/FreonCommandLineRunner.js folder -f ../../modelstore/delta -o protocolgen",
         "preview": "vite preview",
         "start": "sirv public --port 8000",
         "validate": "svelte-check --tsconfig ./tsconfig.json",

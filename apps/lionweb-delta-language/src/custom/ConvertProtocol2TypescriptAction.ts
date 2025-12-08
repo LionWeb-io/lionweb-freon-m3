@@ -4,10 +4,8 @@ import { CommandLineAction, CommandLineStringParameter } from "@rushstack/ts-com
 import fs from "fs";
 import path from "path"
 import { LanguageEnvironment } from "../freon/index.js"
-import { PrimitiveType, MessageGroup, ObjectType, Type, Types, Protocol } from "../freon/language/index.js"
+import { MessageGroup, Types, Protocol } from "../freon/language/index.js"
 
-// import { AstTemplate } from "./templates/AstTemplate.js";
-// import { IdTemplate } from "./templates/IdTemplate.js";
 import { TypeTemplates } from "./templates/TypeTemplates.js"
 
 const pathSeparator = path.sep
@@ -19,9 +17,14 @@ const linkmap: Map<string, string> = new Map<string, string>([
     ["Response", "https://github.com/LionWeb-io/specification/blob/main/delta/queries.adoc#qry"]
 ])
 
-export class ConvertDelta2TypescriptAction extends CommandLineAction {
-    // protected model: CommandLineStringParameter;
-    protected lionWebM3File: CommandLineStringParameter;
+/**
+ * Action to convert a Protocol model to
+ *   - typescript types, and
+ *   - type-definitions useable by the @lionweb/validation package.
+ */
+export class ConvertProtocol2TypescriptAction extends CommandLineAction {
+    protected protocolModelFolder: CommandLineStringParameter;
+    protected outputFolder: CommandLineStringParameter;
     protected allModelUnits: FreModelUnit[] = [];
     protected protocol: Protocol = new Protocol();
 
@@ -29,13 +32,20 @@ export class ConvertDelta2TypescriptAction extends CommandLineAction {
         super({
             actionName: "folder",
             summary: "Create .ts file from Delta model in folder",
-            documentation: "Lionweb Delta to TypeScript types generator"
+            documentation: "Lionweb Protocol to TypeScript types generator"
         });
-        this.lionWebM3File = this.defineStringParameter({
+        this.protocolModelFolder = this.defineStringParameter({
             argumentName: "DELTA_MODEL_FOLDER",
             parameterLongName: "--folder",
             parameterShortName: "-f",
-            description: "Folder containing delta definitions in json format"
+            description: "Folder containing protocol definitions in LionWeb json format"
+        });
+        this.outputFolder = this.defineStringParameter({
+            argumentName: "OUTPOUT_FOLDER",
+            parameterLongName: "--output",
+            parameterShortName: "-o",
+            description: "Folder where TypeScript files are generated.",
+            required: true
         });
         this.protocol.name = "DeltaProtocol"
         LanguageEnvironment.getInstance()
@@ -46,35 +56,35 @@ export class ConvertDelta2TypescriptAction extends CommandLineAction {
         await self.convertDelta2ts()
         return null
     }
-    
+
     async convertDelta2ts(): Promise<string> {
         let language: string = "unknownLanguage"
-        const deltaFolderName = this.lionWebM3File.value
-        if (fs.existsSync(deltaFolderName)) {
-            const stats = fs.statSync(deltaFolderName);
+        const protocolFolderName = this.protocolModelFolder.value
+        const outFolderName = this.outputFolder.value
+
+        // Read all the inpput files
+        if (fs.existsSync(protocolFolderName)) {
+            const stats = fs.statSync(protocolFolderName);
             if (stats.isDirectory()) {
-                this.createDirIfNotExisting(deltaFolderName + "/generated_ts")
-                fs.readdirSync(deltaFolderName).forEach(file => {
+                this.createDirIfNotExisting(protocolFolderName + "/generated_ts")
+                fs.readdirSync(protocolFolderName).forEach(file => {
                     if (file.endsWith(".json")) {
                         console.log(`Reading file ${file}`)
-                        this.readModelUnitFromFile(deltaFolderName + '/' + file)
+                        this.readModelUnitFromFile(protocolFolderName + '/' + file)
                     } else {
                         console.log(`Ignoring file ${file}, not a json extension`)
                     }
                 });
             } else {
-                console.error(`ERROR: Argument ${deltaFolderName} is not a directory`);
+                console.error(`ERROR: Argument ${protocolFolderName} is not a directory`);
                 return "error"
             }
         } else {
-            console.error(`ERROR: File or folder ${deltaFolderName} does not exist`)
+            console.error(`ERROR: File or folder ${protocolFolderName} does not exist`)
             return "error"
         }
 
-        this.createDirIfNotExisting(deltaFolderName + "/generated_ts")
-
-        const enumerations: string[] = [];
-        const primitiveTypes: string[] = [];
+        // Collect different classifiers in the language
         const messageGroups: MessageGroup[] = []
         const types: Types[] = []
         const localProtocol = this.protocol
@@ -92,69 +102,58 @@ export class ConvertDelta2TypescriptAction extends CommandLineAction {
                 })
             }
         }
+
+        // Write output files
+        this.createDirIfNotExisting(outFolderName)
         this.protocol.messagegroup.forEach(messageGroup => {
             console.log(`GENERATING message group ${messageGroup.name}`)
             // const eventDefinitions = messageGroups.find(mg => mg.name === "Event")
             const eventTemplate = new TypeTemplates()
             // const result = eventTemplate.commandTemplate();
             const result = TypeTemplates.pretty("typescript", eventTemplate.commandTemplate(messageGroup, linkmap.get(messageGroup.name)), "Generated from LionWeb Delta Model");
-            this.writeToFile(`${deltaFolderName}${pathSeparator}generated_ts${pathSeparator}${messageGroup.name}.ts`, result);
-            
+            this.writeToFile(`${outFolderName}${pathSeparator}${messageGroup.name}.ts`, result);
+
             const jsonResult = TypeTemplates.pretty("typescript", eventTemplate.messageGroup2DefinitionTemplate(messageGroup))
-            this.writeToFile(`${deltaFolderName}${pathSeparator}generated_ts${pathSeparator}${messageGroup.name}Definitions.ts`, jsonResult);
+            this.writeToFile(`${outFolderName}${pathSeparator}${messageGroup.name}Definitions.ts`, jsonResult);
         })
         this.protocol.types.forEach(typeDef => {
             console.log(`GENERATING types ${typeDef.name}`)
             // const eventDefinitions = messageGroups.find(mg => mg.name === "Event")
             const eventTemplate = new TypeTemplates()
             const result = TypeTemplates.pretty("typescript", eventTemplate.typeTemplate(typeDef), "Generated from LionWeb Delta Model");
-            this.writeToFile(`${deltaFolderName}${pathSeparator}generated_ts${pathSeparator}${typeDef.name}.ts`, result);
+            this.writeToFile(`${outFolderName}${pathSeparator}${typeDef.name}.ts`, result);
 
             const jsonResult = TypeTemplates.pretty("typescript", eventTemplate.types2DefinitionTemplate(typeDef))
-            this.writeToFile(`${deltaFolderName}${pathSeparator}generated_ts${pathSeparator}${typeDef.name}Definitions.ts`, jsonResult);
+            this.writeToFile(`${outFolderName}${pathSeparator}${typeDef.name}Definitions.ts`, jsonResult);
         })
 
-        
-        // for (const ts of this.allModelUnits) {
-        //     const lion2freon = new AstTemplate(enumerations, primitiveTypes, partitions);
-        //     const result = lion2freon.generateFreonAst(ts);
-        //     this.writeAstToFile(`${deltaFolderName}${pathSeparator}generated_ts${pathSeparator}${ts.name}`, result);
-        // }
-        // Find model name as language name
-        // const separatorIndex = deltaFolderName.lastIndexOf(pathSeparator)
-        // if (separatorIndex !== -1) {
-        //     language = deltaFolderName.substring(separatorIndex + 1)
-        // } else {
-        //     language = deltaFolderName
-        // }
-        
         return "void";
     }
 
     /**
-     * 
+     *
      */
     readModelUnitFromFile(filename: string): void {
-        const serialzer = new FreLionwebSerializer();
-        let metamodel= JSON.parse(fs.readFileSync(filename).toString());
+        const serializer = new FreLionwebSerializer();
+        let metamodel = JSON.parse(fs.readFileSync(filename).toString());
         // Assume it us a language in the rest of the method
         // TODO call validator to check this.
         const validator = new LionWebValidator(metamodel, new LanguageRegistry())
         validator.validateSyntax()
         validator.validateReferences()
         if (validator.validationResult.hasErrors()) {
-            for(const err of validator.validationResult.issues) {
+            for (const err of validator.validationResult.issues) {
                 console.log("Issue: " + err.errorMsg())
             }
-            // return null
+            return
         }
-        
-        const ts = serialzer.toTypeScriptInstance(metamodel);
+
+        const ts = serializer.toTypeScriptInstance(metamodel);
         this.allModelUnits.push(ts as FreModelUnit);
     }
 
     writeToFile(filename: string, tsCode: string): void {
-        console.log(`Writing to file ${filename }`)
+        console.log(`Writing to file ${filename}`)
         fs.writeFileSync(filename, tsCode);
     }
 

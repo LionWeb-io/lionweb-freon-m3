@@ -21,9 +21,9 @@
         "preview": "vite preview",
         "start": "sirv public --port 8000",
         "generate": "freon all -d src/defs -o src/freon",
-        "generate-lionc ore": "node apps/lioncore-m3-language/dist/freon/commandline/FreonCommandLineRunner.js folder -f modelstore/lioncore",
+        "generate-lioncore": "node ./apps/lioncore-m3-language/dist/custom/FreonCommandLineRunner.js generate-freon -f modelstore/lioncore -o output",
         "generate-course": "node dist/freon/commandline/FreonCommandLineRunner.js folder -f modelstore/CourseSchedule",
-        "generate-delta": "node apps/lionweb-delta-language/dist/freon/commandline/FreonCommandLineRunner.js folder -f modelstore/delta",
+        "generate-delta": "node ./apps/lioncore-m3-language/dist/custom/FreonCommandLineRunner.js generate-freon -f modelstore/Protocol -o apps/lionweb-delta-language/src/defs",
         "generate-shapes": "node dist/freon/commandline/FreonCommandLineRunner.js folder -f modelstore/Shapes",
         "generate-diagram": "node dist/freon/commandline/FreonCommandLineRunner.js folder -f modelstore/diagram",
         "generate-logo": "node apps/lionweb-logo-language/dist/freon/commandline/FreonCommandLineRunner.js folder -f modelstore/logo",
@@ -31,7 +31,7 @@
         "validate": "svelte-check --tsconfig ./tsconfig.json",
         "errors-only": "svelte-check --threshold error --tsconfig ./tsconfig.json",
         "styles": "cross-env NODE_ENV=production npx @tailwindcss/cli -i styles/webapp-styles.css -o ./public/site.css",
-        "server": "node ./node_modules/@freon4dsl/server/dist/server/server-starter.js"
+        "server": "node ./apps/lioncore-m3-language/node_modules/@freon4dsl/server/dist/server/server-starter.js"
     },
     "devDependencies": {
         "@freon4dsl/meta": "~2.1.0",

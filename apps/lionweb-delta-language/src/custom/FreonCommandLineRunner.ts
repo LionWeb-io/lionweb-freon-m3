@@ -3,7 +3,7 @@
 // Run this as the main program.
 
 import { LanguageEnvironment } from "../freon/index.js";
-import { ConvertDelta2TypescriptAction } from "./ConvertDelta2TypescriptAction.js"
+import { ConvertProtocol2TypescriptAction } from "./ConvertProtocol2TypescriptAction.js"
 
 import { FreonCommandLine } from "../freon/commandline/FreonCommandLine.js";
 // import { DummyAction } from "./gen/DummyAction.js";
@@ -16,7 +16,7 @@ const cli: FreonCommandLine = new FreonCommandLine();
 
 // Add specific actions to the command line tool
 // REPLACE WITH YOUR OWN
-cli.addAction(new ConvertDelta2TypescriptAction());
+cli.addAction(new ConvertProtocol2TypescriptAction());
 
 // Run it
 cli.executeAsync();

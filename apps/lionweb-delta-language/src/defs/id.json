@@ -18,19 +18,6 @@
     ],
     "classifiers": [
         {
-            "name": "LionCore-M3",
-            "id": "-id-Language",
-            "key": "Language",
-            "version": "TODO",
-            "properties": [
-                {
-                    "name": "name",
-                    "key": "LionCore-builtins-INamed-name",
-                    "id": "LionCore-builtins-INamed-name"
-                }
-            ]
-        },
-        {
             "name": "Node",
             "id": "LionCore-builtins-Node",
             "key": "LionCore-builtins-Node",

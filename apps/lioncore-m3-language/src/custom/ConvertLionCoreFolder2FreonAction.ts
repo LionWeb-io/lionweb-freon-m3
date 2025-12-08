@@ -10,8 +10,10 @@ import { IdTemplate } from "./templates/IdTemplate.js";
 
 const pathSeparator = path.sep
 
+/**
+ * Action to convert a LionCore Language to a (set of) Freon AST file(s).
+ */
 export class ConvertLionCoreFolder2FreonAction extends CommandLineAction {
-    protected model: CommandLineStringParameter;
     protected lionWebM3File: CommandLineStringParameter;
     protected outputFolder: CommandLineStringParameter;
     protected allModelUnits: FreModelUnit[] = [];
@@ -48,10 +50,12 @@ export class ConvertLionCoreFolder2FreonAction extends CommandLineAction {
         return null
     }
     
-    async convertLionCore2Freon(): Promise<string> {
+    async convertLionCore2Freon(): Promise<void> {
         let language: string = "unknownLanguage"
         const mmFolderName = this.lionWebM3File.value
         const outFolderName = this.outputFolder.value
+        
+        // Read all the input files
         if (fs.existsSync(mmFolderName)) {
             const stats = fs.statSync(mmFolderName);
             if (stats.isDirectory()) {
@@ -64,15 +68,14 @@ export class ConvertLionCoreFolder2FreonAction extends CommandLineAction {
                 });
             } else {
                 console.error(`ERROR: Argument ${mmFolderName} is not a directory`);
-                return "error"
+                return
             }
         } else {
             console.error(`ERROR: File or folder ${mmFolderName} does not exist`)
-            return "error"
+            return
         }
 
-        this.createDirIfNotExisting(outFolderName)
-
+        // Collect different classifiers in the language
         const enumerations: string[] = [];
         const primitiveTypes: string[] = [];
         const partitions: Concept[] = []
@@ -91,6 +94,8 @@ export class ConvertLionCoreFolder2FreonAction extends CommandLineAction {
             });
         }
 
+        // Generate the output files
+        this.createDirIfNotExisting(outFolderName)
         for (const ts of this.allModelUnits) {
             const lion2freon = new AstTemplate(enumerations, primitiveTypes, partitions);
             const result = lion2freon.generateFreonAst(ts);
@@ -103,16 +108,14 @@ export class ConvertLionCoreFolder2FreonAction extends CommandLineAction {
         } else {
             language = mmFolderName
         }
-        
         this.writeModelToFile(`${outFolderName}${pathSeparator}`, language, partitions);        
-        return "void";
     }
 
     /**
      * 
      */
     readModelUnitFromFile(filename: string): void {
-        const serialzer = new FreLionwebSerializer();
+        const serializer = new FreLionwebSerializer();
         let metamodel= JSON.parse(fs.readFileSync(filename).toString());
         // Assume it us a language in the rest of the method
         // TODO call validator to check this.
@@ -123,9 +126,9 @@ export class ConvertLionCoreFolder2FreonAction extends CommandLineAction {
             for(const err of validator.validationResult.issues) {
                 console.log("Issue: " + err.errorMsg())
             }
-            // return null
+            return
         }
-        const ts = serialzer.toTypeScriptInstance(metamodel);
+        const ts = serializer.toTypeScriptInstance(metamodel);
         this.allModelUnits.push(ts as FreModelUnit);
     }
 
