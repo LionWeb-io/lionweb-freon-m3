@@ -2,7 +2,7 @@
    "serializationFormatVersion": "2023.1",
    "languages": [
       {
-         "key": "-key-protocol",
+         "key": "-key-Protocol",
          "version": "2023.1"
       }
    ],
@@ -10,14 +10,14 @@
       {
          "id": "ID-395",
          "classifier": {
-            "language": "-key-protocol",
+            "language": "-key-Protocol",
             "version": "2023.1",
             "key": "-key-MessageGroup"
          },
          "properties": [
             {
                "property": {
-                  "language": "-key-protocol",
+                  "language": "-key-Protocol",
                   "version": "2023.1",
                   "key": "-key-MessageGroup-taggedUnionProperty"
                },
@@ -25,7 +25,7 @@
             },
             {
                "property": {
-                  "language": "-key-protocol",
+                  "language": "-key-Protocol",
                   "version": "2023.1",
                   "key": "-key-Type-name"
                },
@@ -35,7 +35,7 @@
          "containments": [
             {
                "containment": {
-                  "language": "-key-protocol",
+                  "language": "-key-Protocol",
                   "version": "2023.1",
                   "key": "-key-MessageGroup-messages"
                },
@@ -47,12 +47,13 @@
                   "ID-147",
                   "ID-293",
                   "ID-306",
-                  "ID-149"
+                  "ID-149",
+                  "ID-414"
                ]
             },
             {
                "containment": {
-                  "language": "-key-protocol",
+                  "language": "-key-Protocol",
                   "version": "2023.1",
                   "key": "-key-MessageGroup-sharedProperties"
                },
@@ -70,14 +71,14 @@
       {
          "id": "ID-439",
          "classifier": {
-            "language": "-key-protocol",
+            "language": "-key-Protocol",
             "version": "2023.1",
             "key": "-key-ObjectType"
          },
          "properties": [
             {
                "property": {
-                  "language": "-key-protocol",
+                  "language": "-key-Protocol",
                   "version": "2023.1",
                   "key": "-key-Type-name"
                },
@@ -87,7 +88,7 @@
          "containments": [
             {
                "containment": {
-                  "language": "-key-protocol",
+                  "language": "-key-Protocol",
                   "version": "2023.1",
                   "key": "-key-ObjectType-properties"
                },
@@ -101,14 +102,14 @@
       {
          "id": "ID-155",
          "classifier": {
-            "language": "-key-protocol",
+            "language": "-key-Protocol",
             "version": "2023.1",
             "key": "-key-ObjectType"
          },
          "properties": [
             {
                "property": {
-                  "language": "-key-protocol",
+                  "language": "-key-Protocol",
                   "version": "2023.1",
                   "key": "-key-Type-name"
                },
@@ -118,7 +119,7 @@
          "containments": [
             {
                "containment": {
-                  "language": "-key-protocol",
+                  "language": "-key-Protocol",
                   "version": "2023.1",
                   "key": "-key-ObjectType-properties"
                },
@@ -134,14 +135,14 @@
       {
          "id": "ID-156",
          "classifier": {
-            "language": "-key-protocol",
+            "language": "-key-Protocol",
             "version": "2023.1",
             "key": "-key-PropertyDef"
          },
          "properties": [
             {
                "property": {
-                  "language": "-key-protocol",
+                  "language": "-key-Protocol",
                   "version": "2023.1",
                   "key": "-key-PropertyDef-name"
                },
@@ -149,7 +150,7 @@
             },
             {
                "property": {
-                  "language": "-key-protocol",
+                  "language": "-key-Protocol",
                   "version": "2023.1",
                   "key": "-key-PropertyDef-mayBeNull"
                },
@@ -157,7 +158,7 @@
             },
             {
                "property": {
-                  "language": "-key-protocol",
+                  "language": "-key-Protocol",
                   "version": "2023.1",
                   "key": "-key-PropertyDef-isList"
                },
@@ -165,7 +166,7 @@
             },
             {
                "property": {
-                  "language": "-key-protocol",
+                  "language": "-key-Protocol",
                   "version": "2023.1",
                   "key": "-key-PropertyDef-isOptional"
                },
@@ -176,7 +177,7 @@
          "references": [
             {
                "reference": {
-                  "language": "-key-protocol",
+                  "language": "-key-Protocol",
                   "version": "2023.1",
                   "key": "-key-PropertyDef-type"
                },
@@ -194,14 +195,14 @@
       {
          "id": "ID-283",
          "classifier": {
-            "language": "-key-protocol",
+            "language": "-key-Protocol",
             "version": "2023.1",
             "key": "-key-ObjectType"
          },
          "properties": [
             {
                "property": {
-                  "language": "-key-protocol",
+                  "language": "-key-Protocol",
                   "version": "2023.1",
                   "key": "-key-Type-name"
                },
@@ -211,7 +212,7 @@
          "containments": [
             {
                "containment": {
-                  "language": "-key-protocol",
+                  "language": "-key-Protocol",
                   "version": "2023.1",
                   "key": "-key-ObjectType-properties"
                },
@@ -225,14 +226,14 @@
       {
          "id": "ID-140",
          "classifier": {
-            "language": "-key-protocol",
+            "language": "-key-Protocol",
             "version": "2023.1",
             "key": "-key-ObjectType"
          },
          "properties": [
             {
                "property": {
-                  "language": "-key-protocol",
+                  "language": "-key-Protocol",
                   "version": "2023.1",
                   "key": "-key-Type-name"
                },
@@ -242,7 +243,7 @@
          "containments": [
             {
                "containment": {
-                  "language": "-key-protocol",
+                  "language": "-key-Protocol",
                   "version": "2023.1",
                   "key": "-key-ObjectType-properties"
                },
@@ -258,14 +259,14 @@
       {
          "id": "ID-141",
          "classifier": {
-            "language": "-key-protocol",
+            "language": "-key-Protocol",
             "version": "2023.1",
             "key": "-key-PropertyDef"
          },
          "properties": [
             {
                "property": {
-                  "language": "-key-protocol",
+                  "language": "-key-Protocol",
                   "version": "2023.1",
                   "key": "-key-PropertyDef-name"
                },
@@ -273,7 +274,7 @@
             },
             {
                "property": {
-                  "language": "-key-protocol",
+                  "language": "-key-Protocol",
                   "version": "2023.1",
                   "key": "-key-PropertyDef-mayBeNull"
                },
@@ -281,7 +282,7 @@
             },
             {
                "property": {
-                  "language": "-key-protocol",
+                  "language": "-key-Protocol",
                   "version": "2023.1",
                   "key": "-key-PropertyDef-isList"
                },
@@ -289,7 +290,7 @@
             },
             {
                "property": {
-                  "language": "-key-protocol",
+                  "language": "-key-Protocol",
                   "version": "2023.1",
                   "key": "-key-PropertyDef-isOptional"
                },
@@ -300,7 +301,7 @@
          "references": [
             {
                "reference": {
-                  "language": "-key-protocol",
+                  "language": "-key-Protocol",
                   "version": "2023.1",
                   "key": "-key-PropertyDef-type"
                },
@@ -318,14 +319,14 @@
       {
          "id": "ID-147",
          "classifier": {
-            "language": "-key-protocol",
+            "language": "-key-Protocol",
             "version": "2023.1",
             "key": "-key-ObjectType"
          },
          "properties": [
             {
                "property": {
-                  "language": "-key-protocol",
+                  "language": "-key-Protocol",
                   "version": "2023.1",
                   "key": "-key-Type-name"
                },
@@ -335,7 +336,7 @@
          "containments": [
             {
                "containment": {
-                  "language": "-key-protocol",
+                  "language": "-key-Protocol",
                   "version": "2023.1",
                   "key": "-key-ObjectType-properties"
                },
@@ -349,14 +350,14 @@
       {
          "id": "ID-293",
          "classifier": {
-            "language": "-key-protocol",
+            "language": "-key-Protocol",
             "version": "2023.1",
             "key": "-key-ObjectType"
          },
          "properties": [
             {
                "property": {
-                  "language": "-key-protocol",
+                  "language": "-key-Protocol",
                   "version": "2023.1",
                   "key": "-key-Type-name"
                },
@@ -366,7 +367,7 @@
          "containments": [
             {
                "containment": {
-                  "language": "-key-protocol",
+                  "language": "-key-Protocol",
                   "version": "2023.1",
                   "key": "-key-ObjectType-properties"
                },
@@ -382,14 +383,14 @@
       {
          "id": "ID-298",
          "classifier": {
-            "language": "-key-protocol",
+            "language": "-key-Protocol",
             "version": "2023.1",
             "key": "-key-PropertyDef"
          },
          "properties": [
             {
                "property": {
-                  "language": "-key-protocol",
+                  "language": "-key-Protocol",
                   "version": "2023.1",
                   "key": "-key-PropertyDef-name"
                },
@@ -397,7 +398,7 @@
             },
             {
                "property": {
-                  "language": "-key-protocol",
+                  "language": "-key-Protocol",
                   "version": "2023.1",
                   "key": "-key-PropertyDef-mayBeNull"
                },
@@ -405,7 +406,7 @@
             },
             {
                "property": {
-                  "language": "-key-protocol",
+                  "language": "-key-Protocol",
                   "version": "2023.1",
                   "key": "-key-PropertyDef-isList"
                },
@@ -413,7 +414,7 @@
             },
             {
                "property": {
-                  "language": "-key-protocol",
+                  "language": "-key-Protocol",
                   "version": "2023.1",
                   "key": "-key-PropertyDef-isOptional"
                },
@@ -424,7 +425,7 @@
          "references": [
             {
                "reference": {
-                  "language": "-key-protocol",
+                  "language": "-key-Protocol",
                   "version": "2023.1",
                   "key": "-key-PropertyDef-type"
                },
@@ -442,14 +443,14 @@
       {
          "id": "ID-306",
          "classifier": {
-            "language": "-key-protocol",
+            "language": "-key-Protocol",
             "version": "2023.1",
             "key": "-key-ObjectType"
          },
          "properties": [
             {
                "property": {
-                  "language": "-key-protocol",
+                  "language": "-key-Protocol",
                   "version": "2023.1",
                   "key": "-key-Type-name"
                },
@@ -459,7 +460,7 @@
          "containments": [
             {
                "containment": {
-                  "language": "-key-protocol",
+                  "language": "-key-Protocol",
                   "version": "2023.1",
                   "key": "-key-ObjectType-properties"
                },
@@ -475,14 +476,14 @@
       {
          "id": "ID-310",
          "classifier": {
-            "language": "-key-protocol",
+            "language": "-key-Protocol",
             "version": "2023.1",
             "key": "-key-PropertyDef"
          },
          "properties": [
             {
                "property": {
-                  "language": "-key-protocol",
+                  "language": "-key-Protocol",
                   "version": "2023.1",
                   "key": "-key-PropertyDef-name"
                },
@@ -490,7 +491,7 @@
             },
             {
                "property": {
-                  "language": "-key-protocol",
+                  "language": "-key-Protocol",
                   "version": "2023.1",
                   "key": "-key-PropertyDef-mayBeNull"
                },
@@ -498,7 +499,7 @@
             },
             {
                "property": {
-                  "language": "-key-protocol",
+                  "language": "-key-Protocol",
                   "version": "2023.1",
                   "key": "-key-PropertyDef-isList"
                },
@@ -506,7 +507,7 @@
             },
             {
                "property": {
-                  "language": "-key-protocol",
+                  "language": "-key-Protocol",
                   "version": "2023.1",
                   "key": "-key-PropertyDef-isOptional"
                },
@@ -517,7 +518,7 @@
          "references": [
             {
                "reference": {
-                  "language": "-key-protocol",
+                  "language": "-key-Protocol",
                   "version": "2023.1",
                   "key": "-key-PropertyDef-type"
                },
@@ -535,14 +536,14 @@
       {
          "id": "ID-149",
          "classifier": {
-            "language": "-key-protocol",
+            "language": "-key-Protocol",
             "version": "2023.1",
             "key": "-key-ObjectType"
          },
          "properties": [
             {
                "property": {
-                  "language": "-key-protocol",
+                  "language": "-key-Protocol",
                   "version": "2023.1",
                   "key": "-key-Type-name"
                },
@@ -552,7 +553,7 @@
          "containments": [
             {
                "containment": {
-                  "language": "-key-protocol",
+                  "language": "-key-Protocol",
                   "version": "2023.1",
                   "key": "-key-ObjectType-properties"
                },
@@ -568,14 +569,14 @@
       {
          "id": "ID-151",
          "classifier": {
-            "language": "-key-protocol",
+            "language": "-key-Protocol",
             "version": "2023.1",
             "key": "-key-PropertyDef"
          },
          "properties": [
             {
                "property": {
-                  "language": "-key-protocol",
+                  "language": "-key-Protocol",
                   "version": "2023.1",
                   "key": "-key-PropertyDef-name"
                },
@@ -583,7 +584,7 @@
             },
             {
                "property": {
-                  "language": "-key-protocol",
+                  "language": "-key-Protocol",
                   "version": "2023.1",
                   "key": "-key-PropertyDef-mayBeNull"
                },
@@ -591,7 +592,7 @@
             },
             {
                "property": {
-                  "language": "-key-protocol",
+                  "language": "-key-Protocol",
                   "version": "2023.1",
                   "key": "-key-PropertyDef-isList"
                },
@@ -599,7 +600,7 @@
             },
             {
                "property": {
-                  "language": "-key-protocol",
+                  "language": "-key-Protocol",
                   "version": "2023.1",
                   "key": "-key-PropertyDef-isOptional"
                },
@@ -610,7 +611,7 @@
          "references": [
             {
                "reference": {
-                  "language": "-key-protocol",
+                  "language": "-key-Protocol",
                   "version": "2023.1",
                   "key": "-key-PropertyDef-type"
                },
@@ -626,24 +627,58 @@
          "parent": "ID-149"
       },
       {
-         "id": "ID-411",
+         "id": "ID-414",
          "classifier": {
-            "language": "-key-protocol",
+            "language": "-key-Protocol",
+            "version": "2023.1",
+            "key": "-key-ObjectType"
+         },
+         "properties": [
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-Type-name"
+               },
+               "value": "ErrorResponse"
+            }
+         ],
+         "containments": [
+            {
+               "containment": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-ObjectType-properties"
+               },
+               "children": [
+                  "ID-423",
+                  "ID-424"
+               ]
+            }
+         ],
+         "references": [],
+         "annotations": [],
+         "parent": "ID-395"
+      },
+      {
+         "id": "ID-423",
+         "classifier": {
+            "language": "-key-Protocol",
             "version": "2023.1",
             "key": "-key-PropertyDef"
          },
          "properties": [
             {
                "property": {
-                  "language": "-key-protocol",
+                  "language": "-key-Protocol",
                   "version": "2023.1",
                   "key": "-key-PropertyDef-name"
                },
-               "value": "messageKind"
+               "value": "errorCode"
             },
             {
                "property": {
-                  "language": "-key-protocol",
+                  "language": "-key-Protocol",
                   "version": "2023.1",
                   "key": "-key-PropertyDef-mayBeNull"
                },
@@ -651,7 +686,7 @@
             },
             {
                "property": {
-                  "language": "-key-protocol",
+                  "language": "-key-Protocol",
                   "version": "2023.1",
                   "key": "-key-PropertyDef-isList"
                },
@@ -659,7 +694,7 @@
             },
             {
                "property": {
-                  "language": "-key-protocol",
+                  "language": "-key-Protocol",
                   "version": "2023.1",
                   "key": "-key-PropertyDef-isOptional"
                },
@@ -670,7 +705,127 @@
          "references": [
             {
                "reference": {
-                  "language": "-key-protocol",
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-type"
+               },
+               "targets": [
+                  {
+                     "resolveInfo": "String",
+                     "reference": "ID-3"
+                  }
+               ]
+            }
+         ],
+         "annotations": [],
+         "parent": "ID-414"
+      },
+      {
+         "id": "ID-424",
+         "classifier": {
+            "language": "-key-Protocol",
+            "version": "2023.1",
+            "key": "-key-PropertyDef"
+         },
+         "properties": [
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-name"
+               },
+               "value": "message"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-mayBeNull"
+               },
+               "value": "false"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-isList"
+               },
+               "value": "false"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-isOptional"
+               },
+               "value": "false"
+            }
+         ],
+         "containments": [],
+         "references": [
+            {
+               "reference": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-type"
+               },
+               "targets": [
+                  {
+                     "resolveInfo": "String",
+                     "reference": "ID-3"
+                  }
+               ]
+            }
+         ],
+         "annotations": [],
+         "parent": "ID-414"
+      },
+      {
+         "id": "ID-411",
+         "classifier": {
+            "language": "-key-Protocol",
+            "version": "2023.1",
+            "key": "-key-PropertyDef"
+         },
+         "properties": [
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-name"
+               },
+               "value": "messageKind"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-mayBeNull"
+               },
+               "value": "false"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-isList"
+               },
+               "value": "false"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-isOptional"
+               },
+               "value": "false"
+            }
+         ],
+         "containments": [],
+         "references": [
+            {
+               "reference": {
+                  "language": "-key-Protocol",
                   "version": "2023.1",
                   "key": "-key-PropertyDef-type"
                },
@@ -688,14 +843,14 @@
       {
          "id": "ID-413",
          "classifier": {
-            "language": "-key-protocol",
+            "language": "-key-Protocol",
             "version": "2023.1",
             "key": "-key-PropertyDef"
          },
          "properties": [
             {
                "property": {
-                  "language": "-key-protocol",
+                  "language": "-key-Protocol",
                   "version": "2023.1",
                   "key": "-key-PropertyDef-name"
                },
@@ -703,7 +858,7 @@
             },
             {
                "property": {
-                  "language": "-key-protocol",
+                  "language": "-key-Protocol",
                   "version": "2023.1",
                   "key": "-key-PropertyDef-mayBeNull"
                },
@@ -711,7 +866,7 @@
             },
             {
                "property": {
-                  "language": "-key-protocol",
+                  "language": "-key-Protocol",
                   "version": "2023.1",
                   "key": "-key-PropertyDef-isList"
                },
@@ -719,7 +874,7 @@
             },
             {
                "property": {
-                  "language": "-key-protocol",
+                  "language": "-key-Protocol",
                   "version": "2023.1",
                   "key": "-key-PropertyDef-isOptional"
                },
@@ -730,7 +885,7 @@
          "references": [
             {
                "reference": {
-                  "language": "-key-protocol",
+                  "language": "-key-Protocol",
                   "version": "2023.1",
                   "key": "-key-PropertyDef-type"
                },
@@ -748,14 +903,14 @@
       {
          "id": "ID-416",
          "classifier": {
-            "language": "-key-protocol",
+            "language": "-key-Protocol",
             "version": "2023.1",
             "key": "-key-PropertyDef"
          },
          "properties": [
             {
                "property": {
-                  "language": "-key-protocol",
+                  "language": "-key-Protocol",
                   "version": "2023.1",
                   "key": "-key-PropertyDef-name"
                },
@@ -763,7 +918,7 @@
             },
             {
                "property": {
-                  "language": "-key-protocol",
+                  "language": "-key-Protocol",
                   "version": "2023.1",
                   "key": "-key-PropertyDef-mayBeNull"
                },
@@ -771,7 +926,7 @@
             },
             {
                "property": {
-                  "language": "-key-protocol",
+                  "language": "-key-Protocol",
                   "version": "2023.1",
                   "key": "-key-PropertyDef-isList"
                },
@@ -779,7 +934,7 @@
             },
             {
                "property": {
-                  "language": "-key-protocol",
+                  "language": "-key-Protocol",
                   "version": "2023.1",
                   "key": "-key-PropertyDef-isOptional"
                },
@@ -790,7 +945,7 @@
          "references": [
             {
                "reference": {
-                  "language": "-key-protocol",
+                  "language": "-key-Protocol",
                   "version": "2023.1",
                   "key": "-key-PropertyDef-type"
                },

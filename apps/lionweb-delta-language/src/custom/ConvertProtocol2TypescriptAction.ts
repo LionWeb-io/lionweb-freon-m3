@@ -11,10 +11,10 @@ import { TypeTemplates } from "./templates/TypeTemplates.js"
 const pathSeparator = path.sep
 
 const linkmap: Map<string, string> = new Map<string, string>([
-    ["Event", "https://github.com/LionWeb-io/specification/blob/main/delta/events.adoc#evnt"],
-    ["Command", "https://github.com/LionWeb-io/specification/blob/main/delta/commands.adoc#cmd"],
-    ["Request", "https://github.com/LionWeb-io/specification/blob/main/delta/queries.adoc#qry"],
-    ["Response", "https://github.com/LionWeb-io/specification/blob/main/delta/queries.adoc#qry"]
+    ["Event", "https://lionWeb.io/specification/delta/delta-api.html#evnt"],
+    ["Command", "https://lionWeb.io/specification/delta/delta-api.html#cmd"],
+    ["Request", "https://lionWeb.io/specification/delta/delta-api.html#qry"],
+    ["Response", "https://lionWeb.io/specification/delta/delta-api.html#qry"]
 ])
 
 /**
