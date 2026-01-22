@@ -16,7 +16,7 @@ Language {
     version ${version}
     depends on languages: ${dependsOn}
 
-    ${entities replace=ExternalAccordion}
+    ${entities replace=ExternalAccordion noOpen="multiple" }
     ]
 }
 

@@ -1,4 +1,5 @@
 import { FreModelUnit } from "@freon4dsl/core";
+import { LionWebJsonMetaPointer } from "@lionweb/json";
 import { Concept, Enumeration, Interface, Language, PrimitiveType } from "../../freon/language/index.js";
 
 /**
@@ -39,28 +40,54 @@ export type IdJson = {
     limited: IdLimited[]
 }
 
+type NamedMetaPointer = {
+    name: string,
+    mp: LionWebJsonMetaPointer
+}
+
 export class IdTemplate {
-    generate_idJson(metamodel: FreModelUnit[]): string {
+    tsKeyMap: Map<string, NamedMetaPointer[]>
+    language: string
+    
+    generate_idJson(languageName: string, metamodel: FreModelUnit[]): string {
+        this.language = languageName
+        const keysMap: Map<string, NamedMetaPointer[]>  = new Map<string, NamedMetaPointer[]>()
+        keysMap.set("Classifier", [])
+        keysMap.set("Property", [])
+        keysMap.set("Containment", [])
+        keysMap.set("Reference", [])
+        let tsKeyConstants = ""
         let idObject: IdJson = { language: "", version: "", key: "", languages: [], classifiers: [], limited: []};
-        metamodel.forEach(mu => {
-            if (!(mu instanceof Language)) {
-                console.error("Expecting only model units of type Language, but found one of type " + mu.freLanguageConcept())
+        metamodel.forEach(languageUnit => {
+            if (!(languageUnit instanceof Language)) {
+                console.error("Expecting only model units of type Language, but found one of type " + languageUnit.freLanguageConcept())
                 process.exit(-1)
             }
             idObject.languages.push({
-                name: (mu as Language).name,
-                key: (mu as Language).key,
-                id: (mu as Language).freId(),
+                name: (languageUnit as Language).name,
+                key: (languageUnit as Language).key,
+                id: (languageUnit as Language).freId(),
                 version: "TODO"
             });
-            mu.entities.forEach(ent => {
+            languageUnit.entities.forEach(ent => {
                 switch (ent.freLanguageConcept()) {
                     case "Concept": {
                         const key = (ent as Concept).key === "" ? `-key-${(ent as Concept).name}` : (ent as Concept).key
                         const concept: IdClassifier = { name: ent.name, id: ent.freId(), key: key, properties: [] };
+                        keysMap.get("Classifier").push( {
+                            name: ent.name,
+                            mp: { language: languageUnit.key, key: key, version: "1"}
+                        })
+                        // tsKeyConstants += `export const ${ent.name}Classifier = {language: "${languageUnit.key}", key: "${key}", version: "1"}`
                         for (const prop of (ent as Concept).features) {
                             const key = prop.key === "" ? `-key-${(ent as Concept).name}-${prop.name}` : prop.key
                             concept.properties.push({ name: prop.name, key: key, id: prop.freId() })
+                            // const fType = prop.freLanguageConcept()
+                            keysMap.get(prop.freLanguageConcept()).push( {
+                                name: `${ent.name}${toFirstUpper(prop.name)}`,
+                                mp: { language: `${languageUnit.key}`, key: `${key}`, version: "1"}
+                            })
+                            // tsKeyConstants += `export const ${ent.name}${toFirstUpper(prop.name)}${fType} = {language: "${languageUnit.key}", key: "${key}", version: "1"}`
                         }
                         idObject.classifiers.push(concept);
                         break;
@@ -68,9 +95,20 @@ export class IdTemplate {
                     case "Interface": {
                         const key = (ent as Interface).key === "" ? `-key-${(ent as Interface).name}` : (ent as Interface).key
                         const intface: IdClassifier = { name: ent.name, id: ent.freId(), key: key, properties: [] };
+                        keysMap.get("Classifier").push( {
+                            name: ent.name,
+                            mp: { language: languageUnit.key, key: key, version: "1"}
+                        })
+                        // tsKeyConstants += `export const ${ent.name}Classifier = {language: "${languageUnit.key}", key: "${key}", version: "1"}`
                         for (const prop of (ent as Interface).features) {
                             const key = prop.key === "" ? `-key-${(ent as Interface).name}-${prop.name}` : prop.key
                             intface.properties.push({ name: prop.name, key: key, id: prop.freId() })
+                            // const fType = prop.freLanguageConcept()
+                            keysMap.get(prop.freLanguageConcept()).push( {
+                                name: `${ent.name}${toFirstUpper(prop.name)}`,
+                                mp: { language: `${languageUnit.key}`, key: `${key}`, version: "1"}
+                            })
+                            // tsKeyConstants += `export const ${ent.name}${toFirstUpper(prop.name)}${fType} = {language: "${languageUnit.key}", key: "${key}", version: "1"}`
                         }
                         idObject.classifiers.push(intface);
                         break;
@@ -90,6 +128,44 @@ export class IdTemplate {
                 }
             });
         });
+        // this.tsKeys = tsKeyConstants
+        this.tsKeyMap = keysMap
         return JSON.stringify(idObject, null, 4);
     }
+
+    /**
+     * Generate a TypoeScript file with constants for all keys in the language.
+     * Easy as helpers for all the LionWeb metapointers.
+     */
+    generateKeys(): string {
+        if (this.tsKeyMap === undefined) {
+            console.error("IdTemplate: Cannot run generateKeys(), must first run generateIdJson().")
+        }
+        let result = `/**
+  * Defines constants for all metapointers in the "${this.language}" language.
+  * Generated by Freon LionWeb M3 generator
+  */
+`
+        result += this.tsKeyMap.get("Classifier").map(cls => `const ${cls.name} = ${JSON.stringify(cls.mp)}`).join("\n")
+        result += `\n\nexport const CLASSIFIER = {
+            ${this.tsKeyMap.get("Classifier").map(cls => cls.name).join(",")} 
+        }\n`
+        result += this.tsKeyMap.get("Property").map(cls => `const ${cls.name} = ${JSON.stringify(cls.mp)}`).join("\n")
+        result += `\n\nexport const PROPERTY = {
+            ${this.tsKeyMap.get("Property").map(cls => cls.name).join(",")} 
+        }\n`
+        result += this.tsKeyMap.get("Reference").map(cls => `const ${cls.name} = ${JSON.stringify(cls.mp)}`).join("\n")
+        result += `\n\nexport const REFERENCE = {
+            ${this.tsKeyMap.get("Reference").map(cls => cls.name).join(",")} 
+        }\n`
+        result += this.tsKeyMap.get("Containment").map(cls => `const ${cls.name} = ${JSON.stringify(cls.mp)}`).join("\n")
+        result += `\n\nexport const CONTAINMENT = {
+            ${this.tsKeyMap.get("Containment").map(cls => cls.name).join(",")} 
+        }\n`
+        return result
+    }
+}
+
+function toFirstUpper(text: string): string {
+    return text[0].toUpperCase().concat(text.substring(1));
 }

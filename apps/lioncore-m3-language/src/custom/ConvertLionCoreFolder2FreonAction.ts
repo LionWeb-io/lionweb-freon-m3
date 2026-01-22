@@ -22,7 +22,7 @@ export class ConvertLionCoreFolder2FreonAction extends CommandLineAction {
         super({
             actionName: "generate-freon",
             summary: "Create Freon .ast files from LionWeb Meta-model JSON folder",
-            documentation: "Lionweb to Freon Ast generator"
+            documentation: `Lionweb to Freon Ast generator`
         });
         this.defineParameters()
     }
@@ -54,7 +54,15 @@ export class ConvertLionCoreFolder2FreonAction extends CommandLineAction {
         let language: string = "unknownLanguage"
         const mmFolderName = this.lionWebM3File.value
         const outFolderName = this.outputFolder.value
-        
+
+        // Find model name as language name
+        const separatorIndex = mmFolderName.lastIndexOf(pathSeparator)
+        if (separatorIndex !== -1) {
+            language = mmFolderName.substring(separatorIndex + 1)
+        } else {
+            language = mmFolderName
+        }
+
         // Read all the input files
         if (fs.existsSync(mmFolderName)) {
             const stats = fs.statSync(mmFolderName);
@@ -96,17 +104,12 @@ export class ConvertLionCoreFolder2FreonAction extends CommandLineAction {
 
         // Generate the output files
         this.createDirIfNotExisting(outFolderName)
+        this.createDirIfNotExisting(`${outFolderName}/defs`)
+        this.createDirIfNotExisting(`${outFolderName}/util`)
         for (const ts of this.allModelUnits) {
             const lion2freon = new AstTemplate(enumerations, primitiveTypes, partitions);
             const result = lion2freon.generateFreonAst(ts);
-            this.writeAstToFile(`${outFolderName}${pathSeparator}${ts.name}`, result);
-        }
-        // Find model name as language name
-        const separatorIndex = mmFolderName.lastIndexOf(pathSeparator)
-        if (separatorIndex !== -1) {
-            language = mmFolderName.substring(separatorIndex + 1)
-        } else {
-            language = mmFolderName
+            this.writeAstToFile(`${outFolderName}/defs/${pathSeparator}${ts.name}`, result);
         }
         this.writeModelToFile(`${outFolderName}${pathSeparator}`, language, partitions);        
     }
@@ -141,10 +144,12 @@ export class ConvertLionCoreFolder2FreonAction extends CommandLineAction {
         const model = (new AstTemplate([], [], [])).generateModelWithUnits(languagename, partitions);
         this.createDirIfNotExisting(dirname)
 
-        fs.writeFileSync(dirname + "model.ast", model);
-        const ids = (new IdTemplate()).generate_idJson(this.allModelUnits);
+        fs.writeFileSync(`${dirname}defs${pathSeparator}model.ast`, model);
+        const idTemplate = new IdTemplate();
+        const ids = idTemplate.generate_idJson(languagename, this.allModelUnits);
 
-        fs.writeFileSync(dirname + "id.json", ids);
+        fs.writeFileSync(`${dirname}defs${pathSeparator}id.json`, ids);
+        fs.writeFileSync(`${dirname}util${pathSeparator}keys.ts`, idTemplate.generateKeys());
     }
 
     createDirIfNotExisting(dir: string) {
