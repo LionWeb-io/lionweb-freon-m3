@@ -1,5 +1,11 @@
 language Protocol
 
+ modelunit MessageGroup implements Type  {
+    sharedProperties: PropertyDef[];
+    taggedUnionProperty: string;
+    messages: ObjectType[];
+}
+
  concept PropertyDef {
     reference type: Type;
     name: identifier;
@@ -25,11 +31,5 @@ interface Type {
     primitiveTypes: PrimitiveType[];
     objectTypes: ObjectType[];
     name: identifier;
-}
-
- modelunit MessageGroup implements Type  {
-    messages: ObjectType[];
-    sharedProperties: PropertyDef[];
-    taggedUnionProperty: string;
 }
 

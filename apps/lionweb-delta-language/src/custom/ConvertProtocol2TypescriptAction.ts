@@ -10,6 +10,9 @@ import { TypeTemplates } from "./templates/TypeTemplates.js"
 
 const pathSeparator = path.sep
 
+/**
+ * Html links to the specification of the deltas.
+ */
 const linkmap: Map<string, string> = new Map<string, string>([
     ["Event", "https://lionWeb.io/specification/delta/delta-api.html#evnt"],
     ["Command", "https://lionWeb.io/specification/delta/delta-api.html#cmd"],
@@ -66,7 +69,7 @@ export class ConvertProtocol2TypescriptAction extends CommandLineAction {
         if (fs.existsSync(protocolFolderName)) {
             const stats = fs.statSync(protocolFolderName);
             if (stats.isDirectory()) {
-                this.createDirIfNotExisting(protocolFolderName + "/generated_ts")
+                // this.createDirIfNotExisting(protocolFolderName + "/generated_ts")
                 fs.readdirSync(protocolFolderName).forEach(file => {
                     if (file.endsWith(".json")) {
                         console.log(`Reading file ${file}`)
@@ -94,37 +97,42 @@ export class ConvertProtocol2TypescriptAction extends CommandLineAction {
                 AST.changeNamed("Add MessageGroup to Protocol", () => {
                     localProtocol.messagegroup.push(ts as MessageGroup)
                 })
-            }
-            if (ts.freLanguageConcept() === "Types") {
+            } else if (ts.freLanguageConcept() === "Types") {
                 types.push(ts as Types)
                 AST.changeNamed("Add Types to Protocol", () => {
                     localProtocol.types.push(ts as Types)
                 })
+            } else {
+                console.error(`Unknown model unit type found: ${ts.freLanguageConcept()}`)
             }
         }
 
         // Write output files
+        const outTypes = `${outFolderName}${pathSeparator}types`
+        const outDefinitions = `${outFolderName}${pathSeparator}definitions`
         this.createDirIfNotExisting(outFolderName)
+        this.createDirIfNotExisting(outTypes)
+        this.createDirIfNotExisting(outDefinitions)
         this.protocol.messagegroup.forEach(messageGroup => {
-            console.log(`GENERATING message group ${messageGroup.name}`)
+            console.log(`GENERATING message group ${messageGroup.name} to `)
             // const eventDefinitions = messageGroups.find(mg => mg.name === "Event")
             const eventTemplate = new TypeTemplates()
             // const result = eventTemplate.commandTemplate();
             const result = TypeTemplates.pretty("typescript", eventTemplate.commandTemplate(messageGroup, linkmap.get(messageGroup.name)), "Generated from LionWeb Delta Model");
-            this.writeToFile(`${outFolderName}${pathSeparator}${messageGroup.name}.ts`, result);
+            this.writeToFile(`${outTypes}${pathSeparator}${messageGroup.name}.ts`, result);
 
             const jsonResult = TypeTemplates.pretty("typescript", eventTemplate.messageGroup2DefinitionTemplate(messageGroup))
-            this.writeToFile(`${outFolderName}${pathSeparator}${messageGroup.name}Definitions.ts`, jsonResult);
+            this.writeToFile(`${outDefinitions}${pathSeparator}${messageGroup.name}Definitions.ts`, jsonResult);
         })
         this.protocol.types.forEach(typeDef => {
             console.log(`GENERATING types ${typeDef.name}`)
             // const eventDefinitions = messageGroups.find(mg => mg.name === "Event")
             const eventTemplate = new TypeTemplates()
             const result = TypeTemplates.pretty("typescript", eventTemplate.typeTemplate(typeDef), "Generated from LionWeb Delta Model");
-            this.writeToFile(`${outFolderName}${pathSeparator}${typeDef.name}.ts`, result);
+            this.writeToFile(`${outTypes}${pathSeparator}${typeDef.name}.ts`, result);
 
             const jsonResult = TypeTemplates.pretty("typescript", eventTemplate.types2DefinitionTemplate(typeDef))
-            this.writeToFile(`${outFolderName}${pathSeparator}${typeDef.name}Definitions.ts`, jsonResult);
+            this.writeToFile(`${outDefinitions}${pathSeparator}${typeDef.name}Definitions.ts`, jsonResult);
         })
 
         return "void";

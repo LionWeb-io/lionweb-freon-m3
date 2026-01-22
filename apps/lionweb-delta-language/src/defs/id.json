@@ -36,6 +36,28 @@
             ]
         },
         {
+            "name": "MessageGroup",
+            "id": "-id-MessageGroup",
+            "key": "-key-MessageGroup",
+            "properties": [
+                {
+                    "name": "sharedProperties",
+                    "key": "-key-MessageGroup-sharedProperties",
+                    "id": "-id-MessageGroup-sharedProperties"
+                },
+                {
+                    "name": "taggedUnionProperty",
+                    "key": "-key-MessageGroup-taggedUnionProperty",
+                    "id": "-id-MessageGroup-taggedUnionProperty"
+                },
+                {
+                    "name": "messages",
+                    "key": "-key-MessageGroup-messages",
+                    "id": "-id-MessageGroup-messages"
+                }
+            ]
+        },
+        {
             "name": "PropertyDef",
             "id": "-id-PropertyDef",
             "key": "-key-PropertyDef",
@@ -127,28 +149,6 @@
                     "name": "name",
                     "key": "-key-Types-name",
                     "id": "-id-Types-name"
-                }
-            ]
-        },
-        {
-            "name": "MessageGroup",
-            "id": "-id-MessageGroup",
-            "key": "-key-MessageGroup",
-            "properties": [
-                {
-                    "name": "messages",
-                    "key": "-key-MessageGroup-messages",
-                    "id": "-id-MessageGroup-messages"
-                },
-                {
-                    "name": "sharedProperties",
-                    "key": "-key-MessageGroup-sharedProperties",
-                    "id": "-id-MessageGroup-sharedProperties"
-                },
-                {
-                    "name": "taggedUnionProperty",
-                    "key": "-key-MessageGroup-taggedUnionProperty",
-                    "id": "-id-MessageGroup-taggedUnionProperty"
                 }
             ]
         }

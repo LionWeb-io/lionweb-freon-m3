@@ -2,7 +2,7 @@ language Protocol
 
 model Protocol {
     name: identifier;
-    types: Types[];
     messagegroup: MessageGroup[];
+    types: Types[];
 }
 

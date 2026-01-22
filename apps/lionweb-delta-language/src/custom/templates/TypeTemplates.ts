@@ -93,12 +93,14 @@ export class TypeTemplates {
 
     generatePropertyDef(messageGroup: MessageGroup | undefined, msg: ObjectType, propDef: PropertyDef, referredTypes: Set<FreNodeReference<Type>>): string {
         referredTypes.add(propDef.type)
+        // TODO Hack to fix message kind for Request and Response
+        const messageKind = (messageGroup?.name === "Request" || messageGroup?.name === "Response" ? msg.name + messageGroup.name : msg.name)
         const optional = (propDef.isOptional ? "?" : "")
         const isList = propDef.isList ? "[]" : ""
         const canBeNull = propDef.mayBeNull ? " | null" : ""
         const isDiscriminator = messageGroup?.taggedUnionProperty === propDef.name
         if (isDiscriminator) {
-            return `${propDef.name} : "${msg.name}"`
+            return `${propDef.name} : "${messageKind}"`
         } else {
             return `${propDef.name}${optional} : ${this.tsType(messageGroup, propDef.$type?.name)}${isList}${canBeNull}`
         }
