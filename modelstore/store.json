@@ -118,6 +118,18 @@
                     "file": "LogoProgram.json"
                 }
             ]
+        },
+        {
+            "name": "Logo-1",
+            "folder": "Logo-1",
+            "language": "logo",
+            "version": "1",
+            "units": [
+                {
+                    "name": "logo-program-1",
+                    "file": "logo-program-1.json"
+                }
+            ]
         }
     ]
 }
