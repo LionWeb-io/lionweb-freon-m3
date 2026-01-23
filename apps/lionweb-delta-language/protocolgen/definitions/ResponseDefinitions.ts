@@ -28,7 +28,7 @@ export const ResponseDefinitions: MessageGroup = {
     ],
     messages: [
         {
-            name: "SubscribeToChangingPartitionsResponse",
+            name: "SubscribeToChangingPartitions",
             properties: [
                 {
                     name: "messageKind",
@@ -54,7 +54,7 @@ export const ResponseDefinitions: MessageGroup = {
             ],
         },
         {
-            name: "SubscribeToPartitionContentsResponse",
+            name: "SubscribeToPartitionContents",
             properties: [
                 {
                     name: "contents",
@@ -87,7 +87,7 @@ export const ResponseDefinitions: MessageGroup = {
             ],
         },
         {
-            name: "UnsubscribeFromPartitionContentsResponse",
+            name: "UnsubscribeFromPartitionContents",
             properties: [
                 {
                     name: "messageKind",
@@ -113,7 +113,7 @@ export const ResponseDefinitions: MessageGroup = {
             ],
         },
         {
-            name: "SignOnResponse",
+            name: "SignOn",
             properties: [
                 {
                     name: "participationId",
@@ -146,7 +146,7 @@ export const ResponseDefinitions: MessageGroup = {
             ],
         },
         {
-            name: "SignOffResponse",
+            name: "SignOff",
             properties: [
                 {
                     name: "messageKind",
@@ -172,7 +172,7 @@ export const ResponseDefinitions: MessageGroup = {
             ],
         },
         {
-            name: "ReconnectResponse",
+            name: "Reconnect",
             properties: [
                 {
                     name: "lastSentSequenceNumber",
@@ -205,7 +205,7 @@ export const ResponseDefinitions: MessageGroup = {
             ],
         },
         {
-            name: "GetAvailableIdsResponse",
+            name: "GetAvailableIds",
             properties: [
                 {
                     name: "ids",
@@ -238,7 +238,7 @@ export const ResponseDefinitions: MessageGroup = {
             ],
         },
         {
-            name: "ListPartitionsResponse",
+            name: "ListPartitions",
             properties: [
                 {
                     name: "partitions",

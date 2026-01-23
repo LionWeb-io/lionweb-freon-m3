@@ -22,7 +22,7 @@ export type SubscribeToChangingPartitionsRequest = DeltaRequest & {
     creation: Boolean;
     deletion: Boolean;
     partitions: Boolean;
-    messageKind: "SubscribeToChangingPartitions";
+    messageKind: "SubscribeToChangingPartitionsRequest";
 };
 
 /**
@@ -30,7 +30,7 @@ export type SubscribeToChangingPartitionsRequest = DeltaRequest & {
  */
 export type SubscribeToPartitionContentsRequest = DeltaRequest & {
     partition: LionWebId;
-    messageKind: "SubscribeToPartitionContents";
+    messageKind: "SubscribeToPartitionContentsRequest";
 };
 
 /**
@@ -38,7 +38,7 @@ export type SubscribeToPartitionContentsRequest = DeltaRequest & {
  */
 export type UnsubscribeFromPartitionContentsRequest = DeltaRequest & {
     partition: LionWebId;
-    messageKind: "UnsubscribeFromPartitionContents";
+    messageKind: "UnsubscribeFromPartitionContentsRequest";
 };
 
 /**
@@ -48,14 +48,14 @@ export type SignOnRequest = DeltaRequest & {
     deltaProtocolVersion: String;
     clientId: ClientId;
     repositoryId: String;
-    messageKind: "SignOn";
+    messageKind: "SignOnRequest";
 };
 
 /**
  *  @see https://lionWeb.io/specification/delta/delta-api.html#qry-SignOff
  */
 export type SignOffRequest = DeltaRequest & {
-    messageKind: "SignOff";
+    messageKind: "SignOffRequest";
 };
 
 /**
@@ -64,7 +64,7 @@ export type SignOffRequest = DeltaRequest & {
 export type ReconnectRequest = DeltaRequest & {
     participationId: ParticipationId;
     lastReceivedSequenceNumber: SequenceNumber;
-    messageKind: "Reconnect";
+    messageKind: "ReconnectRequest";
 };
 
 /**
@@ -72,14 +72,14 @@ export type ReconnectRequest = DeltaRequest & {
  */
 export type GetAvailableIdsRequest = DeltaRequest & {
     count: Number;
-    messageKind: "GetAvailableIds";
+    messageKind: "GetAvailableIdsRequest";
 };
 
 /**
  *  @see https://lionWeb.io/specification/delta/delta-api.html#qry-ListPartitions
  */
 export type ListPartitionsRequest = DeltaRequest & {
-    messageKind: "ListPartitions";
+    messageKind: "ListPartitionsRequest";
 };
 
 // The type for the tagged union property

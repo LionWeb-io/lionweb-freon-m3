@@ -14,14 +14,14 @@ export type DeltaResponse = {
 };
 
 /**
- *  @see https://lionWeb.io/specification/delta/delta-api.html#qry-SubscribeToChangingPartitionsResponse
+ *  @see https://lionWeb.io/specification/delta/delta-api.html#qry-SubscribeToChangingPartitions
  */
 export type SubscribeToChangingPartitionsResponse = DeltaResponse & {
     messageKind: "SubscribeToChangingPartitionsResponse";
 };
 
 /**
- *  @see https://lionWeb.io/specification/delta/delta-api.html#qry-SubscribeToPartitionContentsResponse
+ *  @see https://lionWeb.io/specification/delta/delta-api.html#qry-SubscribeToPartitionContents
  */
 export type SubscribeToPartitionContentsResponse = DeltaResponse & {
     contents: LionWebDeltaJsonChunk;
@@ -29,14 +29,14 @@ export type SubscribeToPartitionContentsResponse = DeltaResponse & {
 };
 
 /**
- *  @see https://lionWeb.io/specification/delta/delta-api.html#qry-UnsubscribeFromPartitionContentsResponse
+ *  @see https://lionWeb.io/specification/delta/delta-api.html#qry-UnsubscribeFromPartitionContents
  */
 export type UnsubscribeFromPartitionContentsResponse = DeltaResponse & {
     messageKind: "UnsubscribeFromPartitionContentsResponse";
 };
 
 /**
- *  @see https://lionWeb.io/specification/delta/delta-api.html#qry-SignOnResponse
+ *  @see https://lionWeb.io/specification/delta/delta-api.html#qry-SignOn
  */
 export type SignOnResponse = DeltaResponse & {
     participationId: ParticipationId;
@@ -44,14 +44,14 @@ export type SignOnResponse = DeltaResponse & {
 };
 
 /**
- *  @see https://lionWeb.io/specification/delta/delta-api.html#qry-SignOffResponse
+ *  @see https://lionWeb.io/specification/delta/delta-api.html#qry-SignOff
  */
 export type SignOffResponse = DeltaResponse & {
     messageKind: "SignOffResponse";
 };
 
 /**
- *  @see https://lionWeb.io/specification/delta/delta-api.html#qry-ReconnectResponse
+ *  @see https://lionWeb.io/specification/delta/delta-api.html#qry-Reconnect
  */
 export type ReconnectResponse = DeltaResponse & {
     lastSentSequenceNumber: SequenceNumber;
@@ -59,7 +59,7 @@ export type ReconnectResponse = DeltaResponse & {
 };
 
 /**
- *  @see https://lionWeb.io/specification/delta/delta-api.html#qry-GetAvailableIdsResponse
+ *  @see https://lionWeb.io/specification/delta/delta-api.html#qry-GetAvailableIds
  */
 export type GetAvailableIdsResponse = DeltaResponse & {
     ids: LionWebId[];
@@ -67,7 +67,7 @@ export type GetAvailableIdsResponse = DeltaResponse & {
 };
 
 /**
- *  @see https://lionWeb.io/specification/delta/delta-api.html#qry-ListPartitionsResponse
+ *  @see https://lionWeb.io/specification/delta/delta-api.html#qry-ListPartitions
  */
 export type ListPartitionsResponse = DeltaResponse & {
     partitions: LionWebDeltaJsonChunk;
@@ -80,19 +80,19 @@ export type ListPartitionsResponse = DeltaResponse & {
 export type ErrorResponse = DeltaResponse & {
     errorCode: String;
     message: String;
-    messageKind: "ErrorResponse";
+    messageKind: "ErrorResponseResponse";
 };
 
 // The type for the tagged union property
 export type ResponseMessageKind =
-    | "SubscribeToChangingPartitionsResponse"
-    | "SubscribeToPartitionContentsResponse"
-    | "UnsubscribeFromPartitionContentsResponse"
-    | "SignOnResponse"
-    | "SignOffResponse"
-    | "ReconnectResponse"
-    | "GetAvailableIdsResponse"
-    | "ListPartitionsResponse"
+    | "SubscribeToChangingPartitions"
+    | "SubscribeToPartitionContents"
+    | "UnsubscribeFromPartitionContents"
+    | "SignOn"
+    | "SignOff"
+    | "Reconnect"
+    | "GetAvailableIds"
+    | "ListPartitions"
     | "ErrorResponse";
 
 // Type Guard function
@@ -101,14 +101,14 @@ export function isDeltaResponse(object: unknown): object is DeltaResponse {
     return (
         castObject.messageKind !== undefined &&
         [
-            "SubscribeToChangingPartitionsResponse",
-            "SubscribeToPartitionContentsResponse",
-            "UnsubscribeFromPartitionContentsResponse",
-            "SignOnResponse",
-            "SignOffResponse",
-            "ReconnectResponse",
-            "GetAvailableIdsResponse",
-            "ListPartitionsResponse",
+            "SubscribeToChangingPartitions",
+            "SubscribeToPartitionContents",
+            "UnsubscribeFromPartitionContents",
+            "SignOn",
+            "SignOff",
+            "Reconnect",
+            "GetAvailableIds",
+            "ListPartitions",
             "ErrorResponse",
         ].includes(castObject.messageKind)
     );
