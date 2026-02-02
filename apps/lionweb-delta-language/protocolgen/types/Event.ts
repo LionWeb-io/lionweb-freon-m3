@@ -1,7 +1,7 @@
+import { String } from "./DeltaTypes.js";
 import { Number } from "./DeltaTypes.js";
 import { CommandSource } from "./DeltaTypes.js";
-import { String } from "./DeltaTypes.js";
-import { ProtocolMessage } from "./DeltaTypes.js";
+import { AdditionalInfo } from "./DeltaTypes.js";
 import { LionWebId } from "./Chunks.js";
 import { LionWebJsonMetaPointer } from "./Chunks.js";
 import { LionWebDeltaJsonChunk } from "./DeltaTypes.js";
@@ -9,10 +9,10 @@ import { LionWebDeltaJsonChunk } from "./DeltaTypes.js";
 
 // The overall "super-type"
 export type DeltaEvent = {
+    messageKind: EventMessageKind;
     sequenceNumber: Number;
     originCommands: CommandSource[];
-    messageKind: EventMessageKind;
-    protocolMessages: ProtocolMessage[];
+    additionalInfo: AdditionalInfo[];
 };
 
 /**
@@ -283,8 +283,8 @@ export type ReferenceAddedEvent = DeltaEvent & {
     parent: LionWebId;
     index: Number;
     reference: LionWebJsonMetaPointer;
-    newTarget: LionWebId | null;
-    newResolveInfo: String | null;
+    newTarget?: LionWebId | null;
+    newResolveInfo?: String | null;
     messageKind: "ReferenceAdded";
 };
 
@@ -295,8 +295,8 @@ export type ReferenceDeletedEvent = DeltaEvent & {
     parent: LionWebId;
     index: Number;
     reference: LionWebJsonMetaPointer;
-    deletedTarget: LionWebId | null;
-    deletedResolveInfo: String | null;
+    deletedTarget?: LionWebId | null;
+    deletedResolveInfo?: String | null;
     messageKind: "ReferenceDeleted";
 };
 
@@ -307,10 +307,10 @@ export type ReferenceChangedEvent = DeltaEvent & {
     parent: LionWebId;
     index: Number;
     reference: LionWebJsonMetaPointer;
-    newTarget: LionWebId | null;
-    newResolveInfo: String | null;
-    oldTarget: LionWebId | null;
-    oldResolveInfo: String | null;
+    newTarget?: LionWebId | null;
+    newResolveInfo?: String | null;
+    oldTarget?: LionWebId | null;
+    oldResolveInfo?: String | null;
     messageKind: "ReferenceChanged";
 };
 

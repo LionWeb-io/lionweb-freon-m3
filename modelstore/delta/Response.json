@@ -40,9 +40,9 @@
                   "key": "-key-MessageGroup-sharedProperties"
                },
                "children": [
+                  "ID-416",
                   "ID-411",
-                  "ID-413",
-                  "ID-416"
+                  "ID-413"
                ]
             },
             {
@@ -67,6 +67,66 @@
          "references": [],
          "annotations": [],
          "parent": null
+      },
+      {
+         "id": "ID-416",
+         "classifier": {
+            "language": "-key-Protocol",
+            "version": "2023.1",
+            "key": "-key-PropertyDef"
+         },
+         "properties": [
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-name"
+               },
+               "value": "queryId"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-mayBeNull"
+               },
+               "value": "false"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-isList"
+               },
+               "value": "false"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-isOptional"
+               },
+               "value": "false"
+            }
+         ],
+         "containments": [],
+         "references": [
+            {
+               "reference": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-type"
+               },
+               "targets": [
+                  {
+                     "resolveInfo": "QueryId",
+                     "reference": "ID-131"
+                  }
+               ]
+            }
+         ],
+         "annotations": [],
+         "parent": "ID-395"
       },
       {
          "id": "ID-411",
@@ -142,7 +202,7 @@
                   "version": "2023.1",
                   "key": "-key-PropertyDef-name"
                },
-               "value": "protocolMessages"
+               "value": "additionalInfo"
             },
             {
                "property": {
@@ -179,68 +239,8 @@
                },
                "targets": [
                   {
-                     "resolveInfo": "ProtocolMessage",
+                     "resolveInfo": "AdditionalInfo",
                      "reference": "ID-4"
-                  }
-               ]
-            }
-         ],
-         "annotations": [],
-         "parent": "ID-395"
-      },
-      {
-         "id": "ID-416",
-         "classifier": {
-            "language": "-key-Protocol",
-            "version": "2023.1",
-            "key": "-key-PropertyDef"
-         },
-         "properties": [
-            {
-               "property": {
-                  "language": "-key-Protocol",
-                  "version": "2023.1",
-                  "key": "-key-PropertyDef-name"
-               },
-               "value": "queryId"
-            },
-            {
-               "property": {
-                  "language": "-key-Protocol",
-                  "version": "2023.1",
-                  "key": "-key-PropertyDef-mayBeNull"
-               },
-               "value": "false"
-            },
-            {
-               "property": {
-                  "language": "-key-Protocol",
-                  "version": "2023.1",
-                  "key": "-key-PropertyDef-isList"
-               },
-               "value": "false"
-            },
-            {
-               "property": {
-                  "language": "-key-Protocol",
-                  "version": "2023.1",
-                  "key": "-key-PropertyDef-isOptional"
-               },
-               "value": "false"
-            }
-         ],
-         "containments": [],
-         "references": [
-            {
-               "reference": {
-                  "language": "-key-Protocol",
-                  "version": "2023.1",
-                  "key": "-key-PropertyDef-type"
-               },
-               "targets": [
-                  {
-                     "resolveInfo": "QueryId",
-                     "reference": "ID-131"
                   }
                ]
             }

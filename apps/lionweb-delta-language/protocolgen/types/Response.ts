@@ -1,6 +1,6 @@
-import { String } from "./DeltaTypes.js";
-import { ProtocolMessage } from "./DeltaTypes.js";
 import { QueryId } from "./DeltaTypes.js";
+import { String } from "./DeltaTypes.js";
+import { AdditionalInfo } from "./DeltaTypes.js";
 import { LionWebDeltaJsonChunk } from "./DeltaTypes.js";
 import { ParticipationId } from "./DeltaTypes.js";
 import { SequenceNumber } from "./DeltaTypes.js";
@@ -8,9 +8,9 @@ import { LionWebId } from "./Chunks.js";
 
 // The overall "super-type"
 export type DeltaResponse = {
-    messageKind: ResponseMessageKind;
-    protocolMessages: ProtocolMessage[];
     queryId: QueryId;
+    messageKind: ResponseMessageKind;
+    additionalInfo: AdditionalInfo[];
 };
 
 /**
@@ -80,19 +80,19 @@ export type ListPartitionsResponse = DeltaResponse & {
 export type ErrorResponse = DeltaResponse & {
     errorCode: String;
     message: String;
-    messageKind: "ErrorResponseResponse";
+    messageKind: "ErrorResponse";
 };
 
 // The type for the tagged union property
 export type ResponseMessageKind =
-    | "SubscribeToChangingPartitions"
-    | "SubscribeToPartitionContents"
-    | "UnsubscribeFromPartitionContents"
-    | "SignOn"
-    | "SignOff"
-    | "Reconnect"
-    | "GetAvailableIds"
-    | "ListPartitions"
+    | "SubscribeToChangingPartitionsResponse"
+    | "SubscribeToPartitionContentsResponse"
+    | "UnsubscribeFromPartitionContentsResponse"
+    | "SignOnResponse"
+    | "SignOffResponse"
+    | "ReconnectResponse"
+    | "GetAvailableIdsResponse"
+    | "ListPartitionsResponse"
     | "ErrorResponse";
 
 // Type Guard function
@@ -101,14 +101,14 @@ export function isDeltaResponse(object: unknown): object is DeltaResponse {
     return (
         castObject.messageKind !== undefined &&
         [
-            "SubscribeToChangingPartitions",
-            "SubscribeToPartitionContents",
-            "UnsubscribeFromPartitionContents",
-            "SignOn",
-            "SignOff",
-            "Reconnect",
-            "GetAvailableIds",
-            "ListPartitions",
+            "SubscribeToChangingPartitionsResponse",
+            "SubscribeToPartitionContentsResponse",
+            "UnsubscribeFromPartitionContentsResponse",
+            "SignOnResponse",
+            "SignOffResponse",
+            "ReconnectResponse",
+            "GetAvailableIdsResponse",
+            "ListPartitionsResponse",
             "ErrorResponse",
         ].includes(castObject.messageKind)
     );

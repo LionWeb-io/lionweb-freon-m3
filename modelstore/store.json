@@ -68,6 +68,18 @@
                 {
                     "name": "LionCore_builtins",
                     "file": "LionCore_builtins.json"
+                },
+                {
+                    "name": "AdminRequest",
+                    "file": "AdminRequest.json"
+                },
+                {
+                    "name": "AdminResponse",
+                    "file": "AdminResponse.json"
+                },
+                {
+                    "name": "AdminTypes",
+                    "file": "AdminTypes.json"
                 }
             ]
         },

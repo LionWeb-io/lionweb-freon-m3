@@ -2,7 +2,7 @@
 // TEMPLATE: NonOptionalsCheckerTemplate.generateChecker(...)
 
 import { FreError, FreErrorSeverity, type FreWriter, FreLanguageEnvironment, isNullOrUndefined } from "@freon4dsl/core";
-import { Protocol, Types, MessageGroup, PropertyDef, PrimitiveType, ObjectType } from "../language/index.js";
+import { Protocol, MessageGroup, Types, PropertyDef, PrimitiveType, ObjectType } from "../language/index.js";
 
 import { ProtocolDefaultWorker } from "../utils/index.js";
 import { type ProtocolCheckerInterface } from "./ProtocolValidator.js";
@@ -44,7 +44,18 @@ export class ProtocolNonOptionalsChecker extends ProtocolDefaultWorker implement
      *
      * @param node
      */
-    public execBeforeTypes(node: Types): boolean {
+    public execBeforeMessageGroup(node: MessageGroup): boolean {
+        if (isNullOrUndefined(node.taggedUnionProperty) || node.taggedUnionProperty?.length === 0) {
+            this.errorList.push(
+                new FreError(
+                    "Property 'taggedUnionProperty' must have a value",
+                    node,
+                    node.name,
+                    "taggedUnionProperty",
+                    FreErrorSeverity.Error,
+                ),
+            );
+        }
         if (isNullOrUndefined(node.name) || node.name?.length === 0) {
             this.errorList.push(new FreError("Property 'name' must have a value", node, node.name, "name", FreErrorSeverity.Error));
         }
@@ -60,18 +71,7 @@ export class ProtocolNonOptionalsChecker extends ProtocolDefaultWorker implement
      *
      * @param node
      */
-    public execBeforeMessageGroup(node: MessageGroup): boolean {
-        if (isNullOrUndefined(node.taggedUnionProperty) || node.taggedUnionProperty?.length === 0) {
-            this.errorList.push(
-                new FreError(
-                    "Property 'taggedUnionProperty' must have a value",
-                    node,
-                    node.name,
-                    "taggedUnionProperty",
-                    FreErrorSeverity.Error,
-                ),
-            );
-        }
+    public execBeforeTypes(node: Types): boolean {
         if (isNullOrUndefined(node.name) || node.name?.length === 0) {
             this.errorList.push(new FreError("Property 'name' must have a value", node, node.name, "name", FreErrorSeverity.Error));
         }

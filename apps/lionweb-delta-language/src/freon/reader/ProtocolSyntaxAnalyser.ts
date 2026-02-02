@@ -11,7 +11,7 @@ import {
     type SpptDataNodeInfo,
     type SpptDataNode,
 } from "net.akehurst.language-agl-processor";
-import { TypesSyntaxAnalyserPart, MessageGroupSyntaxAnalyserPart, ProtocolCommonSyntaxAnalyserPart } from "./index.js";
+import { MessageGroupSyntaxAnalyserPart, TypesSyntaxAnalyserPart, ProtocolCommonSyntaxAnalyserPart } from "./index.js";
 
 export enum PrimValueType {
     "string",
@@ -74,25 +74,25 @@ export class ParsedNodeReference implements FreNode {
  */
 export class ProtocolSyntaxAnalyser extends SyntaxAnalyserByMethodRegistrationAbstract<Protocol> {
     sourceName: string = "";
-    private _unit_Types_analyser: TypesSyntaxAnalyserPart = new TypesSyntaxAnalyserPart(this);
     private _unit_MessageGroup_analyser: MessageGroupSyntaxAnalyserPart = new MessageGroupSyntaxAnalyserPart(this);
+    private _unit_Types_analyser: TypesSyntaxAnalyserPart = new TypesSyntaxAnalyserPart(this);
     private _unit_common_analyser: ProtocolCommonSyntaxAnalyserPart = new ProtocolCommonSyntaxAnalyserPart(this);
 
     registerHandlers() {
+        super.registerFor("MessageGroup", (n: SpptDataNodeInfo, c: KtList<object>, s: Sentence) =>
+            this._unit_MessageGroup_analyser.transformMessageGroup(n, c, s),
+        );
         super.registerFor("Types", (n: SpptDataNodeInfo, c: KtList<object>, s: Sentence) =>
             this._unit_Types_analyser.transformTypes(n, c, s),
         );
         super.registerFor("PrimitiveType", (n: SpptDataNodeInfo, c: KtList<object>, s: Sentence) =>
             this._unit_Types_analyser.transformPrimitiveType(n, c, s),
         );
-        super.registerFor("MessageGroup", (n: SpptDataNodeInfo, c: KtList<object>, s: Sentence) =>
-            this._unit_MessageGroup_analyser.transformMessageGroup(n, c, s),
+        super.registerFor("PropertyDef", (n: SpptDataNodeInfo, c: KtList<object>, s: Sentence) =>
+            this._unit_common_analyser.transformPropertyDef(n, c, s),
         );
         super.registerFor("ObjectType", (n: SpptDataNodeInfo, c: KtList<object>, s: Sentence) =>
             this._unit_common_analyser.transformObjectType(n, c, s),
-        );
-        super.registerFor("PropertyDef", (n: SpptDataNodeInfo, c: KtList<object>, s: Sentence) =>
-            this._unit_common_analyser.transformPropertyDef(n, c, s),
         );
         super.registerFor("__fre_reference", (n: SpptDataNodeInfo, c: KtList<object>, s: Sentence) =>
             this.transform__fre_reference(n, c, s),

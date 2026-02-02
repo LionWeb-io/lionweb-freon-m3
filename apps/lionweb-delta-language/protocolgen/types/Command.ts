@@ -1,6 +1,6 @@
 import { CommandId } from "./DeltaTypes.js";
 import { String } from "./DeltaTypes.js";
-import { ProtocolMessage } from "./DeltaTypes.js";
+import { AdditionalInfo } from "./DeltaTypes.js";
 import { LionWebDeltaJsonChunk } from "./DeltaTypes.js";
 import { LionWebId } from "./Chunks.js";
 import { LionWebJsonMetaPointer } from "./Chunks.js";
@@ -11,7 +11,7 @@ import { Number } from "./DeltaTypes.js";
 export type DeltaCommand = {
     commandId: CommandId;
     messageKind: CommandMessageKind;
-    protocolMessages: ProtocolMessage[];
+    additionalInfo: AdditionalInfo[];
 };
 
 /**
@@ -243,8 +243,8 @@ export type AddReferenceCommand = DeltaCommand & {
     parent: LionWebId;
     reference: LionWebJsonMetaPointer;
     index: Number;
-    newTarget: LionWebId | null;
-    newResolveInfo: String | null;
+    newTarget?: LionWebId | null;
+    newResolveInfo?: String | null;
     messageKind: "AddReference";
 };
 
@@ -255,8 +255,8 @@ export type DeleteReferenceCommand = DeltaCommand & {
     parent: LionWebId;
     reference: LionWebJsonMetaPointer;
     index: Number;
-    deletedTarget: LionWebId | null;
-    deletedResolveInfo: String | null;
+    deletedTarget?: LionWebId | null;
+    deletedResolveInfo?: String | null;
     messageKind: "DeleteReference";
 };
 
@@ -267,10 +267,10 @@ export type ChangeReferenceCommand = DeltaCommand & {
     parent: LionWebId;
     reference: LionWebJsonMetaPointer;
     index: Number;
-    oldTarget: LionWebId | null;
-    oldResolveInfo: String | null;
-    newTarget: LionWebId | null;
-    newResolveInfo: String | null;
+    oldTarget?: LionWebId | null;
+    oldResolveInfo?: String | null;
+    newTarget?: LionWebId | null;
+    newResolveInfo?: String | null;
     messageKind: "ChangeReference";
 };
 

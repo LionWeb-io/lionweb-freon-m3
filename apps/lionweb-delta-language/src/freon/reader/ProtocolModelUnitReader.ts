@@ -57,10 +57,10 @@ export class ProtocolModelUnitReader implements FreReader {
         this.analyser.sourceName = notNullOrUndefined(sourceName) ? sourceName : "";
         let startRule: string = "";
         // choose the correct parser
-        if (metatype === "Types") {
-            startRule = "Types";
-        } else if (metatype === "MessageGroup") {
+        if (metatype === "MessageGroup") {
             startRule = "MessageGroup";
+        } else if (metatype === "Types") {
+            startRule = "Types";
         }
 
         // parse the input

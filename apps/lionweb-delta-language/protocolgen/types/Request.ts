@@ -1,6 +1,6 @@
-import { String } from "./DeltaTypes.js";
-import { ProtocolMessage } from "./DeltaTypes.js";
 import { QueryId } from "./DeltaTypes.js";
+import { String } from "./DeltaTypes.js";
+import { AdditionalInfo } from "./DeltaTypes.js";
 import { Boolean } from "./DeltaTypes.js";
 import { LionWebId } from "./Chunks.js";
 import { ClientId } from "./DeltaTypes.js";
@@ -10,9 +10,9 @@ import { Number } from "./DeltaTypes.js";
 
 // The overall "super-type"
 export type DeltaRequest = {
-    messageKind: RequestMessageKind;
-    protocolMessages: ProtocolMessage[];
     queryId: QueryId;
+    messageKind: RequestMessageKind;
+    additionalInfo: AdditionalInfo[];
 };
 
 /**
@@ -84,14 +84,14 @@ export type ListPartitionsRequest = DeltaRequest & {
 
 // The type for the tagged union property
 export type RequestMessageKind =
-    | "SubscribeToChangingPartitions"
-    | "SubscribeToPartitionContents"
-    | "UnsubscribeFromPartitionContents"
-    | "SignOn"
-    | "SignOff"
-    | "Reconnect"
-    | "GetAvailableIds"
-    | "ListPartitions";
+    | "SubscribeToChangingPartitionsRequest"
+    | "SubscribeToPartitionContentsRequest"
+    | "UnsubscribeFromPartitionContentsRequest"
+    | "SignOnRequest"
+    | "SignOffRequest"
+    | "ReconnectRequest"
+    | "GetAvailableIdsRequest"
+    | "ListPartitionsRequest";
 
 // Type Guard function
 export function isDeltaRequest(object: unknown): object is DeltaRequest {
@@ -99,14 +99,14 @@ export function isDeltaRequest(object: unknown): object is DeltaRequest {
     return (
         castObject.messageKind !== undefined &&
         [
-            "SubscribeToChangingPartitions",
-            "SubscribeToPartitionContents",
-            "UnsubscribeFromPartitionContents",
-            "SignOn",
-            "SignOff",
-            "Reconnect",
-            "GetAvailableIds",
-            "ListPartitions",
+            "SubscribeToChangingPartitionsRequest",
+            "SubscribeToPartitionContentsRequest",
+            "UnsubscribeFromPartitionContentsRequest",
+            "SignOnRequest",
+            "SignOffRequest",
+            "ReconnectRequest",
+            "GetAvailableIdsRequest",
+            "ListPartitionsRequest",
         ].includes(castObject.messageKind)
     );
 }

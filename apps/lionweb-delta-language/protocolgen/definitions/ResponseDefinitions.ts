@@ -5,6 +5,13 @@ export const ResponseDefinitions: MessageGroup = {
     taggedUnionProperty: "messageKind",
     sharedProperties: [
         {
+            name: "queryId",
+            type: "QueryId",
+            isList: false,
+            isOptional: false,
+            mayBeNull: false,
+        },
+        {
             name: "messageKind",
             type: "String",
             isList: false,
@@ -12,24 +19,24 @@ export const ResponseDefinitions: MessageGroup = {
             mayBeNull: false,
         },
         {
-            name: "protocolMessages",
-            type: "ProtocolMessage",
+            name: "additionalInfo",
+            type: "AdditionalInfo",
             isList: true,
-            isOptional: false,
-            mayBeNull: false,
-        },
-        {
-            name: "queryId",
-            type: "QueryId",
-            isList: false,
             isOptional: false,
             mayBeNull: false,
         },
     ],
     messages: [
         {
-            name: "SubscribeToChangingPartitions",
+            name: "SubscribeToChangingPartitionsResponse",
             properties: [
+                {
+                    name: "queryId",
+                    type: "QueryId",
+                    isList: false,
+                    isOptional: false,
+                    mayBeNull: false,
+                },
                 {
                     name: "messageKind",
                     type: "String",
@@ -38,23 +45,16 @@ export const ResponseDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "protocolMessages",
-                    type: "ProtocolMessage",
+                    name: "additionalInfo",
+                    type: "AdditionalInfo",
                     isList: true,
-                    isOptional: false,
-                    mayBeNull: false,
-                },
-                {
-                    name: "queryId",
-                    type: "QueryId",
-                    isList: false,
                     isOptional: false,
                     mayBeNull: false,
                 },
             ],
         },
         {
-            name: "SubscribeToPartitionContents",
+            name: "SubscribeToPartitionContentsResponse",
             properties: [
                 {
                     name: "contents",
@@ -64,6 +64,13 @@ export const ResponseDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
+                    name: "queryId",
+                    type: "QueryId",
+                    isList: false,
+                    isOptional: false,
+                    mayBeNull: false,
+                },
+                {
                     name: "messageKind",
                     type: "String",
                     isList: false,
@@ -71,25 +78,25 @@ export const ResponseDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "protocolMessages",
-                    type: "ProtocolMessage",
+                    name: "additionalInfo",
+                    type: "AdditionalInfo",
                     isList: true,
-                    isOptional: false,
-                    mayBeNull: false,
-                },
-                {
-                    name: "queryId",
-                    type: "QueryId",
-                    isList: false,
                     isOptional: false,
                     mayBeNull: false,
                 },
             ],
         },
         {
-            name: "UnsubscribeFromPartitionContents",
+            name: "UnsubscribeFromPartitionContentsResponse",
             properties: [
                 {
+                    name: "queryId",
+                    type: "QueryId",
+                    isList: false,
+                    isOptional: false,
+                    mayBeNull: false,
+                },
+                {
                     name: "messageKind",
                     type: "String",
                     isList: false,
@@ -97,23 +104,16 @@ export const ResponseDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "protocolMessages",
-                    type: "ProtocolMessage",
+                    name: "additionalInfo",
+                    type: "AdditionalInfo",
                     isList: true,
-                    isOptional: false,
-                    mayBeNull: false,
-                },
-                {
-                    name: "queryId",
-                    type: "QueryId",
-                    isList: false,
                     isOptional: false,
                     mayBeNull: false,
                 },
             ],
         },
         {
-            name: "SignOn",
+            name: "SignOnResponse",
             properties: [
                 {
                     name: "participationId",
@@ -123,6 +123,13 @@ export const ResponseDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
+                    name: "queryId",
+                    type: "QueryId",
+                    isList: false,
+                    isOptional: false,
+                    mayBeNull: false,
+                },
+                {
                     name: "messageKind",
                     type: "String",
                     isList: false,
@@ -130,25 +137,25 @@ export const ResponseDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "protocolMessages",
-                    type: "ProtocolMessage",
+                    name: "additionalInfo",
+                    type: "AdditionalInfo",
                     isList: true,
-                    isOptional: false,
-                    mayBeNull: false,
-                },
-                {
-                    name: "queryId",
-                    type: "QueryId",
-                    isList: false,
                     isOptional: false,
                     mayBeNull: false,
                 },
             ],
         },
         {
-            name: "SignOff",
+            name: "SignOffResponse",
             properties: [
                 {
+                    name: "queryId",
+                    type: "QueryId",
+                    isList: false,
+                    isOptional: false,
+                    mayBeNull: false,
+                },
+                {
                     name: "messageKind",
                     type: "String",
                     isList: false,
@@ -156,23 +163,16 @@ export const ResponseDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "protocolMessages",
-                    type: "ProtocolMessage",
+                    name: "additionalInfo",
+                    type: "AdditionalInfo",
                     isList: true,
-                    isOptional: false,
-                    mayBeNull: false,
-                },
-                {
-                    name: "queryId",
-                    type: "QueryId",
-                    isList: false,
                     isOptional: false,
                     mayBeNull: false,
                 },
             ],
         },
         {
-            name: "Reconnect",
+            name: "ReconnectResponse",
             properties: [
                 {
                     name: "lastSentSequenceNumber",
@@ -182,6 +182,13 @@ export const ResponseDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
+                    name: "queryId",
+                    type: "QueryId",
+                    isList: false,
+                    isOptional: false,
+                    mayBeNull: false,
+                },
+                {
                     name: "messageKind",
                     type: "String",
                     isList: false,
@@ -189,23 +196,16 @@ export const ResponseDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "protocolMessages",
-                    type: "ProtocolMessage",
+                    name: "additionalInfo",
+                    type: "AdditionalInfo",
                     isList: true,
-                    isOptional: false,
-                    mayBeNull: false,
-                },
-                {
-                    name: "queryId",
-                    type: "QueryId",
-                    isList: false,
                     isOptional: false,
                     mayBeNull: false,
                 },
             ],
         },
         {
-            name: "GetAvailableIds",
+            name: "GetAvailableIdsResponse",
             properties: [
                 {
                     name: "ids",
@@ -215,6 +215,13 @@ export const ResponseDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
+                    name: "queryId",
+                    type: "QueryId",
+                    isList: false,
+                    isOptional: false,
+                    mayBeNull: false,
+                },
+                {
                     name: "messageKind",
                     type: "String",
                     isList: false,
@@ -222,23 +229,16 @@ export const ResponseDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "protocolMessages",
-                    type: "ProtocolMessage",
+                    name: "additionalInfo",
+                    type: "AdditionalInfo",
                     isList: true,
-                    isOptional: false,
-                    mayBeNull: false,
-                },
-                {
-                    name: "queryId",
-                    type: "QueryId",
-                    isList: false,
                     isOptional: false,
                     mayBeNull: false,
                 },
             ],
         },
         {
-            name: "ListPartitions",
+            name: "ListPartitionsResponse",
             properties: [
                 {
                     name: "partitions",
@@ -248,6 +248,13 @@ export const ResponseDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
+                    name: "queryId",
+                    type: "QueryId",
+                    isList: false,
+                    isOptional: false,
+                    mayBeNull: false,
+                },
+                {
                     name: "messageKind",
                     type: "String",
                     isList: false,
@@ -255,16 +262,9 @@ export const ResponseDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "protocolMessages",
-                    type: "ProtocolMessage",
+                    name: "additionalInfo",
+                    type: "AdditionalInfo",
                     isList: true,
-                    isOptional: false,
-                    mayBeNull: false,
-                },
-                {
-                    name: "queryId",
-                    type: "QueryId",
-                    isList: false,
                     isOptional: false,
                     mayBeNull: false,
                 },
@@ -288,6 +288,13 @@ export const ResponseDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
+                    name: "queryId",
+                    type: "QueryId",
+                    isList: false,
+                    isOptional: false,
+                    mayBeNull: false,
+                },
+                {
                     name: "messageKind",
                     type: "String",
                     isList: false,
@@ -295,16 +302,9 @@ export const ResponseDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "protocolMessages",
-                    type: "ProtocolMessage",
+                    name: "additionalInfo",
+                    type: "AdditionalInfo",
                     isList: true,
-                    isOptional: false,
-                    mayBeNull: false,
-                },
-                {
-                    name: "queryId",
-                    type: "QueryId",
-                    isList: false,
                     isOptional: false,
                     mayBeNull: false,
                 },

@@ -72,8 +72,8 @@ export class MessageGroup extends MobxModelElementImpl implements FreModelUnit, 
         // Both 'observablepart' and 'observablepartlist' change the get and set of the attribute
         // such that the parent-part relationship is consistently maintained,
         // and make sure the part is observable. In lists no 'null' or 'undefined' values are allowed.
-        observablepartlist(this, "messages");
         observablepartlist(this, "sharedProperties");
+        observablepartlist(this, "messages");
 
         // Make copy method a mobx action
         makeObservable(this, {
@@ -133,11 +133,11 @@ export class MessageGroup extends MobxModelElementImpl implements FreModelUnit, 
         if (notNullOrUndefined(this.name)) {
             result.name = this.name;
         }
-        if (notNullOrUndefined(this.messages)) {
-            this.messages.forEach((x) => result.messages.push(x.copy()));
-        }
         if (notNullOrUndefined(this.sharedProperties)) {
             this.sharedProperties.forEach((x) => result.sharedProperties.push(x.copy()));
+        }
+        if (notNullOrUndefined(this.messages)) {
+            this.messages.forEach((x) => result.messages.push(x.copy()));
         }
         return result;
     }
@@ -159,11 +159,11 @@ export class MessageGroup extends MobxModelElementImpl implements FreModelUnit, 
         if (result && toBeMatched.name !== null && toBeMatched.name !== undefined && toBeMatched.name.length > 0) {
             result = result && this.name === toBeMatched.name;
         }
-        if (result && notNullOrUndefined(toBeMatched.messages)) {
-            result = result && matchElementList(this.messages, toBeMatched.messages);
-        }
         if (result && notNullOrUndefined(toBeMatched.sharedProperties)) {
             result = result && matchElementList(this.sharedProperties, toBeMatched.sharedProperties);
+        }
+        if (result && notNullOrUndefined(toBeMatched.messages)) {
+            result = result && matchElementList(this.messages, toBeMatched.messages);
         }
         return result;
     }

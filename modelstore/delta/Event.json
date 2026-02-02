@@ -40,9 +40,9 @@
                   "key": "-key-MessageGroup-sharedProperties"
                },
                "children": [
+                  "ID-30",
                   "ID-34",
                   "ID-35",
-                  "ID-30",
                   "ID-32"
                ]
             },
@@ -87,6 +87,66 @@
          "references": [],
          "annotations": [],
          "parent": null
+      },
+      {
+         "id": "ID-30",
+         "classifier": {
+            "language": "-key-Protocol",
+            "version": "2023.1",
+            "key": "-key-PropertyDef"
+         },
+         "properties": [
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-name"
+               },
+               "value": "messageKind"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-mayBeNull"
+               },
+               "value": "false"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-isList"
+               },
+               "value": "false"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-isOptional"
+               },
+               "value": "false"
+            }
+         ],
+         "containments": [],
+         "references": [
+            {
+               "reference": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-type"
+               },
+               "targets": [
+                  {
+                     "resolveInfo": "String",
+                     "reference": "ID-3"
+                  }
+               ]
+            }
+         ],
+         "annotations": [],
+         "parent": "ID-29"
       },
       {
          "id": "ID-34",
@@ -209,66 +269,6 @@
          "parent": "ID-29"
       },
       {
-         "id": "ID-30",
-         "classifier": {
-            "language": "-key-Protocol",
-            "version": "2023.1",
-            "key": "-key-PropertyDef"
-         },
-         "properties": [
-            {
-               "property": {
-                  "language": "-key-Protocol",
-                  "version": "2023.1",
-                  "key": "-key-PropertyDef-name"
-               },
-               "value": "messageKind"
-            },
-            {
-               "property": {
-                  "language": "-key-Protocol",
-                  "version": "2023.1",
-                  "key": "-key-PropertyDef-mayBeNull"
-               },
-               "value": "false"
-            },
-            {
-               "property": {
-                  "language": "-key-Protocol",
-                  "version": "2023.1",
-                  "key": "-key-PropertyDef-isList"
-               },
-               "value": "false"
-            },
-            {
-               "property": {
-                  "language": "-key-Protocol",
-                  "version": "2023.1",
-                  "key": "-key-PropertyDef-isOptional"
-               },
-               "value": "false"
-            }
-         ],
-         "containments": [],
-         "references": [
-            {
-               "reference": {
-                  "language": "-key-Protocol",
-                  "version": "2023.1",
-                  "key": "-key-PropertyDef-type"
-               },
-               "targets": [
-                  {
-                     "resolveInfo": "String",
-                     "reference": "ID-3"
-                  }
-               ]
-            }
-         ],
-         "annotations": [],
-         "parent": "ID-29"
-      },
-      {
          "id": "ID-32",
          "classifier": {
             "language": "-key-Protocol",
@@ -282,7 +282,7 @@
                   "version": "2023.1",
                   "key": "-key-PropertyDef-name"
                },
-               "value": "protocolMessages"
+               "value": "additionalInfo"
             },
             {
                "property": {
@@ -319,7 +319,7 @@
                },
                "targets": [
                   {
-                     "resolveInfo": "ProtocolMessage",
+                     "resolveInfo": "AdditionalInfo",
                      "reference": "ID-4"
                   }
                ]
@@ -7814,7 +7814,7 @@
                   "version": "2023.1",
                   "key": "-key-PropertyDef-isOptional"
                },
-               "value": "false"
+               "value": "true"
             }
          ],
          "containments": [],
@@ -7874,7 +7874,7 @@
                   "version": "2023.1",
                   "key": "-key-PropertyDef-isOptional"
                },
-               "value": "false"
+               "value": "true"
             }
          ],
          "containments": [],
@@ -8151,7 +8151,7 @@
                   "version": "2023.1",
                   "key": "-key-PropertyDef-isOptional"
                },
-               "value": "false"
+               "value": "true"
             }
          ],
          "containments": [],
@@ -8211,7 +8211,7 @@
                   "version": "2023.1",
                   "key": "-key-PropertyDef-isOptional"
                },
-               "value": "false"
+               "value": "true"
             }
          ],
          "containments": [],
@@ -8490,7 +8490,7 @@
                   "version": "2023.1",
                   "key": "-key-PropertyDef-isOptional"
                },
-               "value": "false"
+               "value": "true"
             }
          ],
          "containments": [],
@@ -8550,7 +8550,7 @@
                   "version": "2023.1",
                   "key": "-key-PropertyDef-isOptional"
                },
-               "value": "false"
+               "value": "true"
             }
          ],
          "containments": [],
@@ -8610,7 +8610,7 @@
                   "version": "2023.1",
                   "key": "-key-PropertyDef-isOptional"
                },
-               "value": "false"
+               "value": "true"
             }
          ],
          "containments": [],
@@ -8670,7 +8670,7 @@
                   "version": "2023.1",
                   "key": "-key-PropertyDef-isOptional"
                },
-               "value": "false"
+               "value": "true"
             }
          ],
          "containments": [],

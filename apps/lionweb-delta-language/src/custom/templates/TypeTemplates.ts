@@ -1,6 +1,5 @@
 import { FreNamedNode, FreNodeReference, isNullOrUndefined, notNullOrUndefined, ownerOfType } from "@freon4dsl/core"
 import synchronizedPrettier from "@prettier/sync";
-// import { DefinitionSchema, isObjectDefinition, isPrimitiveDefinition, PrimitiveDefinition } from "@lionweb/validation"
 import { MessageGroup, ObjectType, PrimitiveType, PropertyDef, Type, Types } from "../../freon/language/index.js"
 
 export class TypeTemplates {
@@ -35,10 +34,10 @@ export class TypeTemplates {
                         }
                         `
             }).join("\n")}
-                    
+
             // The type for the tagged union property    
             export type ${this.taggedPropertyType(messageGroup)} = ${messageGroup.messages.map(msg =>
-                `"${msg.name}"`
+                `"${this.messageKind(messageGroup, msg)}"`
             ).join(" |\n")}
             
             // Type Guard function
@@ -46,7 +45,7 @@ export class TypeTemplates {
                const castObject = object as Delta${messageGroup.name}
                 return (
                     castObject.messageKind !== undefined && [ ${messageGroup.messages.map(msg =>
-                        `"${msg.name}"`
+                        `"${this.messageKind(messageGroup, msg)}"`
                     ).join(",\n")} ].includes(castObject.messageKind)
                 )
             }`
@@ -86,6 +85,14 @@ export class TypeTemplates {
                 ${result}
         `
     }
+
+    // TODO Hack to fix message kind for Request and Response
+    messageKind(messageGroup: MessageGroup, msg: ObjectType): string {
+        if (messageGroup?.name.endsWith("Request") || messageGroup?.name.endsWith("Response")) {
+            return msg.name.endsWith(messageGroup.name) ? msg.name : msg.name + messageGroup.name  
+        } 
+        return msg.name
+    }
     
     taggedPropertyType(messageGroup: MessageGroup): string {
         return `${messageGroup.name}${this.toFirstUpper(messageGroup.taggedUnionProperty)}`
@@ -93,14 +100,12 @@ export class TypeTemplates {
 
     generatePropertyDef(messageGroup: MessageGroup | undefined, msg: ObjectType, propDef: PropertyDef, referredTypes: Set<FreNodeReference<Type>>): string {
         referredTypes.add(propDef.type)
-        // TODO Hack to fix message kind for Request and Response
-        const messageKind = (messageGroup?.name === "Request" || messageGroup?.name === "Response" ? msg.name + messageGroup.name : msg.name)
         const optional = (propDef.isOptional ? "?" : "")
         const isList = propDef.isList ? "[]" : ""
         const canBeNull = propDef.mayBeNull ? " | null" : ""
         const isDiscriminator = messageGroup?.taggedUnionProperty === propDef.name
         if (isDiscriminator) {
-            return `${propDef.name} : "${messageKind}"`
+            return `${propDef.name} : "${this.messageKind(messageGroup, msg)}"`
         } else {
             return `${propDef.name}${optional} : ${this.tsType(messageGroup, propDef.$type?.name)}${isList}${canBeNull}`
         }
@@ -198,7 +203,7 @@ export class TypeTemplates {
             "messages": [
                 ${messageGroup.messages.map(message => {
                     return `{
-                                "name": "${message.name}",
+                                "name": "${this.messageKind(messageGroup, message)}",
                                 "properties": [
                                     ${message.properties.concat(messageGroup.sharedProperties).map(prop => {
                                         return this.generatePropertyJson(prop)
