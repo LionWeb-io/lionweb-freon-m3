@@ -13,6 +13,7 @@ export type AdditionalInfo = {
     kind: String;
     message: String;
     data: KeyValuePair[];
+    distribute?: Boolean;
 };
 
 export type KeyValuePair = {

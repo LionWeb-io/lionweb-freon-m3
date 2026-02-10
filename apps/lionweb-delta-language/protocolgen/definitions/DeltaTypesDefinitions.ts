@@ -61,6 +61,13 @@ export const DeltaTypesDefinitions: TypeGroup = {
                     isOptional: false,
                     mayBeNull: false,
                 },
+                {
+                    name: "distribute",
+                    type: "Boolean",
+                    isList: false,
+                    isOptional: true,
+                    mayBeNull: false,
+                },
             ],
         },
         {
