@@ -53,6 +53,7 @@
                },
                "children": [
                   "ID-133",
+                  "ID-255",
                   "ID-153",
                   "ID-263",
                   "ID-137",
@@ -201,7 +202,7 @@
                   "version": "2023.1",
                   "key": "-key-PropertyDef-name"
                },
-               "value": "additionalInfo"
+               "value": "additionalInfos"
             },
             {
                "property": {
@@ -261,7 +262,7 @@
                   "version": "2023.1",
                   "key": "-key-Type-name"
                },
-               "value": "SubscribeToChangingPartitions"
+               "value": "InformAboutChangingPartitions"
             }
          ],
          "containments": [
@@ -416,7 +417,101 @@
                   "version": "2023.1",
                   "key": "-key-PropertyDef-name"
                },
-               "value": "partitions"
+               "value": "depthLimit"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-mayBeNull"
+               },
+               "value": "false"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-isList"
+               },
+               "value": "false"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-isOptional"
+               },
+               "value": "false"
+            }
+         ],
+         "containments": [],
+         "references": [
+            {
+               "reference": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-type"
+               },
+               "targets": [
+                  {
+                     "resolveInfo": "Number",
+                     "reference": "ID-78"
+                  }
+               ]
+            }
+         ],
+         "annotations": [],
+         "parent": "ID-133"
+      },
+      {
+         "id": "ID-255",
+         "classifier": {
+            "language": "-key-Protocol",
+            "version": "2023.1",
+            "key": "-key-ObjectType"
+         },
+         "properties": [
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-Type-name"
+               },
+               "value": "SubscribeToChangingPartitions"
+            }
+         ],
+         "containments": [
+            {
+               "containment": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-ObjectType-properties"
+               },
+               "children": [
+                  "ID-272",
+                  "ID-268"
+               ]
+            }
+         ],
+         "references": [],
+         "annotations": [],
+         "parent": "ID-126"
+      },
+      {
+         "id": "ID-272",
+         "classifier": {
+            "language": "-key-Protocol",
+            "version": "2023.1",
+            "key": "-key-PropertyDef"
+         },
+         "properties": [
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-name"
+               },
+               "value": "creation"
             },
             {
                "property": {
@@ -460,7 +555,67 @@
             }
          ],
          "annotations": [],
-         "parent": "ID-133"
+         "parent": "ID-255"
+      },
+      {
+         "id": "ID-268",
+         "classifier": {
+            "language": "-key-Protocol",
+            "version": "2023.1",
+            "key": "-key-PropertyDef"
+         },
+         "properties": [
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-name"
+               },
+               "value": "deletion"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-mayBeNull"
+               },
+               "value": "false"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-isList"
+               },
+               "value": "false"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-isOptional"
+               },
+               "value": "false"
+            }
+         ],
+         "containments": [],
+         "references": [
+            {
+               "reference": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-type"
+               },
+               "targets": [
+                  {
+                     "resolveInfo": "Boolean",
+                     "reference": "ID-5"
+                  }
+               ]
+            }
+         ],
+         "annotations": [],
+         "parent": "ID-255"
       },
       {
          "id": "ID-153",
