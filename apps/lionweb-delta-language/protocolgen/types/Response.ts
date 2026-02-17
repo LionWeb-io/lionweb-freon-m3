@@ -1,16 +1,16 @@
-import { QueryId } from "./DeltaTypes.js";
-import { String } from "./DeltaTypes.js";
-import { AdditionalInfo } from "./DeltaTypes.js";
-import { LionWebDeltaJsonChunk } from "./DeltaTypes.js";
-import { ParticipationId } from "./DeltaTypes.js";
-import { SequenceNumber } from "./DeltaTypes.js";
-import { LionWebId } from "./Chunks.js";
+import type { QueryId } from "./DeltaTypes.js";
+import type { String } from "./DeltaTypes.js";
+import type { AdditionalInfo } from "./DeltaTypes.js";
+import type { LionWebDeltaJsonChunk } from "./DeltaTypes.js";
+import type { ParticipationId } from "./DeltaTypes.js";
+import type { SequenceNumber } from "./DeltaTypes.js";
+import type { LionWebId } from "./Chunks.js";
 
 // The overall "super-type"
 export type DeltaResponse = {
     queryId: QueryId;
     messageKind: ResponseMessageKind;
-    additionalInfo: AdditionalInfo[];
+    additionalInfos: AdditionalInfo[];
 };
 
 /**
@@ -18,6 +18,13 @@ export type DeltaResponse = {
  */
 export type SubscribeToChangingPartitionsResponse = DeltaResponse & {
     messageKind: "SubscribeToChangingPartitionsResponse";
+};
+
+/**
+ *  @see https://lionWeb.io/specification/delta/delta-api.html#qry-InformAboutChangingPartitions
+ */
+export type InformAboutChangingPartitionsResponse = DeltaResponse & {
+    messageKind: "InformAboutChangingPartitionsResponse";
 };
 
 /**
@@ -86,6 +93,7 @@ export type ErrorResponse = DeltaResponse & {
 // The type for the tagged union property
 export type ResponseMessageKind =
     | "SubscribeToChangingPartitionsResponse"
+    | "InformAboutChangingPartitionsResponse"
     | "SubscribeToPartitionContentsResponse"
     | "UnsubscribeFromPartitionContentsResponse"
     | "SignOnResponse"
@@ -102,6 +110,7 @@ export function isDeltaResponse(object: unknown): object is DeltaResponse {
         castObject.messageKind !== undefined &&
         [
             "SubscribeToChangingPartitionsResponse",
+            "InformAboutChangingPartitionsResponse",
             "SubscribeToPartitionContentsResponse",
             "UnsubscribeFromPartitionContentsResponse",
             "SignOnResponse",

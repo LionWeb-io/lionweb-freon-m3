@@ -1,5 +1,5 @@
-import { String } from "./DeltaTypes.js";
-import { KeyValuePair } from "./DeltaTypes.js";
+import type { String } from "./DeltaTypes.js";
+import type { KeyValuePair } from "./DeltaTypes.js";
 
 export type LionWebId = string;
 export type LionWebKey = string;

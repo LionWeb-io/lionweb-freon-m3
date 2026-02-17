@@ -106,7 +106,8 @@ export class IdTemplate {
                             // const fType = prop.freLanguageConcept()
                             keysMap.get(prop.freLanguageConcept()).push( {
                                 name: `${ent.name}${toFirstUpper(prop.name)}`,
-                                mp: { language: `${languageUnit.key}`, key: `${key}`, version: "1"}
+                                // TODO Add version to Frem LanguageDefinition file
+                                mp: { language: `${languageUnit.key}`, key: `${key}`, version: "2023.1"}
                             })
                             // tsKeyConstants += `export const ${ent.name}${toFirstUpper(prop.name)}${fType} = {language: "${languageUnit.key}", key: "${key}", version: "1"}`
                         }

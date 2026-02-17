@@ -1,4 +1,4 @@
-import { MessageGroup } from "../generic/schema/SyntaxDefinition.js";
+import type { MessageGroup } from "../generic/schema/SyntaxDefinition.js";
 
 export const ResponseDefinitions: MessageGroup = {
     name: "Response",
@@ -19,7 +19,7 @@ export const ResponseDefinitions: MessageGroup = {
             mayBeNull: false,
         },
         {
-            name: "additionalInfo",
+            name: "additionalInfos",
             type: "AdditionalInfo",
             isList: true,
             isOptional: false,
@@ -45,7 +45,33 @@ export const ResponseDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
+                    type: "AdditionalInfo",
+                    isList: true,
+                    isOptional: false,
+                    mayBeNull: false,
+                },
+            ],
+        },
+        {
+            name: "InformAboutChangingPartitionsResponse",
+            properties: [
+                {
+                    name: "queryId",
+                    type: "QueryId",
+                    isList: false,
+                    isOptional: false,
+                    mayBeNull: false,
+                },
+                {
+                    name: "messageKind",
+                    type: "String",
+                    isList: false,
+                    isOptional: false,
+                    mayBeNull: false,
+                },
+                {
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,
@@ -78,7 +104,7 @@ export const ResponseDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,
@@ -104,7 +130,7 @@ export const ResponseDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,
@@ -137,7 +163,7 @@ export const ResponseDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,
@@ -163,7 +189,7 @@ export const ResponseDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,
@@ -196,7 +222,7 @@ export const ResponseDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,
@@ -229,7 +255,7 @@ export const ResponseDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,
@@ -262,7 +288,7 @@ export const ResponseDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,
@@ -302,7 +328,7 @@ export const ResponseDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,

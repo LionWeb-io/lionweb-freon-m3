@@ -1,4 +1,4 @@
-import { MessageGroup } from "../generic/schema/SyntaxDefinition.js";
+import type { MessageGroup } from "../generic/schema/SyntaxDefinition.js";
 
 export const EventDefinitions: MessageGroup = {
     name: "Event",
@@ -26,7 +26,7 @@ export const EventDefinitions: MessageGroup = {
             mayBeNull: false,
         },
         {
-            name: "additionalInfo",
+            name: "additionalInfos",
             type: "AdditionalInfo",
             isList: true,
             isOptional: false,
@@ -80,7 +80,7 @@ export const EventDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,
@@ -120,7 +120,7 @@ export const EventDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,
@@ -167,7 +167,7 @@ export const EventDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,
@@ -221,7 +221,7 @@ export const EventDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,
@@ -275,7 +275,7 @@ export const EventDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,
@@ -336,7 +336,7 @@ export const EventDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,
@@ -397,7 +397,7 @@ export const EventDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,
@@ -465,7 +465,7 @@ export const EventDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,
@@ -540,7 +540,7 @@ export const EventDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,
@@ -622,7 +622,7 @@ export const EventDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,
@@ -697,7 +697,7 @@ export const EventDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,
@@ -765,7 +765,7 @@ export const EventDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,
@@ -861,7 +861,7 @@ export const EventDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,
@@ -950,7 +950,7 @@ export const EventDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,
@@ -1032,7 +1032,7 @@ export const EventDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,
@@ -1086,7 +1086,7 @@ export const EventDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,
@@ -1147,7 +1147,7 @@ export const EventDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,
@@ -1215,7 +1215,7 @@ export const EventDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,
@@ -1283,7 +1283,7 @@ export const EventDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,
@@ -1344,7 +1344,7 @@ export const EventDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,
@@ -1426,7 +1426,7 @@ export const EventDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,
@@ -1501,7 +1501,7 @@ export const EventDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,
@@ -1569,7 +1569,7 @@ export const EventDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,
@@ -1637,7 +1637,7 @@ export const EventDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,
@@ -1719,7 +1719,7 @@ export const EventDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,
@@ -1759,7 +1759,7 @@ export const EventDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,
@@ -1792,7 +1792,7 @@ export const EventDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,
@@ -1839,7 +1839,7 @@ export const EventDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,

@@ -66,11 +66,11 @@ export class TypeTemplates {
             if (notNullOrUndefined(ref.referred)) {
                 const namespace = ownerOfType(ref.referred, "Types") as Types
                 if (notNullOrUndefined(namespace)) {
-                    importsText.push(`import { ${ref.referred.name} } from "./${namespace.name}.js";`)
+                    importsText.push(`import type { ${ref.referred.name} } from "./${namespace.name}.js";`)
                 } else {
                     const namespace2 = ownerOfType(ref.referred, "MessageGroup") as MessageGroup
                     if (notNullOrUndefined(namespace2)) {
-                        importsText.push(`import { ${ref.referred.name} } from "./${namespace2.name}.js";`)
+                        importsText.push(`import type { ${ref.referred.name} } from "./${namespace2.name}.js";`)
                     } else {
                         importsText.push(`// cannot find import for ${ref.name}`)
                     }
@@ -166,11 +166,11 @@ export class TypeTemplates {
             if (notNullOrUndefined(ref.referred)) {
                 const namespace = ownerOfType(ref.referred, "Types") as Types
                 if (notNullOrUndefined(namespace) && namespace !== types) {
-                    importsText.push(`import { ${ref.referred.name} } from "./${namespace.name}.js";`)
+                    importsText.push(`import type { ${ref.referred.name} } from "./${namespace.name}.js";`)
                 } else {
                     const namespace2 = ownerOfType(ref.referred, "MessageGroup") as MessageGroup
                     if (notNullOrUndefined(namespace2)) {
-                        importsText.push(`import { ${ref.referred.name} } from "./${namespace2.name}.js";`)
+                        importsText.push(`import type { ${ref.referred.name} } from "./${namespace2.name}.js";`)
                     } else if (namespace !== types) {
                         importsText.push(`// cannot find import for ${ref.name}`)
                     }
@@ -190,7 +190,7 @@ export class TypeTemplates {
     
     messageGroup2DefinitionTemplate(messageGroup: MessageGroup): string {
         return `
-        import { MessageGroup } from "../generic/schema/SyntaxDefinition.js";
+        import type { MessageGroup } from "../generic/schema/SyntaxDefinition.js";
         
         export const ${messageGroup.name}Definitions: MessageGroup = {
             "name": "${messageGroup.name}",
@@ -217,7 +217,7 @@ export class TypeTemplates {
 
     types2DefinitionTemplate(types: Types): string {
         return `
-        import { TypeGroup } from "../generic/schema/SyntaxDefinition.js";
+        import type { TypeGroup } from "../generic/schema/SyntaxDefinition.js";
 
         export const ${types.name}Definitions: TypeGroup = {
             "name": "${types.name}",

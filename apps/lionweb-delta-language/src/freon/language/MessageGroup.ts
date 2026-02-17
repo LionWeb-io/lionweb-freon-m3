@@ -11,7 +11,7 @@ import {
     FreUtils,
     matchElementList,
 } from "@freon4dsl/core";
-import { ObjectType, PropertyDef, type Type } from "./internal.js";
+import { PropertyDef, ObjectType, type Type } from "./internal.js";
 
 import { makeObservable, action } from "mobx";
 
@@ -34,11 +34,11 @@ export class MessageGroup extends MobxModelElementImpl implements FreModelUnit, 
         if (notNullOrUndefined(data.name)) {
             result.name = data.name;
         }
-        if (notNullOrUndefined(data.messages)) {
-            data.messages.forEach((x) => result.messages.push(x));
-        }
         if (notNullOrUndefined(data.sharedProperties)) {
             data.sharedProperties.forEach((x) => result.sharedProperties.push(x));
+        }
+        if (notNullOrUndefined(data.messages)) {
+            data.messages.forEach((x) => result.messages.push(x));
         }
         if (notNullOrUndefined(data.parseLocation)) {
             result.parseLocation = data.parseLocation;
@@ -52,8 +52,8 @@ export class MessageGroup extends MobxModelElementImpl implements FreModelUnit, 
     parseLocation: FreParseLocation | undefined; // if relevant, the location of this element within the source from which it is parsed
     taggedUnionProperty!: string; // implementation of taggedUnionProperty
     name!: string; // implementation of name
-    messages!: ObjectType[]; // implementation of part 'messages'
     sharedProperties!: PropertyDef[]; // implementation of part 'sharedProperties'
+    messages!: ObjectType[]; // implementation of part 'messages'
 
     constructor(id?: string) {
         super();

@@ -1,18 +1,28 @@
-import { QueryId } from "./DeltaTypes.js";
-import { String } from "./DeltaTypes.js";
-import { AdditionalInfo } from "./DeltaTypes.js";
-import { Boolean } from "./DeltaTypes.js";
-import { LionWebId } from "./Chunks.js";
-import { ClientId } from "./DeltaTypes.js";
-import { ParticipationId } from "./DeltaTypes.js";
-import { SequenceNumber } from "./DeltaTypes.js";
-import { Number } from "./DeltaTypes.js";
+import type { QueryId } from "./DeltaTypes.js";
+import type { String } from "./DeltaTypes.js";
+import type { AdditionalInfo } from "./DeltaTypes.js";
+import type { Boolean } from "./DeltaTypes.js";
+import type { Number } from "./DeltaTypes.js";
+import type { LionWebId } from "./Chunks.js";
+import type { ClientId } from "./DeltaTypes.js";
+import type { ParticipationId } from "./DeltaTypes.js";
+import type { SequenceNumber } from "./DeltaTypes.js";
 
 // The overall "super-type"
 export type DeltaRequest = {
     queryId: QueryId;
     messageKind: RequestMessageKind;
-    additionalInfo: AdditionalInfo[];
+    additionalInfos: AdditionalInfo[];
+};
+
+/**
+ *  @see https://lionWeb.io/specification/delta/delta-api.html#qry-InformAboutChangingPartitions
+ */
+export type InformAboutChangingPartitionsRequest = DeltaRequest & {
+    creation: Boolean;
+    deletion: Boolean;
+    depthLimit: Number;
+    messageKind: "InformAboutChangingPartitionsRequest";
 };
 
 /**
@@ -21,7 +31,6 @@ export type DeltaRequest = {
 export type SubscribeToChangingPartitionsRequest = DeltaRequest & {
     creation: Boolean;
     deletion: Boolean;
-    partitions: Boolean;
     messageKind: "SubscribeToChangingPartitionsRequest";
 };
 
@@ -84,6 +93,7 @@ export type ListPartitionsRequest = DeltaRequest & {
 
 // The type for the tagged union property
 export type RequestMessageKind =
+    | "InformAboutChangingPartitionsRequest"
     | "SubscribeToChangingPartitionsRequest"
     | "SubscribeToPartitionContentsRequest"
     | "UnsubscribeFromPartitionContentsRequest"
@@ -99,6 +109,7 @@ export function isDeltaRequest(object: unknown): object is DeltaRequest {
     return (
         castObject.messageKind !== undefined &&
         [
+            "InformAboutChangingPartitionsRequest",
             "SubscribeToChangingPartitionsRequest",
             "SubscribeToPartitionContentsRequest",
             "UnsubscribeFromPartitionContentsRequest",

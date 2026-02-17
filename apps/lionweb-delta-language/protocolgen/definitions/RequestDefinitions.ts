@@ -1,4 +1,4 @@
-import { MessageGroup } from "../generic/schema/SyntaxDefinition.js";
+import type { MessageGroup } from "../generic/schema/SyntaxDefinition.js";
 
 export const RequestDefinitions: MessageGroup = {
     name: "Request",
@@ -19,7 +19,7 @@ export const RequestDefinitions: MessageGroup = {
             mayBeNull: false,
         },
         {
-            name: "additionalInfo",
+            name: "additionalInfos",
             type: "AdditionalInfo",
             isList: true,
             isOptional: false,
@@ -28,7 +28,7 @@ export const RequestDefinitions: MessageGroup = {
     ],
     messages: [
         {
-            name: "SubscribeToChangingPartitionsRequest",
+            name: "InformAboutChangingPartitionsRequest",
             properties: [
                 {
                     name: "creation",
@@ -45,7 +45,47 @@ export const RequestDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "partitions",
+                    name: "depthLimit",
+                    type: "Number",
+                    isList: false,
+                    isOptional: false,
+                    mayBeNull: false,
+                },
+                {
+                    name: "queryId",
+                    type: "QueryId",
+                    isList: false,
+                    isOptional: false,
+                    mayBeNull: false,
+                },
+                {
+                    name: "messageKind",
+                    type: "String",
+                    isList: false,
+                    isOptional: false,
+                    mayBeNull: false,
+                },
+                {
+                    name: "additionalInfos",
+                    type: "AdditionalInfo",
+                    isList: true,
+                    isOptional: false,
+                    mayBeNull: false,
+                },
+            ],
+        },
+        {
+            name: "SubscribeToChangingPartitionsRequest",
+            properties: [
+                {
+                    name: "creation",
+                    type: "Boolean",
+                    isList: false,
+                    isOptional: false,
+                    mayBeNull: false,
+                },
+                {
+                    name: "deletion",
                     type: "Boolean",
                     isList: false,
                     isOptional: false,
@@ -66,7 +106,7 @@ export const RequestDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,
@@ -99,7 +139,7 @@ export const RequestDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,
@@ -132,7 +172,7 @@ export const RequestDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,
@@ -179,7 +219,7 @@ export const RequestDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,
@@ -205,7 +245,7 @@ export const RequestDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,
@@ -245,7 +285,7 @@ export const RequestDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,
@@ -278,7 +318,7 @@ export const RequestDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,
@@ -304,7 +344,7 @@ export const RequestDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,

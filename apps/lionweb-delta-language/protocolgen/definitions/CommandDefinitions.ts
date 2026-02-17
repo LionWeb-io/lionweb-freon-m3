@@ -1,4 +1,4 @@
-import { MessageGroup } from "../generic/schema/SyntaxDefinition.js";
+import type { MessageGroup } from "../generic/schema/SyntaxDefinition.js";
 
 export const CommandDefinitions: MessageGroup = {
     name: "Command",
@@ -19,7 +19,7 @@ export const CommandDefinitions: MessageGroup = {
             mayBeNull: false,
         },
         {
-            name: "additionalInfo",
+            name: "additionalInfos",
             type: "AdditionalInfo",
             isList: true,
             isOptional: false,
@@ -52,7 +52,7 @@ export const CommandDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,
@@ -85,7 +85,7 @@ export const CommandDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,
@@ -125,7 +125,7 @@ export const CommandDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,
@@ -172,7 +172,7 @@ export const CommandDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,
@@ -219,7 +219,7 @@ export const CommandDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,
@@ -259,7 +259,7 @@ export const CommandDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,
@@ -313,7 +313,7 @@ export const CommandDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,
@@ -367,7 +367,7 @@ export const CommandDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,
@@ -428,7 +428,7 @@ export const CommandDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,
@@ -482,7 +482,7 @@ export const CommandDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,
@@ -529,7 +529,7 @@ export const CommandDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,
@@ -569,7 +569,7 @@ export const CommandDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,
@@ -630,7 +630,7 @@ export const CommandDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,
@@ -684,7 +684,7 @@ export const CommandDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,
@@ -731,7 +731,7 @@ export const CommandDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,
@@ -778,7 +778,7 @@ export const CommandDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,
@@ -825,7 +825,7 @@ export const CommandDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,
@@ -879,7 +879,7 @@ export const CommandDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,
@@ -926,7 +926,7 @@ export const CommandDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,
@@ -966,7 +966,7 @@ export const CommandDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,
@@ -1020,7 +1020,7 @@ export const CommandDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,
@@ -1067,7 +1067,7 @@ export const CommandDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,
@@ -1128,7 +1128,7 @@ export const CommandDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,
@@ -1189,7 +1189,7 @@ export const CommandDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,
@@ -1264,7 +1264,7 @@ export const CommandDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "additionalInfo",
+                    name: "additionalInfos",
                     type: "AdditionalInfo",
                     isList: true,
                     isOptional: false,
