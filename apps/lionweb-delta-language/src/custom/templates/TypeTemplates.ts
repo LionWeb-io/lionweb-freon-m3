@@ -12,6 +12,15 @@ export class TypeTemplates {
     commandTemplate(messageGroup: MessageGroup, doclinkRoot: string): string {
         const referredTypes: Set<FreNodeReference<Type>> = new Set<FreNodeReference<Type>>()
         let result = `
+            export const Delta${messageGroup.name}MessageKinds = [
+                ${messageGroup.messages.map(msg =>
+                    `"${this.messageKind(messageGroup, msg)}"`
+                ).join(",\n")} 
+            ] as const
+        
+            // The type for the tagged union property, derived from the above array     
+            export type ${this.taggedPropertyType(messageGroup)} = (typeof Delta${messageGroup.name}MessageKinds)[number]
+            
             // The overall "super-type"    
             export type Delta${messageGroup.name} = {
                 ${messageGroup.sharedProperties.map((propDef) => {
@@ -35,18 +44,11 @@ export class TypeTemplates {
                         `
             }).join("\n")}
 
-            // The type for the tagged union property    
-            export type ${this.taggedPropertyType(messageGroup)} = ${messageGroup.messages.map(msg =>
-                `"${this.messageKind(messageGroup, msg)}"`
-            ).join(" |\n")}
-            
             // Type Guard function
             export function isDelta${messageGroup.name}(object: unknown): object is Delta${messageGroup.name} {
                const castObject = object as Delta${messageGroup.name}
                 return (
-                    castObject.messageKind !== undefined && [ ${messageGroup.messages.map(msg =>
-                        `"${this.messageKind(messageGroup, msg)}"`
-                    ).join(",\n")} ].includes(castObject.messageKind)
+                    castObject.messageKind !== undefined &&  Delta${messageGroup.name}MessageKinds.includes(castObject.messageKind)
                 )
             }`
 

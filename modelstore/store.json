@@ -100,6 +100,30 @@
             ]
         },
         {
+            "folder": "Kaja",
+            "language": "LionCore_M3",
+            "name": "Kaja",
+            "units": [
+                {
+                    "file": "kaja.json",
+                    "name": "kaja"
+                },
+                {
+                    "file": "execution.json",
+                    "name": "execution"
+                },
+                {
+                    "name": "LionCore_builtins",
+                    "file": "LionCore_builtins.json"
+                },
+                {
+                    "name": "jetbrains.mps.samples.Kaja",
+                    "file": "jetbrains.mps.samples.Kaja.json"
+                }
+            ],
+            "version": "1"
+        },
+        {
             "name": "Protocol",
             "folder": "Protocol",
             "language": "LionCore_M3",

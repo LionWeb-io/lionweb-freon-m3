@@ -2,9 +2,44 @@ import type { CommandId } from "./DeltaTypes.js";
 import type { String } from "./DeltaTypes.js";
 import type { AdditionalInfo } from "./DeltaTypes.js";
 import type { LionWebDeltaJsonChunk } from "./DeltaTypes.js";
+import type { Boolean } from "./DeltaTypes.js";
 import type { LionWebId } from "./Chunks.js";
 import type { LionWebJsonMetaPointer } from "./Chunks.js";
 import type { Number } from "./DeltaTypes.js";
+// cannot find import for Command
+
+export const DeltaCommandMessageKinds = [
+    "AddPartition",
+    "DeletePartition",
+    "ChangeClassifier",
+    "AddProperty",
+    "ChangeProperty",
+    "DeleteProperty",
+    "AddChild",
+    "DeleteChild",
+    "ReplaceChild",
+    "MoveChildFromOtherContainment",
+    "MoveChildFromOtherContainmentInSameParent",
+    "MoveChildInSameContainment",
+    "MoveAndReplaceChildFromOtherContainment",
+    "MoveAndReplaceChildFromOtherContainmentInSameParent",
+    "MoveAndReplaceChildInSameContainment",
+    "AddAnnotation",
+    "DeleteAnnotation",
+    "ReplaceAnnotation",
+    "MoveAnnotationFromOtherParent",
+    "MoveAnnotationInSameParent",
+    "MoveAndReplaceAnnotationFromOtherParent",
+    "MoveAndReplaceAnnotationInSameParent",
+    "AddReference",
+    "DeleteReference",
+    "ChangeReference",
+    "ChunkedCommand",
+    "CompositeCommand",
+] as const;
+
+// The type for the tagged union property, derived from the above array
+export type CommandMessageKind = (typeof DeltaCommandMessageKinds)[number];
 
 // The overall "super-type"
 export type DeltaCommand = {
@@ -18,6 +53,7 @@ export type DeltaCommand = {
  */
 export type AddPartitionCommand = DeltaCommand & {
     newPartition: LionWebDeltaJsonChunk;
+    split?: Boolean;
     messageKind: "AddPartition";
 };
 
@@ -75,6 +111,7 @@ export type AddChildCommand = DeltaCommand & {
     newChild: LionWebDeltaJsonChunk;
     containment: LionWebJsonMetaPointer;
     index: Number;
+    split?: Boolean;
     messageKind: "AddChild";
 };
 
@@ -98,6 +135,7 @@ export type ReplaceChildCommand = DeltaCommand & {
     containment: LionWebJsonMetaPointer;
     index: Number;
     replacedChild: LionWebId;
+    split?: Boolean;
     messageKind: "ReplaceChild";
 };
 
@@ -171,6 +209,7 @@ export type AddAnnotationCommand = DeltaCommand & {
     parent: LionWebId;
     newAnnotation: LionWebDeltaJsonChunk;
     index: Number;
+    split?: Boolean;
     messageKind: "AddAnnotation";
 };
 
@@ -192,6 +231,7 @@ export type ReplaceAnnotationCommand = DeltaCommand & {
     newAnnotation: LionWebDeltaJsonChunk;
     index: Number;
     replacedAnnotation: LionWebId;
+    split?: Boolean;
     messageKind: "ReplaceAnnotation";
 };
 
@@ -273,65 +313,26 @@ export type ChangeReferenceCommand = DeltaCommand & {
     messageKind: "ChangeReference";
 };
 
-// The type for the tagged union property
-export type CommandMessageKind =
-    | "AddPartition"
-    | "DeletePartition"
-    | "ChangeClassifier"
-    | "AddProperty"
-    | "ChangeProperty"
-    | "DeleteProperty"
-    | "AddChild"
-    | "DeleteChild"
-    | "ReplaceChild"
-    | "MoveChildFromOtherContainment"
-    | "MoveChildFromOtherContainmentInSameParent"
-    | "MoveChildInSameContainment"
-    | "MoveAndReplaceChildFromOtherContainment"
-    | "MoveAndReplaceChildFromOtherContainmentInSameParent"
-    | "MoveAndReplaceChildInSameContainment"
-    | "AddAnnotation"
-    | "DeleteAnnotation"
-    | "ReplaceAnnotation"
-    | "MoveAnnotationFromOtherParent"
-    | "MoveAnnotationInSameParent"
-    | "MoveAndReplaceAnnotationFromOtherParent"
-    | "MoveAndReplaceAnnotationInSameParent"
-    | "AddReference"
-    | "DeleteReference"
-    | "ChangeReference";
+/**
+ *  @see https://lionWeb.io/specification/delta/delta-api.html#cmd-ChunkedCommand
+ */
+export type ChunkedCommand = DeltaCommand & {
+    chunk: LionWebDeltaJsonChunk;
+    continuedChunkCompleted: Boolean;
+    continuedChunkSequenceNumber: Number;
+    messageKind: "ChunkedCommand";
+};
+
+/**
+ *  @see https://lionWeb.io/specification/delta/delta-api.html#cmd-CompositeCommand
+ */
+export type CompositeCommand = DeltaCommand & {
+    parts: DeltaCommand[];
+    messageKind: "CompositeCommand";
+};
 
 // Type Guard function
 export function isDeltaCommand(object: unknown): object is DeltaCommand {
     const castObject = object as DeltaCommand;
-    return (
-        castObject.messageKind !== undefined &&
-        [
-            "AddPartition",
-            "DeletePartition",
-            "ChangeClassifier",
-            "AddProperty",
-            "ChangeProperty",
-            "DeleteProperty",
-            "AddChild",
-            "DeleteChild",
-            "ReplaceChild",
-            "MoveChildFromOtherContainment",
-            "MoveChildFromOtherContainmentInSameParent",
-            "MoveChildInSameContainment",
-            "MoveAndReplaceChildFromOtherContainment",
-            "MoveAndReplaceChildFromOtherContainmentInSameParent",
-            "MoveAndReplaceChildInSameContainment",
-            "AddAnnotation",
-            "DeleteAnnotation",
-            "ReplaceAnnotation",
-            "MoveAnnotationFromOtherParent",
-            "MoveAnnotationInSameParent",
-            "MoveAndReplaceAnnotationFromOtherParent",
-            "MoveAndReplaceAnnotationInSameParent",
-            "AddReference",
-            "DeleteReference",
-            "ChangeReference",
-        ].includes(castObject.messageKind)
-    );
+    return castObject.messageKind !== undefined && DeltaCommandMessageKinds.includes(castObject.messageKind);
 }
