@@ -15,6 +15,7 @@
     "scripts": {
         "clean": "rm -rf node_modules/ dist/ package-lock.json",
         "initialize": "npm run clean && npm install && npm run build",
+        "install-local": "npm install --registry http://localhost:4873",
         "build": "npm run generate && tsc ",
         "build-app": "vite build",
         "dev": "vite",
@@ -33,7 +34,7 @@
         "server": "node ./apps/lioncore-m3-language/node_modules/@freon4dsl/server/dist/server/server-starter.js"
     },
     "devDependencies": {
-        "@freon4dsl/meta": "~2.1.0",
+        "@freon4dsl/meta": "2.1.0",
         "@internationalized/date": "^3.9.0",
         "@lucide/svelte": "^0.544.0",
         "@sveltejs/vite-plugin-svelte": "^5.1.0",
@@ -53,10 +54,10 @@
         "vite": "^6.3.5"
     },
     "dependencies": {
-        "@freon4dsl/core": "~2.1.0",
-        "@freon4dsl/core-svelte": "~2.1.0",
-        "@freon4dsl/server": "~2.1.0",
-        "@freon4dsl/weblib-flowbite": "~2.1.0",
+        "@freon4dsl/core": "2.1.0",
+        "@freon4dsl/core-svelte": "2.1.0",
+        "@freon4dsl/server": "2.1.0",
+        "@freon4dsl/weblib-flowbite": "2.1.0",
         "@lucide/svelte": "0.544.0",
         "@types/node": "^20.14.1",
         "kotlin": "^1.5.21",
