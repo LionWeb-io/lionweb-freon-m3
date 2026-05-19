@@ -20,7 +20,7 @@ export class DummyAction extends CommandLineAction {
         });
     }
 
-    protected onExecute(): Promise<void> {
+    protected onExecuteAsync(): Promise<void> {
         const self = this;
         return new Promise(function (resolve, rejest) {
             const result = self.dummyAction();

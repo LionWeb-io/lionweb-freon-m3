@@ -24,12 +24,13 @@
         "generate-lw2": "node dist/freon/commandline/FreonCommandLineRunner.js folder -f modelstore/lioncore",
         "generate-course": "node dist/freon/commandline/FreonCommandLineRunner.js folder -f modelstore/CourseSchedule",
         "generate-delta": "node dist/custom/FreonCommandLineRunner.js generate-freon -f ../../modelstore/Protocol -o protocol",
+        "generate-kaja": "node dist/custom/FreonCommandLineRunner.js generate-freon -f ../../modelstore/Kaja -o kaja",
         "install-delta": "npm run install-delta-ast && npm run install-delta-util",
         "install-delta-ast": "copyfiles ./protocol/defs/* ../lionweb-delta-language/src/defs -f",
         "install-delta-util": "copyfiles ./protocol/util/* ../lionweb-delta-language/src/utils -f",
         "generate-shapes": "node dist/freon/commandline/FreonCommandLineRunner.js folder -f modelstore/Shapes",
         "generate-diagram": "node dist/freon/commandline/FreonCommandLineRunner.js folder -f modelstore/diagram",
-        "generate-logo": "node dist/freon/commandline/FreonCommandLineRunner.js folder -f modelstore/logo",
+        "generate-logo": "node dist/freon/custom/FreonCommandLineRunner.js folder -f modelstore/logo",
         "freon-diagram": "freon all -d modelstore/diagram/generated_ast -o modelstore/diagram/freon",
         "freon-logo": "freon all -d modelstore/logo/generated_ast -o modelstore/logo/freon",
         "validate": "svelte-check --tsconfig ./tsconfig.json",
@@ -73,6 +74,9 @@
         "sirv-cli": "^2.0.2",
         "tslib": "^2.6.2"
     },
+    "workspaces": [
+        "apps/*"
+    ],
     "publishConfig": {
         "access": "public"
     }

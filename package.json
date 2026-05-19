@@ -23,7 +23,6 @@
         "start": "sirv public --port 8000",
         "generate": "freon all -d src/defs -o src/freon",
         "generate-lioncore": "node ./apps/lioncore-m3-language/dist/custom/FreonCommandLineRunner.js generate-freon -f modelstore/lioncore -o output",
-        "generate-course": "node dist/freon/commandline/FreonCommandLineRunner.js folder -f modelstore/CourseSchedule",
         "generate-delta": "node ./apps/lioncore-m3-language/dist/custom/FreonCommandLineRunner.js generate-freon -f modelstore/Protocol -o apps/lionweb-delta-language/src/defs",
         "generate-delta-types": "node ./apps/lionweb-delta-language/dist/custom/FreonCommandLineRunner.js folder -f ./modelstore/delta -o ../lionweb-server/packages/delta-shared/src/types",
         "generate-logo" : "node ./apps/lioncore-m3-language/dist/custom/FreonCommandLineRunner.js generate-freon -f modelstore/logo -o apps/lionweb-logo-language/src/defs",
@@ -31,7 +30,7 @@
         "validate": "svelte-check --tsconfig ./tsconfig.json",
         "errors-only": "svelte-check --threshold error --tsconfig ./tsconfig.json",
         "styles": "cross-env NODE_ENV=production npx @tailwindcss/cli -i styles/webapp-styles.css -o ./public/site.css",
-        "server": "node ./apps/lioncore-m3-language/node_modules/@freon4dsl/server/dist/server/server-starter.js"
+        "server": "node ./node_modules/@freon4dsl/server/dist/server/server-starter.js"
     },
     "devDependencies": {
         "@freon4dsl/meta": "2.1.0",
@@ -54,6 +53,7 @@
         "vite": "^6.3.5"
     },
     "dependencies": {
+        "protobufjs": "8.0.3",
         "@freon4dsl/core": "2.1.0",
         "@freon4dsl/core-svelte": "2.1.0",
         "@freon4dsl/server": "2.1.0",

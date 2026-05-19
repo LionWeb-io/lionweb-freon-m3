@@ -44,7 +44,7 @@ export class ConvertLionCoreFolder2FreonAction extends CommandLineAction {
         });
     }
 
-    protected async onExecute(): Promise<void> {
+    protected async onExecuteAsync(): Promise<void> {
         const self = this;
         await self.convertLionCore2Freon()
         return null
