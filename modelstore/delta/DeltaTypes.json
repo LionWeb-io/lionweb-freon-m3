@@ -379,7 +379,7 @@
                   "version": "2023.1",
                   "key": "-key-PrimitiveType-primitiveType"
                },
-               "value": "object"
+               "value": "dictionary"
             },
             {
                "property": {

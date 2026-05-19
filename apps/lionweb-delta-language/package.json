@@ -19,7 +19,7 @@
         "errors-only": "svelte-check --threshold error --tsconfig ./tsconfig.json",
         "generate": "freon all -d src/defs -o src/freon",
         "styles": "cross-env NODE_ENV=production npx @tailwindcss/cli -i styles/webapp-styles.css -o ./public/site.css",
-        "server": "node ./node_modules/@freon4dsl/server/dist/server/server-starter.js"
+        "server": "node ../../../node_modules/@freon4dsl/server/dist/server/server-starter.js"
     },
     "devDependencies": {
         "@freon4dsl/meta": "~2.1.0",
@@ -36,6 +36,7 @@
         "vite": "^6.3.5"
     },
     "dependencies": {
+        "protobufjs": "8.0.3",
         "@freon4dsl/core": "~2.1.0",
         "@freon4dsl/core-svelte": "~2.1.0",
         "@freon4dsl/server": "~2.1.0",

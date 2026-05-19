@@ -39,6 +39,7 @@
         {
             "folder": "delta",
             "language": "Protocol",
+            "version": "1",
             "name": "Delta",
             "units": [
                 {
@@ -64,10 +65,6 @@
                 {
                     "name": "Request",
                     "file": "Request.json"
-                },
-                {
-                    "name": "LionCore_builtins",
-                    "file": "LionCore_builtins.json"
                 },
                 {
                     "name": "AdminRequest",
@@ -166,6 +163,13 @@
                     "file": "logo-program-1.json"
                 }
             ]
+        },
+        {
+            "name": "aaaaaaaa",
+            "folder": "aaaaaaaa",
+            "language": "Protocol",
+            "version": "1",
+            "units": []
         }
     ]
 }

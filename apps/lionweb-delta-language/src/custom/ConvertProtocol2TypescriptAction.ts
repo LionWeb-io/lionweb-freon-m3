@@ -1,4 +1,4 @@
-import { AST, FreLionwebSerializer, FreModelUnit } from "@freon4dsl/core"
+import { FreLionwebSerializer, FreModelUnit, FREON } from "@freon4dsl/core"
 import { LanguageRegistry, LionWebValidator } from "@lionweb/validation";
 import { CommandLineAction, CommandLineStringParameter } from "@rushstack/ts-command-line";
 import fs from "fs";
@@ -54,7 +54,7 @@ export class ConvertProtocol2TypescriptAction extends CommandLineAction {
         LanguageEnvironment.getInstance()
     }
 
-    protected async onExecute(): Promise<void> {
+    protected async onExecuteAsync(): Promise<void> {
         const self = this;
         await self.convertDelta2ts()
         return null
@@ -94,12 +94,12 @@ export class ConvertProtocol2TypescriptAction extends CommandLineAction {
         for (const ts of this.allModelUnits) {
             if (ts.freLanguageConcept() === "MessageGroup") {
                 messageGroups.push(ts as MessageGroup)
-                AST.changeNamed("Add MessageGroup to Protocol", () => {
+                FREON.astChanger.changeNamed("Add MessageGroup to Protocol", () => {
                     localProtocol.messagegroup.push(ts as MessageGroup)
                 })
             } else if (ts.freLanguageConcept() === "Types") {
                 types.push(ts as Types)
-                AST.changeNamed("Add Types to Protocol", () => {
+                FREON.astChanger.changeNamed("Add Types to Protocol", () => {
                     localProtocol.types.push(ts as Types)
                 })
             } else {

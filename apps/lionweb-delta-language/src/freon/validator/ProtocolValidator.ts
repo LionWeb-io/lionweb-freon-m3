@@ -36,33 +36,33 @@ export class ProtocolValidator implements FreValidator {
      * The default for 'includeChildren' is true.
      */
     public validate(node: FreNode, includeChildren: boolean = true): FreError[] {
-        // initialize the errorlist
-        const errorlist: FreError[] = [];
+        // initialize the errorList
+        const errorList: FreError[] = [];
 
         // create the walker over the model tree
         const myWalker = new ProtocolWalker();
 
         // create the checker on non-optional parts
         let myChecker = new ProtocolNonOptionalsChecker();
-        myChecker.errorList = errorlist;
+        myChecker.errorList = errorList;
         // and add the checker to the walker
         myWalker.myWorkers.push(myChecker);
 
         // create the checker on references
         myChecker = new ProtocolReferenceChecker();
-        myChecker.errorList = errorlist;
+        myChecker.errorList = errorList;
         // and add the checker to the walker
         myWalker.myWorkers.push(myChecker);
 
         // create the checker on (double names in) namespaces
         myChecker = new ProtocolNamespaceChecker();
-        myChecker.errorList = errorlist;
+        myChecker.errorList = errorList;
         // and add the checker to the walker
         myWalker.myWorkers.push(myChecker);
 
         // add any custom validations
         for (let checker of freonConfiguration.customValidations) {
-            checker.errorList = errorlist;
+            checker.errorList = errorList;
             myWalker.myWorkers.push(checker);
         }
 
@@ -72,6 +72,6 @@ export class ProtocolValidator implements FreValidator {
         });
 
         // return any errors
-        return errorlist;
+        return errorList;
     }
 }

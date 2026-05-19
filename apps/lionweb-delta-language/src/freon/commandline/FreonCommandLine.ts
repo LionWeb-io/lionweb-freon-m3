@@ -18,12 +18,12 @@ export class FreonCommandLine extends CommandLineParser {
         });
     }
 
-    protected async onExecute(): Promise<void> {
+    protected async onExecuteAsync(): Promise<void> {
         try {
-            await super.onExecute();
+            await super.onExecuteAsync();
         } catch (e: unknown) {
             const err = e instanceof Error ? e : new Error(String(e));
-            console.error(`Exception in onExecute: ${err.message}\n${err.stack ?? ""}`);
+            console.error(`Exception in onExecuteAsync: ${err.message}\n${err.stack ?? ""}`);
             throw err;
         }
     }

@@ -143,7 +143,7 @@ export class TypeTemplates {
     typeTemplate(types: Types): string {
         const referredTypes: Set<FreNodeReference<Type>> = new Set<FreNodeReference<Type>>()
         const primitives = types.primitiveTypes.map(primType => 
-            `export type ${primType.name} = ${primType.primitiveType}`
+            `export type ${primType.name} = ${(primType.primitiveType === "dictionary" ? "object" : primType.primitiveType)}`
         )
         const objects = types.objectTypes.map(objType => {
             return `

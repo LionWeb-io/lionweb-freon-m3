@@ -4462,8 +4462,8 @@
                "children": [
                   "ID-437",
                   "ID-440",
-                  "ID-166",
                   "ID-447",
+                  "ID-166",
                   "ID-168",
                   "ID-170"
                ]
@@ -4594,7 +4594,7 @@
          "parent": "ID-165"
       },
       {
-         "id": "ID-166",
+         "id": "ID-447",
          "classifier": {
             "language": "-key-Protocol",
             "version": "2023.1",
@@ -4607,7 +4607,7 @@
                   "version": "2023.1",
                   "key": "-key-PropertyDef-name"
                },
-               "value": "newIndex"
+               "value": "oldIndex"
             },
             {
                "property": {
@@ -4654,7 +4654,7 @@
          "parent": "ID-165"
       },
       {
-         "id": "ID-447",
+         "id": "ID-166",
          "classifier": {
             "language": "-key-Protocol",
             "version": "2023.1",
@@ -4667,7 +4667,7 @@
                   "version": "2023.1",
                   "key": "-key-PropertyDef-name"
                },
-               "value": "oldIndex"
+               "value": "indexOffset"
             },
             {
                "property": {
@@ -6783,7 +6783,7 @@
                   "version": "2023.1",
                   "key": "-key-PropertyDef-name"
                },
-               "value": "newIndex"
+               "value": "oldIndex"
             },
             {
                "property": {
@@ -6843,7 +6843,7 @@
                   "version": "2023.1",
                   "key": "-key-PropertyDef-name"
                },
-               "value": "oldIndex"
+               "value": "indexOffset"
             },
             {
                "property": {
@@ -7240,7 +7240,7 @@
                   "version": "2023.1",
                   "key": "-key-PropertyDef-name"
                },
-               "value": "newTarget"
+               "value": "newReference"
             },
             {
                "property": {
@@ -7577,7 +7577,7 @@
                   "version": "2023.1",
                   "key": "-key-PropertyDef-name"
                },
-               "value": "deletedTarget"
+               "value": "deletedReference"
             },
             {
                "property": {
@@ -7916,7 +7916,7 @@
                   "version": "2023.1",
                   "key": "-key-PropertyDef-name"
                },
-               "value": "oldTarget"
+               "value": "oldReference"
             },
             {
                "property": {
@@ -8036,7 +8036,7 @@
                   "version": "2023.1",
                   "key": "-key-PropertyDef-name"
                },
-               "value": "newTarget"
+               "value": "newReference"
             },
             {
                "property": {
@@ -8156,7 +8156,7 @@
                   "version": "2023.1",
                   "key": "-key-Type-name"
                },
-               "value": "ChunkedCommand"
+               "value": "ContinuedCommand"
             }
          ],
          "containments": [

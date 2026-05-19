@@ -14,6 +14,7 @@ import { freonConfiguration } from "../../custom/FreonConfiguration.js";
  */
 export class ProtocolStdlib implements FreStdlib {
     private static stdlib: FreStdlib; // the only instance of this class
+    private initialized: boolean = false;
 
     /**
      * This method implements the singleton pattern
@@ -25,17 +26,23 @@ export class ProtocolStdlib implements FreStdlib {
         return this.stdlib;
     }
 
-    public elements: FreNamedNode[] = []; // the predefined elements of language Protocol
+    private _elements: FreNamedNode[] = []; // the predefined elements of language Protocol
+
+    get elements() {
+        if (!this.initialized) {
+            for (const lib of freonConfiguration.customStdLibs) {
+                ListUtil.addAllIfNotPresent<FreNamedNode>(this._elements, lib.elements);
+            }
+            this.initialized = true;
+        }
+        return this._elements;
+    }
 
     /**
      * A private constructor, as demanded by the singleton pattern,
      * in which the list of predefined elements is filled.
      */
-    private constructor() {
-        for (const lib of freonConfiguration.customStdLibs) {
-            ListUtil.addAllIfNotPresent<FreNamedNode>(this.elements, lib.elements);
-        }
-    }
+    private constructor() {}
 
     /**
      * Returns the element named 'name', if it can be found in this library.

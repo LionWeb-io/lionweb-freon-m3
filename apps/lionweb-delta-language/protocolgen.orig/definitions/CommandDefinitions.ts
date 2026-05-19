@@ -836,14 +836,14 @@ export const CommandDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "newIndex",
+                    name: "oldIndex",
                     type: "Number",
                     isList: false,
                     isOptional: false,
                     mayBeNull: false,
                 },
                 {
-                    name: "oldIndex",
+                    name: "indexOffset",
                     type: "Number",
                     isList: false,
                     isOptional: false,
@@ -1242,14 +1242,14 @@ export const CommandDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "newIndex",
+                    name: "oldIndex",
                     type: "Number",
                     isList: false,
                     isOptional: false,
                     mayBeNull: false,
                 },
                 {
-                    name: "oldIndex",
+                    name: "indexOffset",
                     type: "Number",
                     isList: false,
                     isOptional: false,
@@ -1317,7 +1317,7 @@ export const CommandDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "newTarget",
+                    name: "newReference",
                     type: "LionWebId",
                     isList: false,
                     isOptional: true,
@@ -1378,7 +1378,7 @@ export const CommandDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "deletedTarget",
+                    name: "deletedReference",
                     type: "LionWebId",
                     isList: false,
                     isOptional: true,
@@ -1439,7 +1439,7 @@ export const CommandDefinitions: MessageGroup = {
                     mayBeNull: false,
                 },
                 {
-                    name: "oldTarget",
+                    name: "oldReference",
                     type: "LionWebId",
                     isList: false,
                     isOptional: true,
@@ -1453,7 +1453,7 @@ export const CommandDefinitions: MessageGroup = {
                     mayBeNull: true,
                 },
                 {
-                    name: "newTarget",
+                    name: "newReference",
                     type: "LionWebId",
                     isList: false,
                     isOptional: true,
@@ -1490,7 +1490,7 @@ export const CommandDefinitions: MessageGroup = {
             ],
         },
         {
-            name: "ChunkedCommand",
+            name: "ContinuedCommand",
             properties: [
                 {
                     name: "chunk",

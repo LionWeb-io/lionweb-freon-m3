@@ -6,6 +6,7 @@ import { Protocol, MessageGroup, Types, PropertyDef, PrimitiveType, ObjectType }
 
 import { ProtocolDefaultWorker } from "../utils/index.js";
 import { type ProtocolCheckerInterface } from "./ProtocolValidator.js";
+import { locationDescription } from "../../custom/CustomLocationDescription.js";
 
 /**
  * Class ProtocolNonOptionalsChecker is part of the implementation of the default validator.
@@ -22,7 +23,7 @@ export class ProtocolNonOptionalsChecker extends ProtocolDefaultWorker implement
 
     /**
      * Checks 'node' before checking its children.
-     * Found errors are pushed onto 'errorlist'.
+     * Found errors are pushed onto 'errorList'.
      * If an error is found, it is NOT considered 'fatal', which means that other checks on
      * 'node' are performed.
      *
@@ -30,7 +31,9 @@ export class ProtocolNonOptionalsChecker extends ProtocolDefaultWorker implement
      */
     public execBeforeProtocol(node: Protocol): boolean {
         if (isNullOrUndefined(node.name) || node.name?.length === 0) {
-            this.errorList.push(new FreError("Property 'name' must have a value", node, node.name, "name", FreErrorSeverity.Error));
+            this.errorList.push(
+                new FreError(`Property 'name' of ${locationDescription(node)} must have a value`, node, "name", FreErrorSeverity.Error),
+            );
         }
 
         return false;
@@ -38,7 +41,7 @@ export class ProtocolNonOptionalsChecker extends ProtocolDefaultWorker implement
 
     /**
      * Checks 'node' before checking its children.
-     * Found errors are pushed onto 'errorlist'.
+     * Found errors are pushed onto 'errorList'.
      * If an error is found, it is NOT considered 'fatal', which means that other checks on
      * 'node' are performed.
      *
@@ -48,16 +51,17 @@ export class ProtocolNonOptionalsChecker extends ProtocolDefaultWorker implement
         if (isNullOrUndefined(node.taggedUnionProperty) || node.taggedUnionProperty?.length === 0) {
             this.errorList.push(
                 new FreError(
-                    "Property 'taggedUnionProperty' must have a value",
+                    `Property 'taggedUnionProperty' of ${locationDescription(node)} must have a value`,
                     node,
-                    node.name,
                     "taggedUnionProperty",
                     FreErrorSeverity.Error,
                 ),
             );
         }
         if (isNullOrUndefined(node.name) || node.name?.length === 0) {
-            this.errorList.push(new FreError("Property 'name' must have a value", node, node.name, "name", FreErrorSeverity.Error));
+            this.errorList.push(
+                new FreError(`Property 'name' of ${locationDescription(node)} must have a value`, node, "name", FreErrorSeverity.Error),
+            );
         }
 
         return false;
@@ -65,7 +69,7 @@ export class ProtocolNonOptionalsChecker extends ProtocolDefaultWorker implement
 
     /**
      * Checks 'node' before checking its children.
-     * Found errors are pushed onto 'errorlist'.
+     * Found errors are pushed onto 'errorList'.
      * If an error is found, it is NOT considered 'fatal', which means that other checks on
      * 'node' are performed.
      *
@@ -73,7 +77,9 @@ export class ProtocolNonOptionalsChecker extends ProtocolDefaultWorker implement
      */
     public execBeforeTypes(node: Types): boolean {
         if (isNullOrUndefined(node.name) || node.name?.length === 0) {
-            this.errorList.push(new FreError("Property 'name' must have a value", node, node.name, "name", FreErrorSeverity.Error));
+            this.errorList.push(
+                new FreError(`Property 'name' of ${locationDescription(node)} must have a value`, node, "name", FreErrorSeverity.Error),
+            );
         }
 
         return false;
@@ -81,7 +87,7 @@ export class ProtocolNonOptionalsChecker extends ProtocolDefaultWorker implement
 
     /**
      * Checks 'node' before checking its children.
-     * Found errors are pushed onto 'errorlist'.
+     * Found errors are pushed onto 'errorList'.
      * If an error is found, it is NOT considered 'fatal', which means that other checks on
      * 'node' are performed.
      *
@@ -89,23 +95,39 @@ export class ProtocolNonOptionalsChecker extends ProtocolDefaultWorker implement
      */
     public execBeforePropertyDef(node: PropertyDef): boolean {
         if (isNullOrUndefined(node.name) || node.name?.length === 0) {
-            this.errorList.push(new FreError("Property 'name' must have a value", node, node.name, "name", FreErrorSeverity.Error));
+            this.errorList.push(
+                new FreError(`Property 'name' of ${locationDescription(node)} must have a value`, node, "name", FreErrorSeverity.Error),
+            );
         }
         if (isNullOrUndefined(node.mayBeNull)) {
             this.errorList.push(
-                new FreError("Property 'mayBeNull' must have a value", node, node.name, "mayBeNull", FreErrorSeverity.Error),
+                new FreError(
+                    `Property 'mayBeNull' of ${locationDescription(node)} must have a value`,
+                    node,
+                    "mayBeNull",
+                    FreErrorSeverity.Error,
+                ),
             );
         }
         if (isNullOrUndefined(node.isList)) {
-            this.errorList.push(new FreError("Property 'isList' must have a value", node, node.name, "isList", FreErrorSeverity.Error));
+            this.errorList.push(
+                new FreError(`Property 'isList' of ${locationDescription(node)} must have a value`, node, "isList", FreErrorSeverity.Error),
+            );
         }
         if (isNullOrUndefined(node.isOptional)) {
             this.errorList.push(
-                new FreError("Property 'isOptional' must have a value", node, node.name, "isOptional", FreErrorSeverity.Error),
+                new FreError(
+                    `Property 'isOptional' of ${locationDescription(node)} must have a value`,
+                    node,
+                    "isOptional",
+                    FreErrorSeverity.Error,
+                ),
             );
         }
         if (isNullOrUndefined(node.type)) {
-            this.errorList.push(new FreError("Property 'type' must have a value", node, node.name, "type", FreErrorSeverity.Error));
+            this.errorList.push(
+                new FreError(`Property 'type' of ${locationDescription(node)} must have a value`, node, "type", FreErrorSeverity.Error),
+            );
         }
 
         return false;
@@ -113,7 +135,7 @@ export class ProtocolNonOptionalsChecker extends ProtocolDefaultWorker implement
 
     /**
      * Checks 'node' before checking its children.
-     * Found errors are pushed onto 'errorlist'.
+     * Found errors are pushed onto 'errorList'.
      * If an error is found, it is NOT considered 'fatal', which means that other checks on
      * 'node' are performed.
      *
@@ -122,16 +144,28 @@ export class ProtocolNonOptionalsChecker extends ProtocolDefaultWorker implement
     public execBeforePrimitiveType(node: PrimitiveType): boolean {
         if (isNullOrUndefined(node.primitiveType) || node.primitiveType?.length === 0) {
             this.errorList.push(
-                new FreError("Property 'primitiveType' must have a value", node, node.name, "primitiveType", FreErrorSeverity.Error),
+                new FreError(
+                    `Property 'primitiveType' of ${locationDescription(node)} must have a value`,
+                    node,
+                    "primitiveType",
+                    FreErrorSeverity.Error,
+                ),
             );
         }
         if (isNullOrUndefined(node.validator) || node.validator?.length === 0) {
             this.errorList.push(
-                new FreError("Property 'validator' must have a value", node, node.name, "validator", FreErrorSeverity.Error),
+                new FreError(
+                    `Property 'validator' of ${locationDescription(node)} must have a value`,
+                    node,
+                    "validator",
+                    FreErrorSeverity.Error,
+                ),
             );
         }
         if (isNullOrUndefined(node.name) || node.name?.length === 0) {
-            this.errorList.push(new FreError("Property 'name' must have a value", node, node.name, "name", FreErrorSeverity.Error));
+            this.errorList.push(
+                new FreError(`Property 'name' of ${locationDescription(node)} must have a value`, node, "name", FreErrorSeverity.Error),
+            );
         }
 
         return false;
@@ -139,7 +173,7 @@ export class ProtocolNonOptionalsChecker extends ProtocolDefaultWorker implement
 
     /**
      * Checks 'node' before checking its children.
-     * Found errors are pushed onto 'errorlist'.
+     * Found errors are pushed onto 'errorList'.
      * If an error is found, it is NOT considered 'fatal', which means that other checks on
      * 'node' are performed.
      *
@@ -147,7 +181,9 @@ export class ProtocolNonOptionalsChecker extends ProtocolDefaultWorker implement
      */
     public execBeforeObjectType(node: ObjectType): boolean {
         if (isNullOrUndefined(node.name) || node.name?.length === 0) {
-            this.errorList.push(new FreError("Property 'name' must have a value", node, node.name, "name", FreErrorSeverity.Error));
+            this.errorList.push(
+                new FreError(`Property 'name' of ${locationDescription(node)} must have a value`, node, "name", FreErrorSeverity.Error),
+            );
         }
 
         return false;

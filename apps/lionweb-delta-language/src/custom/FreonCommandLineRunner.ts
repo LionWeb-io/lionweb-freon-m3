@@ -2,6 +2,7 @@
 // TEMPLATE: CommandLineTemplate.generateCommandLineRunner()
 // Run this as the main program.
 
+import { CoreConfig } from "@freon4dsl/core";
 import { LanguageEnvironment } from "../freon/index.js";
 import { ConvertProtocol2TypescriptAction } from "./ConvertProtocol2TypescriptAction.js"
 
@@ -10,6 +11,7 @@ import { FreonCommandLine } from "../freon/commandline/FreonCommandLine.js";
 
 // ensure language is initialized
 const tmp = LanguageEnvironment.getInstance();
+CoreConfig.initialize(tmp, null)
 
 // Create the command line object
 const cli: FreonCommandLine = new FreonCommandLine();

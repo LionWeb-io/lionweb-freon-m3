@@ -34,7 +34,7 @@ export const DeltaCommandMessageKinds = [
     "AddReference",
     "DeleteReference",
     "ChangeReference",
-    "ChunkedCommand",
+    "ContinuedCommand",
     "CompositeCommand",
 ] as const;
 
@@ -213,8 +213,8 @@ export type MoveAndReplaceChildFromOtherContainmentInSameParentCommand = DeltaCo
 export type MoveAndReplaceChildInSameContainmentCommand = DeltaCommand & {
     parent: LionWebId;
     containment: LionWebJsonMetaPointer;
-    newIndex: Number;
     oldIndex: Number;
+    indexOffset: Number;
     replacedChild: LionWebId;
     movedChild: LionWebId;
     messageKind: "MoveAndReplaceChildInSameContainment";
@@ -294,8 +294,8 @@ export type MoveAndReplaceAnnotationFromOtherParentCommand = DeltaCommand & {
  */
 export type MoveAndReplaceAnnotationInSameParentCommand = DeltaCommand & {
     parent: LionWebId;
-    newIndex: Number;
     oldIndex: Number;
+    indexOffset: Number;
     replacedAnnotation: LionWebId;
     movedAnnotation: LionWebId;
     messageKind: "MoveAndReplaceAnnotationInSameParent";
@@ -308,7 +308,7 @@ export type AddReferenceCommand = DeltaCommand & {
     parent: LionWebId;
     reference: LionWebJsonMetaPointer;
     index: Number;
-    newTarget?: LionWebId | null;
+    newReference?: LionWebId | null;
     newResolveInfo?: String | null;
     messageKind: "AddReference";
 };
@@ -320,7 +320,7 @@ export type DeleteReferenceCommand = DeltaCommand & {
     parent: LionWebId;
     reference: LionWebJsonMetaPointer;
     index: Number;
-    deletedTarget?: LionWebId | null;
+    deletedReference?: LionWebId | null;
     deletedResolveInfo?: String | null;
     messageKind: "DeleteReference";
 };
@@ -332,21 +332,21 @@ export type ChangeReferenceCommand = DeltaCommand & {
     parent: LionWebId;
     reference: LionWebJsonMetaPointer;
     index: Number;
-    oldTarget?: LionWebId | null;
+    oldReference?: LionWebId | null;
     oldResolveInfo?: String | null;
-    newTarget?: LionWebId | null;
+    newReference?: LionWebId | null;
     newResolveInfo?: String | null;
     messageKind: "ChangeReference";
 };
 
 /**
- *  @see https://lionWeb.io/specification/delta/delta-api.html#cmd-ChunkedCommand
+ *  @see https://lionWeb.io/specification/delta/delta-api.html#cmd-ContinuedCommand
  */
-export type ChunkedCommand = DeltaCommand & {
+export type ContinuedCommand = DeltaCommand & {
     chunk: LionWebDeltaJsonChunk;
     continuedChunkCompleted: Boolean;
     continuedChunkSequenceNumber: Number;
-    messageKind: "ChunkedCommand";
+    messageKind: "ContinuedCommand";
 };
 
 /**

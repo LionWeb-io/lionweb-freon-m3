@@ -14,6 +14,7 @@ import { PropertyDef } from "../language/index.js";
 
 import { ProtocolDefaultWorker } from "../utils/index.js";
 import { type ProtocolCheckerInterface } from "./ProtocolValidator.js";
+import { locationDescription } from "../../custom/CustomLocationDescription.js";
 
 /**
  * Class ProtocolReferenceChecker is part of the implementation of the default validator.
@@ -31,7 +32,7 @@ export class ProtocolReferenceChecker extends ProtocolDefaultWorker implements P
 
     /**
      * Checks 'node' before checking its children.
-     * Found errors are pushed onto 'errorlist'.
+     * Found errors are pushed onto 'errorList'.
      * If an error is found, it is considered 'fatal', which means that no other checks on
      * 'node' are performed.
      *
@@ -39,25 +40,19 @@ export class ProtocolReferenceChecker extends ProtocolDefaultWorker implements P
      */
     public execBeforePropertyDef(node: PropertyDef): boolean {
         if (!!node.type && node.type.referred === null) {
-            this.makeErrorMessage(node, node.type, "type", `${node.name}`);
+            this.makeErrorMessage(node, node.type, "type");
         }
         return false;
     }
 
-    private makeErrorMessage(
-        node: FreNode,
-        referredElem: FreNodeReference<FreNamedNode>,
-        propertyName: string,
-        locationDescription: string,
-    ) {
+    private makeErrorMessage(node: FreNode, referredElem: FreNodeReference<FreNamedNode>, propertyName: string) {
         const scoper = FreLanguageEnvironment.getInstance().scoper;
         const possibles = scoper.getVisibleNodes(node).filter((elem) => elem.name === referredElem.name);
         if (possibles.length > 0) {
             this.errorList.push(
                 new FreError(
-                    `Reference '${referredElem.pathnameToString(this.refSeparator)}' should have type '${referredElem.typeName}', but found type(s) [${possibles.map((elem) => `${elem.freLanguageConcept()}`).join(", ")}]`,
+                    `Reference '${referredElem.pathnameToString(this.refSeparator)}' should have type '${referredElem.typeName}', but found type(s) [${possibles.map((elem) => `${elem.freLanguageConcept()}`).join(", ")}] in ${propertyName} of ${locationDescription(node)}`,
                     node,
-                    `${propertyName} of ${locationDescription}`,
                     `${propertyName}`,
                     FreErrorSeverity.Error,
                 ),
@@ -65,9 +60,8 @@ export class ProtocolReferenceChecker extends ProtocolDefaultWorker implements P
         } else {
             this.errorList.push(
                 new FreError(
-                    `Cannot find reference '${referredElem.pathnameToString(this.refSeparator)}'`,
+                    `Cannot find reference '${referredElem.pathnameToString(this.refSeparator)}' in ${propertyName} of ${locationDescription(node)}`,
                     node,
-                    `${propertyName} of ${locationDescription}`,
                     `${propertyName}`,
                     FreErrorSeverity.Error,
                 ),
