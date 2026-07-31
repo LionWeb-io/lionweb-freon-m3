@@ -3146,8 +3146,8 @@
                "children": [
                   "ID-368",
                   "ID-378",
-                  "ID-97",
                   "ID-370",
+                  "ID-97",
                   "ID-100"
                ]
             }
@@ -3277,7 +3277,7 @@
          "parent": "ID-90"
       },
       {
-         "id": "ID-97",
+         "id": "ID-370",
          "classifier": {
             "language": "-key-Protocol",
             "version": "2023.1",
@@ -3290,7 +3290,7 @@
                   "version": "2023.1",
                   "key": "-key-PropertyDef-name"
                },
-               "value": "newIndex"
+               "value": "oldIndex"
             },
             {
                "property": {
@@ -3337,7 +3337,7 @@
          "parent": "ID-90"
       },
       {
-         "id": "ID-370",
+         "id": "ID-97",
          "classifier": {
             "language": "-key-Protocol",
             "version": "2023.1",
@@ -3350,7 +3350,7 @@
                   "version": "2023.1",
                   "key": "-key-PropertyDef-name"
                },
-               "value": "oldIndex"
+               "value": "indexOffset"
             },
             {
                "property": {
@@ -6024,8 +6024,8 @@
                },
                "children": [
                   "ID-454",
-                  "ID-201",
                   "ID-458",
+                  "ID-201",
                   "ID-203"
                ]
             }
@@ -6095,7 +6095,7 @@
          "parent": "ID-200"
       },
       {
-         "id": "ID-201",
+         "id": "ID-458",
          "classifier": {
             "language": "-key-Protocol",
             "version": "2023.1",
@@ -6108,7 +6108,7 @@
                   "version": "2023.1",
                   "key": "-key-PropertyDef-name"
                },
-               "value": "newIndex"
+               "value": "oldIndex"
             },
             {
                "property": {
@@ -6155,7 +6155,7 @@
          "parent": "ID-200"
       },
       {
-         "id": "ID-458",
+         "id": "ID-201",
          "classifier": {
             "language": "-key-Protocol",
             "version": "2023.1",
@@ -6168,7 +6168,7 @@
                   "version": "2023.1",
                   "key": "-key-PropertyDef-name"
                },
-               "value": "oldIndex"
+               "value": "indexOffset"
             },
             {
                "property": {

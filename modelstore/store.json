@@ -77,6 +77,10 @@
                 {
                     "name": "AdminTypes",
                     "file": "AdminTypes.json"
+                },
+                {
+                    "name": "Monitor",
+                    "file": "Monitor.json"
                 }
             ]
         },

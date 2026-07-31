@@ -257,7 +257,7 @@
                   "version": "2023.1",
                   "key": "-key-Type-name"
                },
-               "value": "ListRepositories"
+               "value": "Custom_ListRepositories"
             }
          ],
          "containments": [
@@ -350,7 +350,7 @@
                   "version": "2023.1",
                   "key": "-key-Type-name"
                },
-               "value": "CreateRepository"
+               "value": "Custom_CreateRepository"
             }
          ],
          "containments": [
@@ -443,7 +443,7 @@
                   "version": "2023.1",
                   "key": "-key-Type-name"
                },
-               "value": "DeleteRepository"
+               "value": "Custom_DeleteRepository"
             }
          ],
          "containments": [
@@ -536,7 +536,7 @@
                   "version": "2023.1",
                   "key": "-key-Type-name"
                },
-               "value": "RenameRepository"
+               "value": "Custom_RenameRepository"
             }
          ],
          "containments": [

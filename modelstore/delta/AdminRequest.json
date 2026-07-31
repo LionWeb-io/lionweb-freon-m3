@@ -257,7 +257,7 @@
                   "version": "2023.1",
                   "key": "-key-Type-name"
                },
-               "value": "ListRepositories"
+               "value": "Custom_ListRepositories"
             }
          ],
          "containments": [
@@ -288,7 +288,7 @@
                   "version": "2023.1",
                   "key": "-key-Type-name"
                },
-               "value": "CreateRepository"
+               "value": "Custom_CreateRepository"
             }
          ],
          "containments": [
@@ -299,7 +299,9 @@
                   "key": "-key-ObjectType-properties"
                },
                "children": [
-                  "ID-199"
+                  "ID-199",
+                  "ID-479",
+                  "ID-480"
                ]
             }
          ],
@@ -368,6 +370,126 @@
          "parent": "ID-195"
       },
       {
+         "id": "ID-479",
+         "classifier": {
+            "language": "-key-Protocol",
+            "version": "2023.1",
+            "key": "-key-PropertyDef"
+         },
+         "properties": [
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-name"
+               },
+               "value": "lionWebVersion"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-mayBeNull"
+               },
+               "value": "false"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-isList"
+               },
+               "value": "false"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-isOptional"
+               },
+               "value": "false"
+            }
+         ],
+         "containments": [],
+         "references": [
+            {
+               "reference": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-type"
+               },
+               "targets": [
+                  {
+                     "resolveInfo": "String",
+                     "reference": "ID-3"
+                  }
+               ]
+            }
+         ],
+         "annotations": [],
+         "parent": "ID-195"
+      },
+      {
+         "id": "ID-480",
+         "classifier": {
+            "language": "-key-Protocol",
+            "version": "2023.1",
+            "key": "-key-PropertyDef"
+         },
+         "properties": [
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-name"
+               },
+               "value": "history"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-mayBeNull"
+               },
+               "value": "false"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-isList"
+               },
+               "value": "false"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-isOptional"
+               },
+               "value": "false"
+            }
+         ],
+         "containments": [],
+         "references": [
+            {
+               "reference": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-type"
+               },
+               "targets": [
+                  {
+                     "resolveInfo": "Boolean",
+                     "reference": "ID-5"
+                  }
+               ]
+            }
+         ],
+         "annotations": [],
+         "parent": "ID-195"
+      },
+      {
          "id": "ID-202",
          "classifier": {
             "language": "-key-Protocol",
@@ -381,7 +503,7 @@
                   "version": "2023.1",
                   "key": "-key-Type-name"
                },
-               "value": "DeleteRepository"
+               "value": "Custom_DeleteRepository"
             }
          ],
          "containments": [
@@ -474,7 +596,7 @@
                   "version": "2023.1",
                   "key": "-key-Type-name"
                },
-               "value": "RenameRepository"
+               "value": "Custom_RenameRepository"
             }
          ],
          "containments": [

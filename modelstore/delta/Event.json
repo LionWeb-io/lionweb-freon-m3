@@ -2722,8 +2722,7 @@
                   "ID-262",
                   "ID-264",
                   "ID-267",
-                  "ID-244",
-                  "ID-317"
+                  "ID-244"
                ]
             }
          ],
@@ -3144,66 +3143,6 @@
                   {
                      "resolveInfo": "LionWebId",
                      "reference": "ID-285"
-                  }
-               ]
-            }
-         ],
-         "annotations": [],
-         "parent": "ID-237"
-      },
-      {
-         "id": "ID-317",
-         "classifier": {
-            "language": "-key-Protocol",
-            "version": "2023.1",
-            "key": "-key-PropertyDef"
-         },
-         "properties": [
-            {
-               "property": {
-                  "language": "-key-Protocol",
-                  "version": "2023.1",
-                  "key": "-key-PropertyDef-name"
-               },
-               "value": "split"
-            },
-            {
-               "property": {
-                  "language": "-key-Protocol",
-                  "version": "2023.1",
-                  "key": "-key-PropertyDef-mayBeNull"
-               },
-               "value": "false"
-            },
-            {
-               "property": {
-                  "language": "-key-Protocol",
-                  "version": "2023.1",
-                  "key": "-key-PropertyDef-isList"
-               },
-               "value": "false"
-            },
-            {
-               "property": {
-                  "language": "-key-Protocol",
-                  "version": "2023.1",
-                  "key": "-key-PropertyDef-isOptional"
-               },
-               "value": "true"
-            }
-         ],
-         "containments": [],
-         "references": [
-            {
-               "reference": {
-                  "language": "-key-Protocol",
-                  "version": "2023.1",
-                  "key": "-key-PropertyDef-type"
-               },
-               "targets": [
-                  {
-                     "resolveInfo": "Boolean",
-                     "reference": "ID-5"
                   }
                ]
             }
@@ -3720,7 +3659,7 @@
                   "version": "2023.1",
                   "key": "-key-PropertyDef-name"
                },
-               "value": "newIndex"
+               "value": "indexOffset"
             },
             {
                "property": {
@@ -6903,7 +6842,7 @@
                   "version": "2023.1",
                   "key": "-key-PropertyDef-name"
                },
-               "value": "newIndex"
+               "value": "indexOffset"
             },
             {
                "property": {
@@ -9442,7 +9381,7 @@
                   "version": "2023.1",
                   "key": "-key-Type-name"
                },
-               "value": "NoOp"
+               "value": "NoOpEvent"
             }
          ],
          "containments": [
