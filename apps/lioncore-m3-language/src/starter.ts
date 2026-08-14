@@ -3,16 +3,18 @@ import { FlowbiteFreonLayout, WebappConfigurator, setDevelopment, inDevelopment 
 import { configureExternals } from "./external/externals.js"
 import { LanguageEnvironment } from "./freon/index.js";
 import { configureLoggers } from "./loggers.js"
-import { ServerCommunication } from "@freon4dsl/core"
+import { CoreConfig, ServerCommunication } from "@freon4dsl/core"
 
 
 /**
- * The one and only reference to the actual language for which this editor runs
+ * Initialize everything
  */
-WebappConfigurator.getInstance().setEnvironment(
-    LanguageEnvironment.getInstance(), 
-    ServerCommunication.getInstance()
-);
+ServerCommunication.getInstance().SERVER_URL = "http://localhost:8001/"
+CoreConfig.initialize(
+    LanguageEnvironment.getInstance(),
+    ServerCommunication.getInstance(),
+)
+WebappConfigurator.getInstance()
 
 configureExternals()
 configureLoggers()

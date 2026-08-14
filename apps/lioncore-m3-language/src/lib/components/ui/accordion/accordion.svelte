@@ -9,7 +9,7 @@
 </script>
 
 <AccordionPrimitive.Root
-	bind:ref
+	bind:ref={ref}
 	bind:value={value}
 	data-slot="accordion"
 	{...restProps}

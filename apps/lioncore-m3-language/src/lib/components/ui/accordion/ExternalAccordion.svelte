@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { AST, FreLanguage, type FreNode, notNullOrUndefined, PartListReplacerBox } from "@freon4dsl/core";
+    import { FreLanguage, type FreNode, FREON, notNullOrUndefined, PartListReplacerBox } from "@freon4dsl/core";
     import {type FreComponentProps, RenderComponent} from "@freon4dsl/core-svelte";
     import { Plus } from "@lucide/svelte";
     import { cn } from "../../../utils";
@@ -62,7 +62,7 @@
             editor.setUserMessage(`Cannot create concept: ${ConceptName}`)
         } else {
             let tmp: FreNode | undefined = undefined;
-            AST.change(() => {
+            FREON.astChanger.change(() => {
                 let newEntity = creator({});
                 tmp = newEntity
                 if (newEntity !== undefined) {

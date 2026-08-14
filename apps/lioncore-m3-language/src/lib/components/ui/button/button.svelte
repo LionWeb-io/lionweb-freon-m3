@@ -52,7 +52,7 @@
         ...restProps
     }: EbuttonProps = $props()
 
-    let className: "ebutton"
+    let className = "ebutton"
     let variant: "link" | "default" | "destructive" | "outline" | "secondary" | "ghost" = "default",
         size: "default" | "sm" | "lg" | "icon" = "default",
         type = "button",

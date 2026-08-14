@@ -1,10 +1,11 @@
-/*! tailwindcss v4.3.0 | MIT License | https://tailwindcss.com */
+/*! tailwindcss v4.3.3 | MIT License | https://tailwindcss.com */
 @layer properties;
 @layer theme, base, components, utilities;
 @layer theme {
   :root, :host {
-    --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
-      "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+      "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+      "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
     --color-red-50: oklch(97.1% 0.013 17.38);
@@ -275,7 +276,7 @@
     line-height: 1.5;
     -webkit-text-size-adjust: 100%;
     tab-size: 4;
-    font-family: var(--default-font-family, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji");
+    font-family: var(--default-font-family, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji");
     font-feature-settings: var(--default-font-feature-settings, normal);
     font-variation-settings: var(--default-font-variation-settings, normal);
     -webkit-tap-highlight-color: transparent;
@@ -327,7 +328,7 @@
     border-color: inherit;
     border-collapse: collapse;
   }
-  :-moz-focusring {
+  :-moz-focusring:where(:not(iframe)) {
     outline: auto;
   }
   progress {
@@ -1808,8 +1809,6 @@ textarea {
   --color-dark-freon-accent-400: #32B6BB;
   --color-dark-freon-accent-200: #57D2D6;
   --color-dark-freon-accent-100: #A7ECEE;
-}
-.dark {
   --freon-focus-ring: var(--color-dark-freon-accent-400);
   @supports (color: color-mix(in lab, red, red)) {
     --freon-focus-ring: color-mix(
@@ -2260,7 +2259,7 @@ textarea {
 .dark .reference-arrow {
   fill: var(--color-freon-reference-arrow);
 }
-/*! tailwindcss v4.3.0 | MIT License | https://tailwindcss.com */
+/*! tailwindcss v4.2.4 | MIT License | https://tailwindcss.com */
 @layer properties {
   @supports (((-webkit-hyphens:none)) and (not (margin-trim:inline))) or ((-moz-orient:inline) and (not (color:rgb(from red r g b)))) {
     *,:before,:after,::backdrop {
@@ -2278,8 +2277,6 @@ textarea {
       --tw-pan-x: initial;
       --tw-pan-y: initial;
       --tw-pinch-zoom: initial;
-      --tw-scrollbar-thumb: #0000;
-      --tw-scrollbar-track: #0000;
       --tw-space-y-reverse: 0;
       --tw-space-x-reverse: 0;
       --tw-divide-x-reverse: 0;
@@ -2956,7 +2953,16 @@ textarea {
   .-start-12 {
     inset-inline-start: calc(var(--spacing) * -12);
   }
-  .inset-s-0,.start-0 {
+  .inset-s-0 {
+    inset-inline-start: calc(var(--spacing) * 0);
+  }
+  .start {
+    inset-inline-start: var(--spacing);
+  }
+  .start\! {
+    inset-inline-start: var(--spacing) !important;
+  }
+  .start-0 {
     inset-inline-start: calc(var(--spacing) * 0);
   }
   .start-1 {
@@ -2970,6 +2976,9 @@ textarea {
   }
   .start-5 {
     inset-inline-start: calc(var(--spacing) * 5);
+  }
+  .end {
+    inset-inline-end: var(--spacing);
   }
   .end-0 {
     inset-inline-end: calc(var(--spacing) * 0);
@@ -3170,9 +3179,6 @@ textarea {
   .m-2 {
     margin: calc(var(--spacing) * 2);
   }
-  .m-2\.5 {
-    margin: calc(var(--spacing) * 2.5);
-  }
   .-mx-1\.5 {
     margin-inline: calc(var(--spacing) * -1.5);
   }
@@ -3187,6 +3193,9 @@ textarea {
   }
   .mx-2 {
     margin-inline: calc(var(--spacing) * 2);
+  }
+  .mx-2\.5 {
+    margin-inline: calc(var(--spacing) * 2.5);
   }
   .mx-4 {
     margin-inline: calc(var(--spacing) * 4);
@@ -3554,9 +3563,6 @@ textarea {
   .h-full {
     height: 100%;
   }
-  .h-min {
-    height: min-content;
-  }
   .h-px {
     height: 1px;
   }
@@ -3809,6 +3815,9 @@ textarea {
   .min-w-0 {
     min-width: calc(var(--spacing) * 0);
   }
+  .min-w-\[8rem\] {
+    min-width: 8rem;
+  }
   .min-w-fit {
     min-width: fit-content;
   }
@@ -3838,6 +3847,10 @@ textarea {
   .-translate-x-full {
     --tw-translate-x: -100%;
     translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
+  .translate-x-0\! {
+    --tw-translate-x: calc(var(--spacing) * 0) !important;
+    translate: var(--tw-translate-x) var(--tw-translate-y) !important;
   }
   .translate-x-1\/3 {
     --tw-translate-x: calc(1 / 3 * 100%);
@@ -3936,20 +3949,6 @@ textarea {
   }
   .scroll-py-2 {
     scroll-padding-block: calc(var(--spacing) * 2);
-  }
-  .scrollbar-none {
-    scrollbar-width: none;
-  }
-  .scrollbar-thin {
-    scrollbar-width: thin;
-  }
-  .scrollbar-thumb-gray-300 {
-    --tw-scrollbar-thumb: var(--color-gray-300);
-    scrollbar-color: var(--tw-scrollbar-thumb) var(--tw-scrollbar-track);
-  }
-  .scrollbar-track-transparent {
-    --tw-scrollbar-track: transparent;
-    scrollbar-color: var(--tw-scrollbar-thumb) var(--tw-scrollbar-track);
   }
   .list-inside {
     list-style-position: inside;
@@ -12421,16 +12420,6 @@ textarea {
   syntax: "*";
   inherits: false;
 }
-@property --tw-scrollbar-thumb {
-  syntax: "<color>";
-  inherits: false;
-  initial-value: #0000;
-}
-@property --tw-scrollbar-track {
-  syntax: "<color>";
-  inherits: false;
-  initial-value: #0000;
-}
 @property --tw-space-y-reverse {
   syntax: "*";
   inherits: false;
@@ -12839,8 +12828,6 @@ textarea {
       --tw-pan-x: initial;
       --tw-pan-y: initial;
       --tw-pinch-zoom: initial;
-      --tw-scrollbar-thumb: #0000;
-      --tw-scrollbar-track: #0000;
       --tw-space-y-reverse: 0;
       --tw-space-x-reverse: 0;
       --tw-divide-x-reverse: 0;

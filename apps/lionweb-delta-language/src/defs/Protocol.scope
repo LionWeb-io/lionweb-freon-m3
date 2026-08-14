@@ -8,6 +8,7 @@ isNamespace { Types, MessageGroup, ObjectType }
 //     }
 // }
 
+// NB: The error message on `types` is incorrect, it is correct and everything works as it should.
 ObjectType {
     alternatives {
         self.owner().if(MessageGroup).owner().types;

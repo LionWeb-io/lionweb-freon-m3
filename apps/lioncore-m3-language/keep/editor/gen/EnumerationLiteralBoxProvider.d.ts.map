@@ -1,1 +1,0 @@
-{"version":3,"file":"EnumerationLiteralBoxProvider.d.ts","sourceRoot":"","sources":["EnumerationLiteralBoxProvider.ts"],"names":[],"mappings":"AAGA,OAAO,EAAE,GAAG,EAAW,cAAc,EAAE,oBAAoB,EAAc,MAAM,iBAAiB,CAAC;AAWjG,qBAAa,6BAA8B,SAAQ,cAAc;gBACjD,WAAW,EAAE,oBAAoB;IAO7C,SAAS,CAAC,UAAU,CAAC,cAAc,EAAE,MAAM,GAAG,GAAG;IAqBjD,OAAO,CAAC,UAAU;IAelB,OAAO,CAAC,UAAU;CAqCrB"}

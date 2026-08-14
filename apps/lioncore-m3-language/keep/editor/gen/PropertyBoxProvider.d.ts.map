@@ -1,1 +1,0 @@
-{"version":3,"file":"PropertyBoxProvider.d.ts","sourceRoot":"","sources":["PropertyBoxProvider.ts"],"names":[],"mappings":"AAGA,OAAO,EACH,GAAG,EAEH,cAAc,EACd,oBAAoB,EAKvB,MAAM,iBAAiB,CAAC;AAazB,qBAAa,mBAAoB,SAAQ,cAAc;gBACvC,WAAW,EAAE,oBAAoB;IAO7C,SAAS,CAAC,UAAU,CAAC,cAAc,EAAE,MAAM,GAAG,GAAG;IAuBjD,OAAO,CAAC,UAAU;IAkClB,OAAO,CAAC,UAAU;IAkClB,OAAO,CAAC,UAAU;CAiCrB"}

@@ -1,1 +1,0 @@
-{"version":3,"file":"EnumerationBoxProvider.d.ts","sourceRoot":"","sources":["EnumerationBoxProvider.ts"],"names":[],"mappings":"AAGA,OAAO,EAAE,GAAG,EAAW,cAAc,EAAE,oBAAoB,EAA2B,MAAM,iBAAiB,CAAC;AAW9G,qBAAa,sBAAuB,SAAQ,cAAc;gBAC1C,WAAW,EAAE,oBAAoB;IAO7C,SAAS,CAAC,UAAU,CAAC,cAAc,EAAE,MAAM,GAAG,GAAG;IAqBjD,OAAO,CAAC,UAAU;IAoClB,OAAO,CAAC,UAAU;CAuDrB"}
