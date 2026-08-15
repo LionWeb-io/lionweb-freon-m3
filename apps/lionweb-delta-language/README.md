@@ -1,22 +1,31 @@
 # LionWeb Delta Language
 
+# Table of Contents
+1. [Overview](#overview)
+2. [Build the Delta Language](#build-the-delta-language)
+3. [Using the Delta Language](#using-the-delta-language)
+4. [The Delta Language](#the-delta-language)
+5. [TypeScript Code Generated](#typeScript-code-generated)
+
+## Overview
+
 This app implements tyhe LionWeb Delta Language (not specified in the LionWeb standard).
 It has the following functionality:
 
 1. Projectional Web Editor for the LionWeb Delta Language.
-2. Commandline utility for generating TypeScript code from the Delta Language
+2. Generating TypeScript code from the Delta Language:
    - All TypeScript types for all Delta messages and their properties.
    - TypeScript definition files for all Delta messages and their properties to be used by the TypeScript LionWeb Validator
 
 In addition, Freon delivers the following functionality out of the box:
 
-1. Store Delta Language in LionWeb serialization format, useable by any other lionWeb tools.
+1. Store Delta Model in LionWeb serialization format, useable by any other lionWeb tools.
 2. Parser and Unparser for Delta Language, following the same syntax as used in the (web) editor.
 3. Generation of (UML) diagrams of the Delta Language.
 
 Version 1.0.0 is aligned with version 2026.1 of the LionWeb specification.
 
-## Build the Delta Language Editor and Generator
+## Build the Delta Language
 
 In the following the root of the repository (above the `apps` folder) will be indicated with '~'.
 
@@ -56,7 +65,7 @@ Sometimes you need to clock omn the URL to open the browser window.
 
 Open the model named `delta`, this is the current definition of the delta messages and the serialization format.
 
-## Specifying the Delta model and Generating TypeScript code
+## Using the Delta Language
 
 The first step is to open the web editor and make the changes to the Delta Language as required.
 Ensure you save the changed model by pressing the store button.

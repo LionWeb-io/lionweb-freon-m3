@@ -1,5 +1,9 @@
 # Freon Implementation of LionWeb M3
 
+# Table of Contents
+
+## Overview
+
 This app contains a Freon web editor for the M3 (meta-meta) language of the [LionWeb specification](http://lionweb.io/specification/).
 It has the following functionality:
 
