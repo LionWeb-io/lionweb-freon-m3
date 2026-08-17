@@ -12781,6 +12781,13 @@ textarea {
   border: 2px black solid;
   background-color: lightgrey;
 }
+.text-component-input::placeholder {
+  color: orange;
+  opacity: 0.5;
+}
+.text-component-input {
+  background-color: transparent;
+}
 @property --tw-rotate-x {
   syntax: "*";
   inherits: false;
