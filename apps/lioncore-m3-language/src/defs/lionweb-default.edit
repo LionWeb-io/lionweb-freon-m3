@@ -1,9 +1,15 @@
-editor textual
+editor default
 
 // TODO boolean [YES | NO] // are the strings used to display a boolean value
 
 // TODO referenceSeparator [.] // is the string that separates the names in a path name, e.g. pack1.cls3.part
 
+global {
+    external {
+        ExternalAccordion,
+        ETab
+    }
+}
 
 Language {
     [

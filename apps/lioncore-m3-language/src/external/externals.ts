@@ -1,11 +1,7 @@
-import ECollapsible        from "../lib/components/ui/collapsible/ECollapsible.svelte";
 import { Button } from '../lib/components/ui/button/index.js';
-import DatePicker from "../lib/components/ui/datepicker/DatePicker.svelte";
-import PersonIcon from "../lib/components/ui/person/PersonIcon.svelte";
-import PhoneButton from "../lib/components/ui/person/PhoneButton.svelte";
-import TabComponent from "../lib/components/ui/tabs/TabComponent.svelte";
-import ExternalAccordion   from "../lib/components/ui/accordion/ExternalAccordion.svelte";
+import Accordion   from "../lib/components/ui/Accordion.svelte";
 import { setCustomComponents } from "@freon4dsl/core-svelte";
+import Tab from "../lib/components/ui/Tab.svelte";
 
 
 /**
@@ -16,10 +12,7 @@ export function configureExternals() {
 
 setCustomComponents([
     {component: Button, knownAs: "EButton"},
-    {component: ExternalAccordion, knownAs: "ExternalAccordion"},
-    {component: ECollapsible, knownAs: "ECollapsible"},
-    {component: DatePicker, knownAs: "EDatePicker"},
-    {component: TabComponent, knownAs: "ETab"},
-    { component: PersonIcon, knownAs: "PersonIcon" },
-    { component: PhoneButton, knownAs: "PhoneButton" },
+    {component: Accordion, knownAs: "ExternalAccordion"},
+    // {component: ECollapsible, knownAs: "ECollapsible"},
+    {component: Tab, knownAs: "ETab"},
 ]);

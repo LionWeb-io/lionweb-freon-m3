@@ -1,5 +1,8 @@
 /* Import the standard tailwind styles */
 @import 'tailwindcss';
+@plugin "daisyui" {
+    prefix: "d-"
+}
 
 /* Import all styles from core-svelte */
 @import '../node_modules/@freon4dsl/core-svelte/dist/styles/freon.css';

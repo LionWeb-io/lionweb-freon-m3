@@ -215,30 +215,8 @@
     margin-right: 8px;
 }
 
-.phone-button {
-    padding: 2px;
-}
-
-
 .person-standing {
     margin-top: 3px;
-}
-
-.phone-button {
-    /*background-color: var(--color-light-freon-600);*/
-    margin-left: 4px;
-}
-.dark .phone-button {
-    /*background-color: var(--color-dark-accent-600);*/
-    margin-left: 4px;
-}
-.phone-outgoing {
-     /*background-color: var(--color-light-freon-600);*/
-    padding: 2px;
-}
-.dark .phone-outgoing {
-    /*background-color: var(--color-dark-accent-600);*/
-    padding: 2px;
 }
 
 .demo-table {
@@ -246,4 +224,17 @@
 }
 .dark .demo-table {
     background-color: inherit;
+}
+
+.text-component-input::placeholder {
+    color: orange;
+    opacity: 0.5;
+}
+
+.text-component-input {
+    background-color: transparent;
+}
+
+.d-collapse-title {
+    padding: 0.2rem;
 }

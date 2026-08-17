@@ -1,14 +1,10 @@
-editor default
+editor accordion
 
 // TODO boolean [YES | NO] // are the strings used to display a boolean value
 
 // TODO referenceSeparator [.] // is the string that separates the names in a path name, e.g. pack1.cls3.part
 
-global {
-    external {
-        ExternalAccordion, ETab, ECollapsible, EDatePicker
-    }
-}
+
 
 Language {
     [
@@ -16,7 +12,7 @@ Language {
     version ${version}
     depends on languages: ${dependsOn}
 
-    ${entities replace=ExternalAccordion noOpen="multiple" }
+        ${entities replace=ExternalAccordion noOpen="multiple" }
     ]
 }
 
@@ -62,7 +58,7 @@ Containment {[
 
 Annotation {[
     annotation ${name} annotates ${annotates} [?extends ${extends}] [?implements ${implements}] {
-        ${features wrap=ECollapsible }
+        ${features  }
 ]}
 
 

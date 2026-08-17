@@ -1,0 +1,21 @@
+editor tabs
+
+// TODO boolean [YES | NO] // are the strings used to display a boolean value
+
+// TODO referenceSeparator [.] // is the string that separates the names in a path name, e.g. pack1.cls3.part
+
+
+
+Language {
+    [
+    language ${name} key ${key}
+    version ${version}
+    depends on languages: ${dependsOn}
+
+        ${entities replace=ETab noOpen="multiple" }
+    ]
+}
+
+
+
+

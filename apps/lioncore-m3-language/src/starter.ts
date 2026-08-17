@@ -16,6 +16,7 @@ CoreConfig.initialize(
 )
 WebappConfigurator.getInstance()
 
+setDevelopment(true)
 configureExternals()
 configureLoggers()
 /**
