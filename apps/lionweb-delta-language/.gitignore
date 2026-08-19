@@ -2,6 +2,8 @@
 
 src/freon/
 
+/delta-gen
+
 # ide
 .idea
 .project

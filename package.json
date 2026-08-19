@@ -25,7 +25,7 @@
         "generate-lioncore": "node ./apps/lioncore-m3-language/dist/custom/FreonCommandLineRunner.js generate-freon -f modelstore/lioncore -o output",
         "generate-delta": "node ./apps/lioncore-m3-language/dist/custom/FreonCommandLineRunner.js generate-freon -f modelstore/Protocol -o apps/lionweb-delta-language/src",
         "generate-delta-types": "node ./apps/lionweb-delta-language/dist/custom/FreonCommandLineRunner.js folder -f ./modelstore/delta -o ../lionweb-server/packages/delta-shared/src/types",
-        "generate-logo" : "node ./apps/lioncore-m3-language/dist/custom/FreonCommandLineRunner.js generate-freon -f modelstore/logo -o apps/lionweb-logo-language/src",
+        "generate-logo": "node ./apps/lioncore-m3-language/dist/custom/FreonCommandLineRunner.js generate-freon -f modelstore/logo -o apps/lionweb-logo-language/src",
         "freon-logo": "freon all -d modelstore/logo/generated_ast -o modelstore/logo/freon",
         "validate": "svelte-check --tsconfig ./tsconfig.json",
         "errors-only": "svelte-check --threshold error --tsconfig ./tsconfig.json",
@@ -69,5 +69,12 @@
     },
     "publishConfig": {
         "access": "public"
+    },
+    "allowScripts": {
+        "@parcel/watcher@2.5.1": true,
+        "esbuild@0.25.12": true,
+        "fsevents@2.3.3": true,
+        "protobufjs@8.0.3": true,
+        "svelte-preprocess@6.0.5": true
     }
 }
