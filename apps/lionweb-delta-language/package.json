@@ -20,7 +20,7 @@
         "errors-only": "svelte-check --threshold error --tsconfig ./tsconfig.json",
         "generate": "freon all -d src/defs -o src/freon",
         "styles": "cross-env NODE_ENV=production npx @tailwindcss/cli -i styles/webapp-styles.css -o ./public/site.css",
-        "server": "node ../../../node_modules/@freon4dsl/server/dist/server/server-starter.js"
+        "server": "echo Start the model server from the root of this repository (above the apps folder)"
     },
     "devDependencies": {
         "@freon4dsl/meta": "3.0.0-beta.1",
