@@ -1,0 +1,61 @@
+editor clean
+
+// TODO boolean [YES | NO] // are the strings used to display a boolean value
+
+// TODO referenceSeparator [.] // is the string that separates the names in a path name, e.g. pack1.cls3.part
+
+
+Language {
+    [
+    language ${name} key ${key}
+    version ${version}
+    depends on languages: ${dependsOn}
+
+    ${entities vertical}
+    ]
+}
+
+Concept {
+[
+    [?${abstract [abstract | concrete]}] concept ${name} [?extends ${extends}] [?implements ${implements}] {
+        partition: ${partition}
+        ${features vertical }
+    }
+]}
+
+Interface {[
+    interface ${name} [?extends ${extends}] {
+        ${features vertical }
+]}
+
+Feature {[
+    name: ${name}
+    optional: ${optional}
+]}
+
+Property {[
+    ${self.optional [optional | mandatory]} property ${name} : ${type}
+]}
+
+Reference {[
+    ${self.optional [optional | mandatory]} reference ${name}: ${type} ${self.multiple [* | 1]}
+]}
+
+Containment {[
+    ${self.optional [optional | mandatory]} containment ${name}: ${type} ${self.multiple [* | 1]}
+]}
+
+Annotation {[
+    annotation ${name} annotates ${annotates} [?extends ${extends}] [?implements ${implements}] {
+        ${features vertical }
+]}
+
+Enumeration {[
+    enumeration ${name}
+        ${literals}
+]}
+EnumerationLiteral {[
+    ${name}
+]}
+
+

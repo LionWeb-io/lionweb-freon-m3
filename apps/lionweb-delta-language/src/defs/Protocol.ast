@@ -1,0 +1,35 @@
+language Protocol
+
+ modelunit MessageGroup implements Type  {
+    sharedProperties: PropertyDef[];
+    taggedUnionProperty: string;
+    messages: ObjectType[];
+}
+
+ concept PropertyDef {
+    reference type: Type;
+    name: identifier;
+    mayBeNull: boolean;
+    isList: boolean;
+    isOptional: boolean;
+}
+
+ concept PrimitiveType implements Type  {
+    primitiveType: string;
+    validator: string;
+}
+
+ concept ObjectType implements Type  {
+    properties: PropertyDef[];
+}
+
+interface Type {
+    name: identifier;
+}
+
+ modelunit Types {
+    primitiveTypes: PrimitiveType[];
+    objectTypes: ObjectType[];
+    name: identifier;
+}
+

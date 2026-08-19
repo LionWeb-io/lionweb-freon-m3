@@ -2,7 +2,7 @@
     "private": false,
     "name": "@lionweb/freon-m3",
     "version": "1.0.0",
-    "description": "Freon web editor(s) for LionWeb Languages",
+    "description": "Freon web editor for LionWeb Languages",
     "license": "Apache-2.0",
     "type": "module",
     "repository": {
@@ -15,17 +15,23 @@
     "scripts": {
         "clean": "rm -rf node_modules/ dist/ package-lock.json",
         "initialize": "npm run clean && npm install && npm run build",
-        "install-local": "npm install --registry http://localhost:4873",
         "build": "npm run generate && tsc ",
         "build-app": "vite build",
         "dev": "vite",
         "preview": "vite preview",
         "start": "sirv public --port 8000",
         "generate": "freon all -d src/defs -o src/freon",
-        "generate-lioncore": "node ./apps/lioncore-m3-language/dist/custom/FreonCommandLineRunner.js generate-freon -f modelstore/lioncore -o output",
-        "generate-delta": "node ./apps/lioncore-m3-language/dist/custom/FreonCommandLineRunner.js generate-freon -f modelstore/Protocol -o apps/lionweb-delta-language/src",
-        "generate-delta-types": "node ./apps/lionweb-delta-language/dist/custom/FreonCommandLineRunner.js folder -f ./modelstore/delta -o ../lionweb-server/packages/delta-shared/src/types",
-        "generate-logo": "node ./apps/lioncore-m3-language/dist/custom/FreonCommandLineRunner.js generate-freon -f modelstore/logo -o apps/lionweb-logo-language/src",
+        "generate-lw2": "node dist/custom/FreonCommandLineRunner.js generate-freon -f ../../modelstore/lioncore -o ../../generated/lioncore",
+        "generate-course": "node dist/custom/FreonCommandLineRunner.js  generate-freon -f ../modelstore/CourseSchedule -o ../../generated/courseschedule",
+        "generate-delta": "node dist/custom/FreonCommandLineRunner.js generate-freon -f ../../modelstore/Protocol -o ../../generated/delta",
+        "generate-kaja": "node dist/custom/FreonCommandLineRunner.js generate-freon -f ../../modelstore/Kaja -o ../../generated/kaja",
+        "install-delta": "npm run install-delta-ast && npm run install-delta-util",
+        "install-delta-ast": "copyfiles ../../generated/delta/defs/* ../lionweb-delta-language/src/defs -f",
+        "install-delta-util": "copyfiles ../../generated/delta/util/* ../lionweb-delta-language/src/utils -f",
+        "generate-shapes": "node dist/freon/commandline/FreonCommandLineRunner.js folder -f modelstore/Shapes",
+        "generate-diagram": "node dist/freon/commandline/FreonCommandLineRunner.js folder -f modelstore/diagram",
+        "generate-logo": "node dist/freon/custom/FreonCommandLineRunner.js folder -f modelstore/logo",
+        "freon-diagram": "freon all -d modelstore/diagram/generated_ast -o modelstore/diagram/freon",
         "freon-logo": "freon all -d modelstore/logo/generated_ast -o modelstore/logo/freon",
         "validate": "svelte-check --tsconfig ./tsconfig.json",
         "errors-only": "svelte-check --threshold error --tsconfig ./tsconfig.json",
@@ -38,9 +44,7 @@
         "@sveltejs/vite-plugin-svelte": "^5.1.0",
         "@tailwindcss/cli": "^4.1.10",
         "@tailwindcss/vite": "^4.1.10",
-        "@tanstack/table-core": "^8.21.3",
         "@tsconfig/svelte": "^5.0.4",
-        "bits-ui": "^2.11.4",
         "@sveltejs/adapter-auto": "^6.1.0",
         "native-copyfiles": "^1.3.7",
         "cross-env": "7.0.3",
@@ -48,33 +52,29 @@
         "svelte-preprocess": "^6.0.3",
         "tailwind-variants": "^3.1.1",
         "tailwindcss": "^4.1.4",
-        "typescript": "5.9.3",
+        "typescript": "^5.8.2",
         "vite": "^6.3.5"
     },
     "dependencies": {
-        "protobufjs": "8.0.3",
+        "daisyui": "5.7.17",
         "@freon4dsl/core": "3.0.0-beta.1",
         "@freon4dsl/core-svelte": "3.0.0-beta.1",
         "@freon4dsl/server": "3.0.0-beta.1",
         "@freon4dsl/weblib-flowbite": "3.0.0-beta.1",
+        "@lionweb/json": "0.10.0-alpha.10",
         "@lucide/svelte": "1.31.0",
         "@types/node": "^20.14.1",
         "kotlin": "^1.5.21",
         "lodash": "^4.17.21",
         "mobx": "^6.12.3",
         "mobx-utils": "^6.0.8",
-        "phosphor-svelte": "^3.0.1",
         "sirv-cli": "^2.0.2",
         "tslib": "^2.6.2"
     },
+    "workspaces": [
+        "apps/*"
+    ],
     "publishConfig": {
         "access": "public"
-    },
-    "allowScripts": {
-        "@parcel/watcher@2.5.1": true,
-        "esbuild@0.25.12": true,
-        "fsevents@2.3.3": true,
-        "protobufjs@8.0.3": true,
-        "svelte-preprocess@6.0.5": true
     }
 }

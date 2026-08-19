@@ -1,0 +1,172 @@
+{
+    "currentPostfix": 4,
+    "models": [
+        {
+            "folder": "lioncore",
+            "language": "LionCore_M3",
+            "name": "LionCore",
+            "units": [
+                {
+                    "file": "LionCore_M3.json",
+                    "name": "LionCore-M3"
+                },
+                {
+                    "name": "LionCore_builtins",
+                    "file": "LionCore_builtins.json"
+                },
+                {
+                    "name": "LionCore_M3",
+                    "file": "LionCore_M3.json"
+                }
+            ],
+            "version": "1"
+        },
+        {
+            "folder": "CourseSchedule",
+            "language": "LionCore_M3",
+            "name": "CourseSchedule",
+            "units": [
+                {
+                    "file": "CourseSchedule.json",
+                    "name": "CourseSchedule"
+                },
+                {
+                    "name": "LionCore_builtins",
+                    "file": "LionCore_builtins.json"
+                }
+            ]
+        },
+        {
+            "folder": "delta",
+            "language": "Protocol",
+            "version": "1",
+            "name": "Delta",
+            "units": [
+                {
+                    "name": "Command",
+                    "file": "Command.json"
+                },
+                {
+                    "name": "Event",
+                    "file": "Event.json"
+                },
+                {
+                    "name": "DeltaTypes",
+                    "file": "DeltaTypes.json"
+                },
+                {
+                    "name": "Chunks",
+                    "file": "Chunks.json"
+                },
+                {
+                    "name": "Response",
+                    "file": "Response.json"
+                },
+                {
+                    "name": "Request",
+                    "file": "Request.json"
+                },
+                {
+                    "name": "AdminRequest",
+                    "file": "AdminRequest.json"
+                },
+                {
+                    "name": "AdminResponse",
+                    "file": "AdminResponse.json"
+                },
+                {
+                    "name": "AdminTypes",
+                    "file": "AdminTypes.json"
+                },
+                {
+                    "name": "Monitor",
+                    "file": "Monitor.json"
+                }
+            ]
+        },
+        {
+            "name": "testlanguage",
+            "folder": "testlanguage",
+            "language": "LionCore_M3",
+            "version": "1",
+            "units": [
+                {
+                    "name": "testLanguage",
+                    "file": "testLanguage.2025.1.json"
+                },
+                {
+                    "name": "LionCore_builtins",
+                    "file": "LionCore_builtins.json"
+                }
+            ]
+        },
+        {
+            "folder": "Kaja",
+            "language": "LionCore_M3",
+            "name": "Kaja",
+            "units": [
+                {
+                    "file": "kaja.json",
+                    "name": "kaja"
+                },
+                {
+                    "file": "execution.json",
+                    "name": "execution"
+                },
+                {
+                    "name": "LionCore_builtins",
+                    "file": "LionCore_builtins.json"
+                },
+                {
+                    "name": "jetbrains.mps.samples.Kaja",
+                    "file": "jetbrains.mps.samples.Kaja.json"
+                }
+            ],
+            "version": "1"
+        },
+        {
+            "name": "Protocol",
+            "folder": "Protocol",
+            "language": "LionCore_M3",
+            "version": "1",
+            "units": [
+                {
+                    "name": "Protocol",
+                    "file": "Protocol.json"
+                },
+                {
+                    "name": "LionCore_builtins",
+                    "file": "LionCore_builtins.json"
+                }
+            ]
+        },
+        {
+            "name": "logo",
+            "folder": "logo",
+            "language": "LionCore_M3",
+            "version": "1",
+            "units": [
+                {
+                    "name": "LionCore_builtins",
+                    "file": "LionCore_builtins.json"
+                },
+                {
+                    "name": "LogoProgram",
+                    "file": "LogoProgram.json"
+                }
+            ]
+        },
+        {
+            "name": "Logo-1",
+            "folder": "Logo-1",
+            "language": "logo",
+            "version": "1",
+            "units": [
+                {
+                    "name": "logo-program-1",
+                    "file": "logo-program-1.json"
+                }
+            ]
+        }
+    ]
+}

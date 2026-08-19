@@ -1,0 +1,8 @@
+language logo
+
+model logo {
+    name: identifier;
+    program: Program[];
+    library: Library[];
+}
+

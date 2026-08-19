@@ -1,0 +1,25 @@
+
+.list-replace-button {
+    border: 2px black solid;
+    background-color: limegreen;
+    padding: 4px;
+}
+
+.replacer {
+    border: 2px black solid;
+    background-color: lightsteelblue;
+}
+
+.wrapper {
+    border: 2px black solid;
+    background-color: lightgrey;
+}
+
+.text-component-input::placeholder {
+    color: orange;
+    opacity: 0.5;
+}
+
+.text-component-input {
+    background-color: transparent;
+}

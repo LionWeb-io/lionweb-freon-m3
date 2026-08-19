@@ -1,0 +1,8 @@
+language Protocol
+
+model Protocol {
+    name: identifier;
+    messagegroup: MessageGroup[];
+    types: Types[];
+}
+

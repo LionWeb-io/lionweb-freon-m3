@@ -1,0 +1,1489 @@
+{
+   "serializationFormatVersion": "2023.1",
+   "languages": [
+      {
+         "key": "-key-Protocol",
+         "version": "2023.1"
+      }
+   ],
+   "nodes": [
+      {
+         "id": "ID-395",
+         "classifier": {
+            "language": "-key-Protocol",
+            "version": "2023.1",
+            "key": "-key-MessageGroup"
+         },
+         "properties": [
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-MessageGroup-taggedUnionProperty"
+               },
+               "value": "messageKind"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-Type-name"
+               },
+               "value": "Response"
+            }
+         ],
+         "containments": [
+            {
+               "containment": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-MessageGroup-sharedProperties"
+               },
+               "children": [
+                  "ID-416",
+                  "ID-411",
+                  "ID-413"
+               ]
+            },
+            {
+               "containment": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-MessageGroup-messages"
+               },
+               "children": [
+                  "ID-439",
+                  "ID-274",
+                  "ID-155",
+                  "ID-283",
+                  "ID-266",
+                  "ID-140",
+                  "ID-147",
+                  "ID-293",
+                  "ID-306",
+                  "ID-149",
+                  "ID-294",
+                  "ID-414"
+               ]
+            }
+         ],
+         "references": [],
+         "annotations": [],
+         "parent": null
+      },
+      {
+         "id": "ID-416",
+         "classifier": {
+            "language": "-key-Protocol",
+            "version": "2023.1",
+            "key": "-key-PropertyDef"
+         },
+         "properties": [
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-name"
+               },
+               "value": "queryId"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-mayBeNull"
+               },
+               "value": "false"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-isList"
+               },
+               "value": "false"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-isOptional"
+               },
+               "value": "false"
+            }
+         ],
+         "containments": [],
+         "references": [
+            {
+               "reference": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-type"
+               },
+               "targets": [
+                  {
+                     "resolveInfo": "QueryId",
+                     "reference": "ID-131"
+                  }
+               ]
+            }
+         ],
+         "annotations": [],
+         "parent": "ID-395"
+      },
+      {
+         "id": "ID-411",
+         "classifier": {
+            "language": "-key-Protocol",
+            "version": "2023.1",
+            "key": "-key-PropertyDef"
+         },
+         "properties": [
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-name"
+               },
+               "value": "messageKind"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-mayBeNull"
+               },
+               "value": "false"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-isList"
+               },
+               "value": "false"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-isOptional"
+               },
+               "value": "false"
+            }
+         ],
+         "containments": [],
+         "references": [
+            {
+               "reference": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-type"
+               },
+               "targets": [
+                  {
+                     "resolveInfo": "String",
+                     "reference": "ID-3"
+                  }
+               ]
+            }
+         ],
+         "annotations": [],
+         "parent": "ID-395"
+      },
+      {
+         "id": "ID-413",
+         "classifier": {
+            "language": "-key-Protocol",
+            "version": "2023.1",
+            "key": "-key-PropertyDef"
+         },
+         "properties": [
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-name"
+               },
+               "value": "additionalInfos"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-mayBeNull"
+               },
+               "value": "false"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-isList"
+               },
+               "value": "true"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-isOptional"
+               },
+               "value": "false"
+            }
+         ],
+         "containments": [],
+         "references": [
+            {
+               "reference": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-type"
+               },
+               "targets": [
+                  {
+                     "resolveInfo": "AdditionalInfo",
+                     "reference": "ID-4"
+                  }
+               ]
+            }
+         ],
+         "annotations": [],
+         "parent": "ID-395"
+      },
+      {
+         "id": "ID-439",
+         "classifier": {
+            "language": "-key-Protocol",
+            "version": "2023.1",
+            "key": "-key-ObjectType"
+         },
+         "properties": [
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-Type-name"
+               },
+               "value": "SubscribeToChangingPartitions"
+            }
+         ],
+         "containments": [
+            {
+               "containment": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-ObjectType-properties"
+               },
+               "children": []
+            }
+         ],
+         "references": [],
+         "annotations": [],
+         "parent": "ID-395"
+      },
+      {
+         "id": "ID-274",
+         "classifier": {
+            "language": "-key-Protocol",
+            "version": "2023.1",
+            "key": "-key-ObjectType"
+         },
+         "properties": [
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-Type-name"
+               },
+               "value": "InformAboutChangingPartitions"
+            }
+         ],
+         "containments": [
+            {
+               "containment": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-ObjectType-properties"
+               },
+               "children": []
+            }
+         ],
+         "references": [],
+         "annotations": [],
+         "parent": "ID-395"
+      },
+      {
+         "id": "ID-155",
+         "classifier": {
+            "language": "-key-Protocol",
+            "version": "2023.1",
+            "key": "-key-ObjectType"
+         },
+         "properties": [
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-Type-name"
+               },
+               "value": "SubscribeToPartitionContents"
+            }
+         ],
+         "containments": [
+            {
+               "containment": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-ObjectType-properties"
+               },
+               "children": [
+                  "ID-156",
+                  "ID-278"
+               ]
+            }
+         ],
+         "references": [],
+         "annotations": [],
+         "parent": "ID-395"
+      },
+      {
+         "id": "ID-156",
+         "classifier": {
+            "language": "-key-Protocol",
+            "version": "2023.1",
+            "key": "-key-PropertyDef"
+         },
+         "properties": [
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-name"
+               },
+               "value": "contents"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-mayBeNull"
+               },
+               "value": "false"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-isList"
+               },
+               "value": "false"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-isOptional"
+               },
+               "value": "false"
+            }
+         ],
+         "containments": [],
+         "references": [
+            {
+               "reference": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-type"
+               },
+               "targets": [
+                  {
+                     "resolveInfo": "LionWebDeltaJsonChunk",
+                     "reference": "ID-48"
+                  }
+               ]
+            }
+         ],
+         "annotations": [],
+         "parent": "ID-155"
+      },
+      {
+         "id": "ID-278",
+         "classifier": {
+            "language": "-key-Protocol",
+            "version": "2023.1",
+            "key": "-key-PropertyDef"
+         },
+         "properties": [
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-name"
+               },
+               "value": "split"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-mayBeNull"
+               },
+               "value": "false"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-isList"
+               },
+               "value": "false"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-isOptional"
+               },
+               "value": "true"
+            }
+         ],
+         "containments": [],
+         "references": [
+            {
+               "reference": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-type"
+               },
+               "targets": [
+                  {
+                     "resolveInfo": "Boolean",
+                     "reference": "ID-5"
+                  }
+               ]
+            }
+         ],
+         "annotations": [],
+         "parent": "ID-155"
+      },
+      {
+         "id": "ID-283",
+         "classifier": {
+            "language": "-key-Protocol",
+            "version": "2023.1",
+            "key": "-key-ObjectType"
+         },
+         "properties": [
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-Type-name"
+               },
+               "value": "UnsubscribeFromPartitionContents"
+            }
+         ],
+         "containments": [
+            {
+               "containment": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-ObjectType-properties"
+               },
+               "children": []
+            }
+         ],
+         "references": [],
+         "annotations": [],
+         "parent": "ID-395"
+      },
+      {
+         "id": "ID-266",
+         "classifier": {
+            "language": "-key-Protocol",
+            "version": "2023.1",
+            "key": "-key-ObjectType"
+         },
+         "properties": [
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-Type-name"
+               },
+               "value": "ContinuedQueryResponse"
+            }
+         ],
+         "containments": [
+            {
+               "containment": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-ObjectType-properties"
+               },
+               "children": [
+                  "ID-273",
+                  "ID-275",
+                  "ID-277"
+               ]
+            }
+         ],
+         "references": [],
+         "annotations": [],
+         "parent": "ID-395"
+      },
+      {
+         "id": "ID-273",
+         "classifier": {
+            "language": "-key-Protocol",
+            "version": "2023.1",
+            "key": "-key-PropertyDef"
+         },
+         "properties": [
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-name"
+               },
+               "value": "chunk"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-mayBeNull"
+               },
+               "value": "false"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-isList"
+               },
+               "value": "false"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-isOptional"
+               },
+               "value": "false"
+            }
+         ],
+         "containments": [],
+         "references": [
+            {
+               "reference": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-type"
+               },
+               "targets": [
+                  {
+                     "resolveInfo": "LionWebDeltaJsonChunk",
+                     "reference": "ID-48"
+                  }
+               ]
+            }
+         ],
+         "annotations": [],
+         "parent": "ID-266"
+      },
+      {
+         "id": "ID-275",
+         "classifier": {
+            "language": "-key-Protocol",
+            "version": "2023.1",
+            "key": "-key-PropertyDef"
+         },
+         "properties": [
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-name"
+               },
+               "value": "continuedChunkCompleted"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-mayBeNull"
+               },
+               "value": "false"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-isList"
+               },
+               "value": "false"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-isOptional"
+               },
+               "value": "false"
+            }
+         ],
+         "containments": [],
+         "references": [
+            {
+               "reference": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-type"
+               },
+               "targets": [
+                  {
+                     "resolveInfo": "Boolean",
+                     "reference": "ID-5"
+                  }
+               ]
+            }
+         ],
+         "annotations": [],
+         "parent": "ID-266"
+      },
+      {
+         "id": "ID-277",
+         "classifier": {
+            "language": "-key-Protocol",
+            "version": "2023.1",
+            "key": "-key-PropertyDef"
+         },
+         "properties": [
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-name"
+               },
+               "value": "continuedChunkSequenceNumber"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-mayBeNull"
+               },
+               "value": "false"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-isList"
+               },
+               "value": "false"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-isOptional"
+               },
+               "value": "false"
+            }
+         ],
+         "containments": [],
+         "references": [
+            {
+               "reference": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-type"
+               },
+               "targets": [
+                  {
+                     "resolveInfo": "Number",
+                     "reference": "ID-78"
+                  }
+               ]
+            }
+         ],
+         "annotations": [],
+         "parent": "ID-266"
+      },
+      {
+         "id": "ID-140",
+         "classifier": {
+            "language": "-key-Protocol",
+            "version": "2023.1",
+            "key": "-key-ObjectType"
+         },
+         "properties": [
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-Type-name"
+               },
+               "value": "SignOn"
+            }
+         ],
+         "containments": [
+            {
+               "containment": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-ObjectType-properties"
+               },
+               "children": [
+                  "ID-141"
+               ]
+            }
+         ],
+         "references": [],
+         "annotations": [],
+         "parent": "ID-395"
+      },
+      {
+         "id": "ID-141",
+         "classifier": {
+            "language": "-key-Protocol",
+            "version": "2023.1",
+            "key": "-key-PropertyDef"
+         },
+         "properties": [
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-name"
+               },
+               "value": "participationId"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-mayBeNull"
+               },
+               "value": "false"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-isList"
+               },
+               "value": "false"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-isOptional"
+               },
+               "value": "false"
+            }
+         ],
+         "containments": [],
+         "references": [
+            {
+               "reference": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-type"
+               },
+               "targets": [
+                  {
+                     "resolveInfo": "ParticipationId",
+                     "reference": "ID-41"
+                  }
+               ]
+            }
+         ],
+         "annotations": [],
+         "parent": "ID-140"
+      },
+      {
+         "id": "ID-147",
+         "classifier": {
+            "language": "-key-Protocol",
+            "version": "2023.1",
+            "key": "-key-ObjectType"
+         },
+         "properties": [
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-Type-name"
+               },
+               "value": "SignOff"
+            }
+         ],
+         "containments": [
+            {
+               "containment": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-ObjectType-properties"
+               },
+               "children": []
+            }
+         ],
+         "references": [],
+         "annotations": [],
+         "parent": "ID-395"
+      },
+      {
+         "id": "ID-293",
+         "classifier": {
+            "language": "-key-Protocol",
+            "version": "2023.1",
+            "key": "-key-ObjectType"
+         },
+         "properties": [
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-Type-name"
+               },
+               "value": "Reconnect"
+            }
+         ],
+         "containments": [
+            {
+               "containment": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-ObjectType-properties"
+               },
+               "children": [
+                  "ID-298"
+               ]
+            }
+         ],
+         "references": [],
+         "annotations": [],
+         "parent": "ID-395"
+      },
+      {
+         "id": "ID-298",
+         "classifier": {
+            "language": "-key-Protocol",
+            "version": "2023.1",
+            "key": "-key-PropertyDef"
+         },
+         "properties": [
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-name"
+               },
+               "value": "lastSentSequenceNumber"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-mayBeNull"
+               },
+               "value": "false"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-isList"
+               },
+               "value": "false"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-isOptional"
+               },
+               "value": "false"
+            }
+         ],
+         "containments": [],
+         "references": [
+            {
+               "reference": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-type"
+               },
+               "targets": [
+                  {
+                     "resolveInfo": "SequenceNumber",
+                     "reference": "ID-39"
+                  }
+               ]
+            }
+         ],
+         "annotations": [],
+         "parent": "ID-293"
+      },
+      {
+         "id": "ID-306",
+         "classifier": {
+            "language": "-key-Protocol",
+            "version": "2023.1",
+            "key": "-key-ObjectType"
+         },
+         "properties": [
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-Type-name"
+               },
+               "value": "GetAvailableIds"
+            }
+         ],
+         "containments": [
+            {
+               "containment": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-ObjectType-properties"
+               },
+               "children": [
+                  "ID-310"
+               ]
+            }
+         ],
+         "references": [],
+         "annotations": [],
+         "parent": "ID-395"
+      },
+      {
+         "id": "ID-310",
+         "classifier": {
+            "language": "-key-Protocol",
+            "version": "2023.1",
+            "key": "-key-PropertyDef"
+         },
+         "properties": [
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-name"
+               },
+               "value": "ids"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-mayBeNull"
+               },
+               "value": "false"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-isList"
+               },
+               "value": "true"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-isOptional"
+               },
+               "value": "false"
+            }
+         ],
+         "containments": [],
+         "references": [
+            {
+               "reference": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-type"
+               },
+               "targets": [
+                  {
+                     "resolveInfo": "LionWebId",
+                     "reference": "ID-285"
+                  }
+               ]
+            }
+         ],
+         "annotations": [],
+         "parent": "ID-306"
+      },
+      {
+         "id": "ID-149",
+         "classifier": {
+            "language": "-key-Protocol",
+            "version": "2023.1",
+            "key": "-key-ObjectType"
+         },
+         "properties": [
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-Type-name"
+               },
+               "value": "ListPartitions"
+            }
+         ],
+         "containments": [
+            {
+               "containment": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-ObjectType-properties"
+               },
+               "children": [
+                  "ID-151",
+                  "ID-280"
+               ]
+            }
+         ],
+         "references": [],
+         "annotations": [],
+         "parent": "ID-395"
+      },
+      {
+         "id": "ID-151",
+         "classifier": {
+            "language": "-key-Protocol",
+            "version": "2023.1",
+            "key": "-key-PropertyDef"
+         },
+         "properties": [
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-name"
+               },
+               "value": "partitions"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-mayBeNull"
+               },
+               "value": "false"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-isList"
+               },
+               "value": "false"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-isOptional"
+               },
+               "value": "false"
+            }
+         ],
+         "containments": [],
+         "references": [
+            {
+               "reference": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-type"
+               },
+               "targets": [
+                  {
+                     "resolveInfo": "LionWebDeltaJsonChunk",
+                     "reference": "ID-48"
+                  }
+               ]
+            }
+         ],
+         "annotations": [],
+         "parent": "ID-149"
+      },
+      {
+         "id": "ID-280",
+         "classifier": {
+            "language": "-key-Protocol",
+            "version": "2023.1",
+            "key": "-key-PropertyDef"
+         },
+         "properties": [
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-name"
+               },
+               "value": "split"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-mayBeNull"
+               },
+               "value": "false"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-isList"
+               },
+               "value": "false"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-isOptional"
+               },
+               "value": "true"
+            }
+         ],
+         "containments": [],
+         "references": [
+            {
+               "reference": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-type"
+               },
+               "targets": [
+                  {
+                     "resolveInfo": "Boolean",
+                     "reference": "ID-5"
+                  }
+               ]
+            }
+         ],
+         "annotations": [],
+         "parent": "ID-149"
+      },
+      {
+         "id": "ID-294",
+         "classifier": {
+            "language": "-key-Protocol",
+            "version": "2023.1",
+            "key": "-key-ObjectType"
+         },
+         "properties": [
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-Type-name"
+               },
+               "value": "ListAndSubscribePartitions"
+            }
+         ],
+         "containments": [
+            {
+               "containment": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-ObjectType-properties"
+               },
+               "children": [
+                  "ID-295",
+                  "ID-296"
+               ]
+            }
+         ],
+         "references": [],
+         "annotations": [],
+         "parent": "ID-395"
+      },
+      {
+         "id": "ID-295",
+         "classifier": {
+            "language": "-key-Protocol",
+            "version": "2023.1",
+            "key": "-key-PropertyDef"
+         },
+         "properties": [
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-name"
+               },
+               "value": "partitions"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-mayBeNull"
+               },
+               "value": "false"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-isList"
+               },
+               "value": "false"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-isOptional"
+               },
+               "value": "false"
+            }
+         ],
+         "containments": [],
+         "references": [
+            {
+               "reference": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-type"
+               },
+               "targets": [
+                  {
+                     "resolveInfo": "LionWebDeltaJsonChunk",
+                     "reference": "ID-48"
+                  }
+               ]
+            }
+         ],
+         "annotations": [],
+         "parent": "ID-294"
+      },
+      {
+         "id": "ID-296",
+         "classifier": {
+            "language": "-key-Protocol",
+            "version": "2023.1",
+            "key": "-key-PropertyDef"
+         },
+         "properties": [
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-name"
+               },
+               "value": "split"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-mayBeNull"
+               },
+               "value": "false"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-isList"
+               },
+               "value": "false"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-isOptional"
+               },
+               "value": "true"
+            }
+         ],
+         "containments": [],
+         "references": [
+            {
+               "reference": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-type"
+               },
+               "targets": [
+                  {
+                     "resolveInfo": "Boolean",
+                     "reference": "ID-5"
+                  }
+               ]
+            }
+         ],
+         "annotations": [],
+         "parent": "ID-294"
+      },
+      {
+         "id": "ID-414",
+         "classifier": {
+            "language": "-key-Protocol",
+            "version": "2023.1",
+            "key": "-key-ObjectType"
+         },
+         "properties": [
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-Type-name"
+               },
+               "value": "ErrorResponse"
+            }
+         ],
+         "containments": [
+            {
+               "containment": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-ObjectType-properties"
+               },
+               "children": [
+                  "ID-423",
+                  "ID-424"
+               ]
+            }
+         ],
+         "references": [],
+         "annotations": [],
+         "parent": "ID-395"
+      },
+      {
+         "id": "ID-423",
+         "classifier": {
+            "language": "-key-Protocol",
+            "version": "2023.1",
+            "key": "-key-PropertyDef"
+         },
+         "properties": [
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-name"
+               },
+               "value": "errorCode"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-mayBeNull"
+               },
+               "value": "false"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-isList"
+               },
+               "value": "false"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-isOptional"
+               },
+               "value": "false"
+            }
+         ],
+         "containments": [],
+         "references": [
+            {
+               "reference": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-type"
+               },
+               "targets": [
+                  {
+                     "resolveInfo": "String",
+                     "reference": "ID-3"
+                  }
+               ]
+            }
+         ],
+         "annotations": [],
+         "parent": "ID-414"
+      },
+      {
+         "id": "ID-424",
+         "classifier": {
+            "language": "-key-Protocol",
+            "version": "2023.1",
+            "key": "-key-PropertyDef"
+         },
+         "properties": [
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-name"
+               },
+               "value": "message"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-mayBeNull"
+               },
+               "value": "false"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-isList"
+               },
+               "value": "false"
+            },
+            {
+               "property": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-isOptional"
+               },
+               "value": "false"
+            }
+         ],
+         "containments": [],
+         "references": [
+            {
+               "reference": {
+                  "language": "-key-Protocol",
+                  "version": "2023.1",
+                  "key": "-key-PropertyDef-type"
+               },
+               "targets": [
+                  {
+                     "resolveInfo": "String",
+                     "reference": "ID-3"
+                  }
+               ]
+            }
+         ],
+         "annotations": [],
+         "parent": "ID-414"
+      }
+   ]
+}

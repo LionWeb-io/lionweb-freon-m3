@@ -1,0 +1,157 @@
+{
+    "language": "",
+    "version": "",
+    "key": "",
+    "languages": [
+        {
+            "name": "LionCore_builtins",
+            "key": "LionCore-builtins",
+            "id": "LionCore-builtins",
+            "version": "TODO"
+        },
+        {
+            "name": "Protocol",
+            "key": "-key-Protocol",
+            "id": "-id-Protocol",
+            "version": "TODO"
+        }
+    ],
+    "classifiers": [
+        {
+            "name": "Node",
+            "id": "LionCore-builtins-Node",
+            "key": "LionCore-builtins-Node",
+            "properties": []
+        },
+        {
+            "name": "INamed",
+            "id": "LionCore-builtins-INamed",
+            "key": "LionCore-builtins-INamed",
+            "properties": [
+                {
+                    "name": "name",
+                    "key": "LionCore-builtins-INamed-name",
+                    "id": "LionCore-builtins-INamed-name"
+                }
+            ]
+        },
+        {
+            "name": "MessageGroup",
+            "id": "-id-MessageGroup",
+            "key": "-key-MessageGroup",
+            "properties": [
+                {
+                    "name": "sharedProperties",
+                    "key": "-key-MessageGroup-sharedProperties",
+                    "id": "-id-MessageGroup-sharedProperties"
+                },
+                {
+                    "name": "taggedUnionProperty",
+                    "key": "-key-MessageGroup-taggedUnionProperty",
+                    "id": "-id-MessageGroup-taggedUnionProperty"
+                },
+                {
+                    "name": "messages",
+                    "key": "-key-MessageGroup-messages",
+                    "id": "-id-MessageGroup-messages"
+                }
+            ]
+        },
+        {
+            "name": "PropertyDef",
+            "id": "-id-PropertyDef",
+            "key": "-key-PropertyDef",
+            "properties": [
+                {
+                    "name": "type",
+                    "key": "-key-PropertyDef-type",
+                    "id": "-id-PropertyDef-type"
+                },
+                {
+                    "name": "name",
+                    "key": "-key-PropertyDef-name",
+                    "id": "-id-PropertyDef-name"
+                },
+                {
+                    "name": "mayBeNull",
+                    "key": "-key-PropertyDef-mayBeNull",
+                    "id": "-id-PropertyDef-mayBeNull"
+                },
+                {
+                    "name": "isList",
+                    "key": "-key-PropertyDef-isList",
+                    "id": "-id-PropertyDef-isList"
+                },
+                {
+                    "name": "isOptional",
+                    "key": "-key-PropertyDef-isOptional",
+                    "id": "-id-PropertyDef-isOptional"
+                }
+            ]
+        },
+        {
+            "name": "PrimitiveType",
+            "id": "-id-PrimitiveType",
+            "key": "-key-PrimitiveType",
+            "properties": [
+                {
+                    "name": "primitiveType",
+                    "key": "-key-PrimitiveType-primitiveType",
+                    "id": "-id-PrimitiveType-primitiveType"
+                },
+                {
+                    "name": "validator",
+                    "key": "-key-PrimitiveType-validator",
+                    "id": "-id-PrimitiveType-validator"
+                }
+            ]
+        },
+        {
+            "name": "ObjectType",
+            "id": "-id-ObjectType",
+            "key": "-key-ObjectType",
+            "properties": [
+                {
+                    "name": "properties",
+                    "key": "-key-ObjectType-properties",
+                    "id": "-id-ObjectType-properties"
+                }
+            ]
+        },
+        {
+            "name": "Type",
+            "id": "-id-Type",
+            "key": "-key-Type",
+            "properties": [
+                {
+                    "name": "name",
+                    "key": "-key-Type-name",
+                    "id": "-id-Type-name"
+                }
+            ]
+        },
+        {
+            "name": "Types",
+            "id": "-id-Types",
+            "key": "-key-Types",
+            "properties": [
+                {
+                    "name": "primitiveTypes",
+                    "key": "-key-Types-primitiveTypes",
+                    "id": "-id-Types-primitiveTypes"
+                },
+                {
+                    "name": "objectTypes",
+                    "key": "-key-Types-objectTypes",
+                    "id": "-id-Types-objectTypes"
+                },
+                {
+                    "name": "name",
+                    "key": "-key-Types-name",
+                    "id": "-id-Types-name"
+                }
+            ]
+        }
+    ],
+    "limited": []
+}
