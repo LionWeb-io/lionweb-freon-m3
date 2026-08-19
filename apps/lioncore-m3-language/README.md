@@ -38,11 +38,13 @@ In the following the root of the project will be indicated with '~'.
 ```
 This generates all Freon files needed for the projectional editor and generator.
 
-*   Start the server (note that anything that is saved in the editor will be stored in `~/modelstore`):
+* Go to the root of the repository (above the `apps` folder)
+* Start the server (note that anything that is saved in the editor will be stored in `~/modelstore`):
     ```bash
-    npm run server
+    npx @freon4dsl/server@3.0.0-beta.3
     ```
-	
+
+* Go to the `lionweb-delta-language` folder	
 * Open another terminal, and start the generated editor from it:
      ```bash
      npm run styles

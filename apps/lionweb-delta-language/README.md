@@ -27,7 +27,7 @@ Version 1.0.0 is aligned with version 2026.1 of the LionWeb specification.
 
 ## Build the Delta Language
 
-In the following the root of the repository (above the `apps` folder) will be indicated with '~'.
+In the following the root of the repository (above the `apps` folder) will be indicated with 'ROOT'.
 
 ### Install all necessary packages
 ```bash
@@ -42,14 +42,14 @@ npm run generate
 ```
 
 ### Start the local model server
-Open a second terminal in the root of thios repository (thus above the `apps` folder) and start the server: 
+Open a second terminal _**in the root of this repository_** (thus above the `apps` folder) and start the server: 
 ```bash
-npm run server
+npx @freon4dsl/server@3.0.0-beta.3
 ```
-Note that anything that is saved in the editor will be stored in `~/modelstore`
+Note that anything that is saved in the editor will be stored in `ROOT/modelstore`
 
 ### Start the Web Editor
-Open another (bash) terminal, and start the generated editor from it:
+Open another (bash) terminal in `ROOT/apps/lionweb-delta-language`, and start the generated editor from it:
 ```bash
 npm run styles
 npm run dev
@@ -58,8 +58,8 @@ The first (styles) command only needs to be done once, and only
 needs to be run again if you change the styling.
 
 The second command opens your preferred browser with the generated editor for the language
-on typically  http://localhost:5174 (http://localhost:5173).
-Sometimes you need to clock omn the URL to open the browser window.
+on typically  http://localhost:5173.
+Sometimes you need to click omn the URL to open the browser window.
 
 ### Try out the editor
 
@@ -70,19 +70,18 @@ Open the model named `delta`, this is the current definition of the delta messag
 The first step is to open the web editor and make the changes to the Delta Language as required.
 Ensure you save the changed model by pressing the store button.
 
-Go to a terminal (or open one) in the root of this app: `~/apps/lionweb-delta-language`
+Go to a terminal (or open one) in the root of this app: `ROOT/apps/lionweb-delta-language`
 and enter the command:
 ```bash
 npm run generate-delta-ts
 ```
-This generates thye TypeScript code in the folder `delta-gen`.
+This generates the TypeScript code in the folder `delta-gen`.
 You can now review this code, and if correct use the following command to copy the generated files
 to the `lionweb-typescript` and the `lionweb-server` projects:
 ```bash
 npm run install-deltas
 ```
-This command assumes that you have the `lionweb-typescript` and the `lionweb-server` repositories cloned
-next to the current repository.
+This command assumes that you have the `lionweb-typescript` and the `lionweb-server` repositories cloned _next to the current repository_.
 
 As a last step you need to build the `lionweb-typescript` and the `lionweb-server` projects and
 push the changes.
