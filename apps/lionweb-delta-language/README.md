@@ -9,7 +9,7 @@
 
 ## Overview
 
-This app implements tyhe LionWeb Delta Language (not specified in the LionWeb standard).
+This app implements the LionWeb Delta Language (not specified in the LionWeb standard).
 It has the following functionality:
 
 1. Projectional Web Editor for the LionWeb Delta Language.
@@ -94,9 +94,9 @@ The main specific concepts are:
 
 ### MessageGroup
 A _MessageGroup_ is a partition defining a group of messages that have semantics and a number of properties in common.
-The spec defines the following messagegroups: [Command](https://lionweb.io/specification/delta/delta-api.html#commands), [Request (also called Query)](https://lionweb.io/specification/delta/delta-api.html#queries), [Event](https://lionweb.io/specification/delta/delta-api.html#events) and Response (defined in the spec as part of the Request/Query).
+The spec defines the following message groups: [Command](https://lionweb.io/specification/delta/delta-api.html#commands), [Request (also called Query)](https://lionweb.io/specification/delta/delta-api.html#queries), [Event](https://lionweb.io/specification/delta/delta-api.html#events) and Response (defined in the spec as part of the Request/Query).
 
-In addition the `lionweb-server` defines several additional messagegroups:
+In addition, the `lionweb-server` defines several additional message groups:
 
 - **AdminRequest**: custom messages for creating, deleting a repository, etc.
 - **AdminResponse**: responses to _AdminRequest_ messages.
@@ -108,7 +108,7 @@ The value of this property for a given _Message_ is always the name of the _Mess
 
 A _MessageGroup_ also contains a list of _Message_'s, where each message has a number of properties.
 
-Each _type_ of each property must be defined explictly in a _Types_ partition.
+Each _type_ of each property must be defined explicitly in a _Types_ partition.
 
 ### Types
 
@@ -116,7 +116,7 @@ A Types partition defines a number of types, which can be used in the messages.
 There are two kind of Types:
 
 - **Primitive Type**: A primitive type, is mapped directly to a TypeScript type
-- **Object Type**: An _Object Type_ is a typoe that has properties itself. Each property either has a _Primitive Type_ or an _Object Type_.
+- **Object Type**: An _Object Type_ is a type that has properties itself. Each property either has a _Primitive Type_ or an _Object Type_.
 
 ## TypeScript Code Generated
 
@@ -127,7 +127,7 @@ From the delta model there are two different TypeScript structures generated.
 - The second is a JSON like TypeScript object that defines the exact structure of each _Message_ and _Type_. 
   This is used by the TypeScript validator to validate the correctness of each delta in TypeScript.
 
-The code for the hgenerator can be found in the class [ConvertProtocol2TypescriptAction.ts](src/custom/ConvertProtocol2TypescriptAction.ts)
+The code for the generator can be found in the class [ConvertProtocol2TypescriptAction.ts](src/custom/ConvertProtocol2TypescriptAction.ts)
 
 **TODO**
 
