@@ -2276,7 +2276,7 @@
                   "version": "2023.1",
                   "key": "-key-Type-name"
                },
-               "value": "MoveChildFromOtherContainment"
+               "value": "MoveChildFromContainmentInOtherParent"
             }
          ],
          "containments": [
@@ -3133,7 +3133,7 @@
                   "version": "2023.1",
                   "key": "-key-Type-name"
                },
-               "value": "MoveChildInSameContainment"
+               "value": "MoveChildInSameContainmentInSameParent"
             }
          ],
          "containments": [
@@ -3470,7 +3470,7 @@
                   "version": "2023.1",
                   "key": "-key-Type-name"
                },
-               "value": "MoveAndReplaceChildFromOtherContainment"
+               "value": "MoveAndReplaceChildFromContainmentInOtherParent"
             }
          ],
          "containments": [
@@ -4449,7 +4449,7 @@
                   "version": "2023.1",
                   "key": "-key-Type-name"
                },
-               "value": "MoveAndReplaceChildInSameContainment"
+               "value": "MoveAndReplaceChildInSameContainmentInSameParent"
             }
          ],
          "containments": [
